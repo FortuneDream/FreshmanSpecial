@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.excitingboat.freshmanspecial.R;
 
-public class FreshmanMainActivity extends AppCompatActivity {
+public class FreshmanMainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +18,35 @@ public class FreshmanMainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.freshmen_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.freshmen_main_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitleTextColor(0xFFFFFFFF);
+//        toolbar.setTitleTextColor(0xFFFFFFFF);
         toolbar.setNavigationIcon(R.drawable.back);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FreshmanMainActivity.this, FreshmanLoginActivity.class));
+                FreshmanMainActivity.this.finish();
             }
         });
+        findViewById(R.id.freshman_guide_card).setOnClickListener(this);
+        findViewById(R.id.freshman_big_data_card).setOnClickListener(this);
+        findViewById(R.id.freshman_cqupt_card).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.freshman_guide_card:
+                startActivity(new Intent(this, FreshmenGuideActivity.class));
+                break;
+            case R.id.freshman_big_data_card:
+                //TODO:判断是否需要登录
+                startActivity(new Intent(this, FreshmenBigDataActivity.class));
+                break;
+            case R.id.freshman_cqupt_card:
+                startActivity(new Intent(this, FreshmenAboutCQUPTActivity.class));
+                break;
+
+        }
     }
 }

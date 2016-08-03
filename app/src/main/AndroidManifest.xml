@@ -19,7 +19,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".view.activity.FreshmanMainActivity"
-            android:label="@string/app_name_zh">
+            android:label="@string/freshman_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,17 @@
         </activity>
         <activity
             android:name=".view.activity.FreshmanLoginActivity"
-            android:label="@string/title_activity_freshman_login"/>
+            android:label="@string/title_activity_freshman_login"
+            />
+        <activity android:name=".view.activity.FreshmenGuideActivity"
+            android:label="@string/freshman_guide"
+            />
+        <activity android:name=".view.activity.FreshmenBigDataActivity"
+            android:label="@string/freshman_big_data"
+            />
+        <activity android:name=".view.activity.FreshmenAboutCQUPTActivity"
+            android:label="@string/freshman_about_cqupt"
+            />
     </application>
 
 </manifest>
