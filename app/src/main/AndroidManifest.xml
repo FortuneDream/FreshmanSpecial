@@ -36,7 +36,7 @@
         <activity android:name=".view.activity.FreshmenBigDataActivity"
             android:label="@string/freshman_big_data"
             />
-        <activity android:name=".view.activity.FreshmenAboutCQUPTActivity"
+        <activity android:name=".view.activity.FreshmenCQUPTStyleActivity"
             android:label="@string/freshman_about_cqupt"
             />
     </application>

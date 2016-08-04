@@ -7,12 +7,12 @@ import android.view.View;
 
 import com.excitingboat.freshmanspecial.R;
 
-public class FreshmenAboutCQUPTActivity extends AppCompatActivity {
+public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_freshmen_about_cqupt);
+        setContentView(R.layout.activity_freshmen_cqupt_style);
         init();
     }
 
@@ -23,7 +23,7 @@ public class FreshmenAboutCQUPTActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FreshmenAboutCQUPTActivity.this.finish();
+                FreshmenCQUPTStyleActivity.this.finish();
             }
         });
     }

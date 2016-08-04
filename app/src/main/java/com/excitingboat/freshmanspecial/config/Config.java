@@ -12,12 +12,11 @@ import java.io.File;
 public class Config {
     public static final boolean DEBUG = true;
     public static File cacheDir;
-
+    public static final String BASE_URL = "www.baidu.com";
     public static void init(Context context) {
         cacheDir = context.getExternalCacheDir();
     }
 
     public static final int KB = 1024;
     public static final int MB = 1024 * 1024;
-
 }

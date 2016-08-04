@@ -8,7 +8,6 @@ public interface ILoginView {
 
     void LoginSuccess();
 
-    void LoginFail(int failCode, Throwable throwable);
+    void LoginFail();
 
-    void showProgress(final boolean show);
 }

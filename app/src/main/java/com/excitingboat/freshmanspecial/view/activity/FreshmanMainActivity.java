@@ -44,7 +44,7 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
                 startActivity(new Intent(this, FreshmenBigDataActivity.class));
                 break;
             case R.id.freshman_cqupt_card:
-                startActivity(new Intent(this, FreshmenAboutCQUPTActivity.class));
+                startActivity(new Intent(this, FreshmenCQUPTStyleActivity.class));
                 break;
 
         }
