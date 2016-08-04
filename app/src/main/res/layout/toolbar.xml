@@ -27,7 +27,7 @@
         android:layout_centerVertical="true"
         />
     <ImageButton
-        android:id="@+id/bt_toolbar_user"
+        android:id="@+id/bt_toolbar_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/personal_info"
