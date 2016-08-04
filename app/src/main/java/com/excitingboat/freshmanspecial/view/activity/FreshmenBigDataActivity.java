@@ -2,8 +2,8 @@ package com.excitingboat.freshmanspecial.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
 
@@ -17,14 +17,12 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
     }
 
     private void init() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.freshmen_big_data_toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_toolbar_back).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 FreshmenBigDataActivity.this.finish();
             }
         });
+        ((TextView)findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_big_data);
     }
 }

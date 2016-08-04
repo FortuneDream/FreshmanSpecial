@@ -6,6 +6,6 @@ import android.support.v4.app.Fragment;
  * Created by PinkD on 2016/8/4.
  * BigDataFragment_1
  */
-public class BigDataFragment_1 extends Fragment{
+public class BigDataFragment_1 extends Fragment {
 
 }

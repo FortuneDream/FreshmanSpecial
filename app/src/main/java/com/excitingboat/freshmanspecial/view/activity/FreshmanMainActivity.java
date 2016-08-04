@@ -19,9 +19,8 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void init() {
-        RelativeLayout toolbar = (RelativeLayout) findViewById(R.id.freshmen_main_toolbar);
-        toolbar.findViewById(R.id.bt_toolbar_back).setOnClickListener(this);
-        toolbar.findViewById(R.id.bt_toolbar_user).setOnClickListener(this);
+        findViewById(R.id.bt_main_back).setOnClickListener(this);
+        findViewById(R.id.bt_main_person).setOnClickListener(this);
         findViewById(R.id.freshman_guide_card).setOnClickListener(this);
         findViewById(R.id.freshman_big_data_card).setOnClickListener(this);
         findViewById(R.id.freshman_cqupt_card).setOnClickListener(this);
@@ -40,10 +39,10 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
             case R.id.freshman_cqupt_card:
                 startActivity(new Intent(this, FreshmenCQUPTStyleActivity.class));
                 break;
-            case R.id.bt_toolbar_back:
+            case R.id.bt_main_back:
                 finish();
                 break;
-            case R.id.bt_toolbar_user:
+            case R.id.bt_main_person:
                 //TODO:判断是否需要登录
                 startActivity(new Intent(FreshmanMainActivity.this, FreshmanLoginActivity.class));
                 break;

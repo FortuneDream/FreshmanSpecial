@@ -7,11 +7,46 @@
     android:orientation="vertical"
     android:weightSum="3"
     tools:context=".view.activity.FreshmanMainActivity">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <!--toobar的布局，使用的时候在xml里include，关于上面B的图标，在java代码里动态设定-->
+        <ImageButton
+            android:id="@+id/bt_main_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="@drawable/default_selector"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:id="@+id/tv_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/freshman_title"
+            android:textSize="19sp"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+        <ImageButton
+            android:id="@+id/bt_main_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/personal_info"
+            android:background="@drawable/default_selector"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            />
 
-    <include layout="@layout/toolbar"
-        android:id="@+id/freshmen_main_toolbar"
-        />
-
+    </RelativeLayout>
     <android.support.v7.widget.CardView
         android:id="@+id/freshman_guide_card"
         android:layout_width="match_parent"

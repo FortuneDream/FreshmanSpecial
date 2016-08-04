@@ -5,10 +5,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Switch;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
@@ -22,14 +20,13 @@ import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.QQGroup;
 import java.util.ArrayList;
 
 public class FreshmenGuideActivity extends AppCompatActivity {
-    Button BackLeft;
-    Button NoneRight;
+
     TextView title;
     TabLayout tabLayout;
     ViewPager viewPager;
     FreshmanPagerAdapter freshmanPagerAdapter;
     //设置ViewPager的page_id
-    int ViewPagerId[] = new int[]{0,1,2,3,4,5,6,7};
+    int ViewPagerId[] = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
     //储存fragment的数组
     private ArrayList<Fragment> mFragments;
     //tab条目中的标题
@@ -48,19 +45,13 @@ public class FreshmenGuideActivity extends AppCompatActivity {
     }
 
 
-
-
     private void initToolbar() {
-        BackLeft = (Button) findViewById(R.id.bt_toolbar_back);
-        BackLeft.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt_toolbar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
-        NoneRight = (Button) findViewById(R.id.bt_toolbar_right);
-        NoneRight.setBackground(null);
 
         title = (TextView) findViewById(R.id.tv_toolbar_title);
         title.setText("新生攻略");
@@ -74,7 +65,7 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         freshmanPagerAdapter.setTitles(titles);
         mFragments = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
-            if (i == 2 || i == 5 ||i==6|| i == 7) {
+            if (i == 2 || i == 5 || i == 6 || i == 7) {
                 mFragments.add(InfoPageFragment.newInstance(ViewPagerId[i]));
             } else {
                 if (titles[i].equals("入学须知")) {

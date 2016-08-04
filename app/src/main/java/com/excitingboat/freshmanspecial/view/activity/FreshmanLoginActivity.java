@@ -6,7 +6,6 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,16 +40,13 @@ public class FreshmanLoginActivity extends AppCompatActivity implements ILoginVi
     }
 
     private void init() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.login_toolbar);
-        toolbar.setNavigationIcon(R.drawable.back);
-        toolbar.setNavigationOnClickListener(new OnClickListener() {
+        findViewById(R.id.bt_toolbar_back).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                FreshmanLoginActivity.this.finish();
             }
         });
-        setSupportActionBar(toolbar);
-
+        ((TextView)findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_login);
         usernameView = (AutoCompleteTextView) findViewById(R.id.email);
         passwordView = (EditText) findViewById(R.id.password);
         passwordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {

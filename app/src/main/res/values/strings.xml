@@ -3,8 +3,8 @@
     <string name="freshman_title">新生专题网</string>
     <string name="freshman_guide">新生攻略</string>
     <string name="freshman_big_data">大数据</string>
-    <string name="freshman_about_cqupt">重游风采</string>
-    <string name="title_activity_freshman_login">新生登录</string>
+    <string name="freshman_cqupt_style">重游风采</string>
+    <string name="freshman_login">新生登录</string>
 
     <string name="network_error">网络错误</string>
 

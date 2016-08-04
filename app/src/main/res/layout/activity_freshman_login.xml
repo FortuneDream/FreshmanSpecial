@@ -7,13 +7,7 @@
     android:orientation="vertical"
     tools:context="com.excitingboat.freshmanspecial.view.activity.FreshmanLoginActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/login_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@color/white"
-        />
+    <include layout="@layout/toolbar"/>
 
     <ProgressBar
         android:id="@+id/login_progress"
