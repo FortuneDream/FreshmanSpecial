@@ -1,5 +1,6 @@
 package com.excitingboat.freshmanspecial.presenter;
 
+import com.excitingboat.freshmanspecial.config.Config;
 import com.excitingboat.freshmanspecial.model.bean.User;
 import com.excitingboat.freshmanspecial.model.net.LoginModule;
 import com.excitingboat.freshmanspecial.view.iview.ILoginView;
@@ -10,7 +11,8 @@ import rx.functions.Action1;
  * Created by PinkD on 2016/8/3
  * LoginPresenter
  */
-public class LoginPresenter {
+public class LoginPresenter {;
+
     private LoginModule loginModule;
     private ILoginView iLoginView;
 
@@ -34,8 +36,9 @@ public class LoginPresenter {
     class LoginFail implements Action1<Throwable> {
         @Override
         public void call(Throwable throwable) {
-            //TODO 处理错误信息
-            iLoginView.LoginFail();
+            String msg = throwable.getMessage();
+            //TODO 错误处理
+            iLoginView.LoginFail(Config.ERROR_INCORRECT);
         }
     }
 

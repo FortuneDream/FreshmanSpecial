@@ -1,8 +1,8 @@
 package com.excitingboat.freshmanspecial.view.iview;
 
+import com.excitingboat.freshmanspecial.model.bean.Person;
 import com.excitingboat.freshmanspecial.model.bean.TitleContent;
 import com.excitingboat.freshmanspecial.model.bean.TitleContentPicture;
-import com.excitingboat.freshmanspecial.model.bean.User;
 
 import java.util.List;
 
@@ -14,16 +14,23 @@ public abstract class IGetInformation {
     /**
      * {@link com.excitingboat.freshmanspecial.model.bean.TitleContent}
      */
-    public void requestSuccess1(List<TitleContent> titleContents){}
+    public void requestSuccess1(List<TitleContent> titleContents) {
+    }
+
     /**
      * {@link com.excitingboat.freshmanspecial.model.bean.TitleContentPicture}
      */
-    public void requestSuccess2(List<TitleContentPicture> titleContentPictures){}
+    public void requestSuccess2(List<TitleContentPicture> titleContentPictures) {
+    }
 
     /**
      * {@link com.excitingboat.freshmanspecial.model.bean.User}
      */
-    public void requestSuccess3(List<User> users){}
+    public void requestSuccess3(List<Person> persons) {
+    }
+
+    public void requestSuccess4(List<String> pictures) {
+    }
 
     public abstract void requestFail();
 }

@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize">
     <!--toobar的布局，使用的时候在xml里include，关于上面B的图标，在java代码里动态设定-->
-    <Button
+    <ImageButton
         android:id="@+id/bt_toolbar_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        android:background="@color/none"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -25,11 +26,12 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         />
-    <Button
+    <ImageButton
         android:id="@+id/bt_toolbar_user"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/personal_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/personal_info"
+        android:background="@color/none"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

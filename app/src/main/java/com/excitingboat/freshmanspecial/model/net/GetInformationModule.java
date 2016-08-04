@@ -1,7 +1,6 @@
 package com.excitingboat.freshmanspecial.model.net;
 
-import com.excitingboat.freshmanspecial.model.bean.TitleContent;
-import com.excitingboat.freshmanspecial.model.bean.User;
+import com.excitingboat.freshmanspecial.config.Config;
 import com.excitingboat.freshmanspecial.net.GetInformation;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -16,17 +15,29 @@ public class GetInformationModule {
     public void getInformation(String target, int type, Action1 success, Action1<Throwable> fail) {
         GetInformation getInformation = SingleRetrofit.getInstance().getRetrofit().create(GetInformation.class);
         switch (type) {
-            case 1:
-                getInformation.getInformation(target)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(success,fail);
-                break;
-            case 2:
+            case Config.INFORMATION_TYPE_TITLE_CONTENT:
                 getInformation.getInformation1(target)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(success,fail);
+                        .subscribe(success, fail);
+                break;
+            case Config.INFORMATION_TYPE_TITLE_CONTENT_PICTURE:
+                getInformation.getInformation2(target)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(success, fail);
+                break;
+            case Config.INFORMATION_TYPE_PERSONAL:
+                getInformation.getInformation3(target)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(success, fail);
+                break;
+            case Config.INFORMATION_TYPE_PICTURE:
+                getInformation.getInformation4(target)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(success, fail);
                 break;
         }
     }

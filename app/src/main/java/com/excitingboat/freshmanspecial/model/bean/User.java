@@ -2,21 +2,18 @@ package com.excitingboat.freshmanspecial.model.bean;
 
 /**
  * Created by PinkD on 2016/8/3.
- * Javabean User
+ * Javabean User extend Person
  */
-public class User {
-    private String username;
+public class User extends Person{
     private String password;
-    private String studentId;
-    private String phoneNumber;
-    private String birthday;
+    private String token;
 
-    public String getBirthday() {
-        return birthday;
+    public String getToken() {
+        return token;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getPassword() {
@@ -27,27 +24,4 @@ public class User {
         this.password = password;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 }

@@ -6,16 +6,17 @@
     <string name="freshman_about_cqupt">重游风采</string>
     <string name="title_activity_freshman_login">新生登录</string>
 
+    <string name="network_error">网络错误</string>
+
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="login_success">登录成功</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="error_invalid_username">无效的用户名</string>
+    <string name="error_invalid_password">无效的密码</string>
+    <string name="error_incorrect">用户名或密码有误</string>
+    <string name="field_required">不能为空</string>
+
 </resources>

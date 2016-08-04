@@ -9,6 +9,7 @@ import rx.Observable;
 
 /**
  * Created by PinkD on 2016/8/3.
+ * Login interface
  */
 public interface Login {
     @FormUrlEncoded

@@ -8,6 +8,6 @@ public interface ILoginView {
 
     void LoginSuccess();
 
-    void LoginFail();
+    void LoginFail(int errorType);
 
 }

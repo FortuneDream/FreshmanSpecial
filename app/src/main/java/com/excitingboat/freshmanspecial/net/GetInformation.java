@@ -1,5 +1,6 @@
 package com.excitingboat.freshmanspecial.net;
 
+import com.excitingboat.freshmanspecial.model.bean.Person;
 import com.excitingboat.freshmanspecial.model.bean.TitleContent;
 import com.excitingboat.freshmanspecial.model.bean.TitleContentPicture;
 
@@ -15,9 +16,16 @@ import rx.Observable;
 public interface GetInformation {
 
     @GET("params")
-    Observable<List<TitleContent>> getInformation(@Query("type") String type);
+    Observable<List<TitleContent>> getInformation1(@Query("type") String type);
 
     @GET("params")
-    Observable<List<TitleContentPicture>> getInformation1(@Query("type") String type);
+    Observable<List<TitleContentPicture>> getInformation2(@Query("type") String type);
+
+    @GET("params")
+    Observable<List<Person>> getInformation3(@Query("type") String type);
+
+    @GET("params")
+    Observable<List<String>> getInformation4(@Query("type") String type);
+
 
 }

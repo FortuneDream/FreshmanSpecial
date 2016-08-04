@@ -19,4 +19,13 @@ public class Config {
 
     public static final int KB = 1024;
     public static final int MB = 1024 * 1024;
+
+    public static final int ERROR_NETWORK = 0;
+    public static final int ERROR_INCORRECT = 1;
+
+    public static final int INFORMATION_TYPE_TITLE_CONTENT = 0;
+    public static final int INFORMATION_TYPE_TITLE_CONTENT_PICTURE = 1;
+    public static final int INFORMATION_TYPE_PICTURE = 2;
+    public static final int INFORMATION_TYPE_PERSONAL = 3;
+
 }
