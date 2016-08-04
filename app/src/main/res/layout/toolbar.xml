@@ -26,7 +26,7 @@
         android:layout_centerVertical="true"
         />
     <Button
-        android:id="@+id/bt_toolbar_user"
+        android:id="@+id/bt_toolbar_right"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:background="@drawable/personal_info"
