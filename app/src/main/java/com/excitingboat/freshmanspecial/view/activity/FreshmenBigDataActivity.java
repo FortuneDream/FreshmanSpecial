@@ -12,11 +12,11 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_freshmen_big_data);
-        init();
+        setContentView(R.layout.test);
+//        init();
     }
 
-    private void init() {
+/*    private void init() {
         findViewById(R.id.bt_toolbar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,5 +24,5 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
             }
         });
         ((TextView)findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_big_data);
-    }
+    }*/
 }
