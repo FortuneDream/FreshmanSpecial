@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.yellowcake.Yellowcake;
 
 public class FreshmenBigDataActivity extends AppCompatActivity {
 
@@ -13,6 +14,11 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test);
+
+        Yellowcake yellowcake = (Yellowcake) findViewById(R.id.cake);
+        yellowcake.setData(new int[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
+
+
 //        init();
     }
 
