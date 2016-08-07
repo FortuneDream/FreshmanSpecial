@@ -1,16 +1,23 @@
 package com.excitingboat.freshmanspecial.view.activity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.utils.BitmapUtil;
+import com.excitingboat.freshmanspecial.utils.ScreenUtils;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolInformationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolWayFragment;
@@ -21,6 +28,7 @@ import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.QQGroup;
 import java.util.ArrayList;
 
 public class FreshmenGuideActivity extends AppCompatActivity {
+    public static Bitmap pictureChecked;
     ImageButton back;
     TextView title;
     TabLayout tabLayout;
@@ -91,5 +99,41 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         viewPager.setAdapter(freshmanPagerAdapter);
         //TabLayout绑定ViewPager
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    public void showBigPicture(View view){
+
+        //获取屏幕截图
+        Bitmap background = ScreenUtils.snapShotWithStatusBar(FreshmenGuideActivity.this);
+        //压缩一下图片
+        Bitmap background_small= ThumbnailUtils.extractThumbnail(background,
+                (int) (view.getRootView().getWidth()/2.5),
+                (int) (view.getRootView().getHeight()/2.5));
+
+        //获取点击的图片
+        // picture = BitmapUtil.getBitmapFromDrawable(getResources().getDrawable(R.drawable.maimai));
+        //转成字节数组发送
+        //intent.putExtra("background", BitmapUtil.getBytesFromBitmap(background_small));
+        long startMs = System.currentTimeMillis();
+
+        show(FreshmenGuideActivity.this,
+                BitmapUtil.getBitmapFromDrawable(getResources().getDrawable(R.drawable.
+                test)),
+                BitmapUtil.getBytesFromBitmap(background_small));
+        //添加过渡动画
+        overridePendingTransition(0, R.anim.abc_fade_in);
+
+        long endMs = System.currentTimeMillis();
+        Log.d("time123456", "first:"+startMs
+                +"->second:"+endMs
+                +"->timeDifference:"
+                +(endMs-startMs)
+        );
+
+
+    }
+    public static void show(Context context, Bitmap smallPictureChecked, byte [] bisBackground){
+        pictureChecked = smallPictureChecked;
+        ShowBigPictureActivity.showBigPicture(context,bisBackground);
     }
 }
