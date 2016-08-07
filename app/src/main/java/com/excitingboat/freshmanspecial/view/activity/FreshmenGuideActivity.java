@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.QQGroup;
 import java.util.ArrayList;
 
 public class FreshmenGuideActivity extends AppCompatActivity {
-
+    ImageButton back;
     TextView title;
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -46,7 +47,8 @@ public class FreshmenGuideActivity extends AppCompatActivity {
 
 
     private void initToolbar() {
-        findViewById(R.id.bt_toolbar_back).setOnClickListener(new View.OnClickListener() {
+        back = (ImageButton) findViewById(R.id.bt_toolbar_back);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
