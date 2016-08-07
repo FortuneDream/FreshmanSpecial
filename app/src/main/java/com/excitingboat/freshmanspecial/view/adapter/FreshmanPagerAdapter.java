@@ -10,15 +10,18 @@ import java.util.ArrayList;
  * Created by xushuzhan on 2016/8/4.
  *
  */
-public class FreshmanPagerAdapter extends FragmentStatePagerAdapter{
+public class FreshmanPagerAdapter extends FragmentStatePagerAdapter {
     String[] titles;
     ArrayList<Fragment> fragments;
-    public void setTitles(String[] titles){
-        this.titles=titles;
+
+    public void setTitles(String[] titles) {
+        this.titles = titles;
     }
-    public void setFragments(ArrayList<Fragment> fragments){
-        this.fragments=fragments;
+
+    public void setFragments(ArrayList<Fragment> fragments) {
+        this.fragments = fragments;
     }
+
     public FreshmanPagerAdapter(FragmentManager fm) {
         super(fm);
     }

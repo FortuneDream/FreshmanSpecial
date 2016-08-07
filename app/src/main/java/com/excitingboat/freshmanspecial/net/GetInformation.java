@@ -12,20 +12,11 @@ import rx.Observable;
 
 /**
  * Created by PinkD on 2016/8/4.
+ * Retrofit Network Interface
  */
-public interface GetInformation {
+public interface GetInformation<T> {
 
     @GET("params")
-    Observable<List<TitleContent>> getInformation1(@Query("type") String type);
-
-    @GET("params")
-    Observable<List<TitleContentPicture>> getInformation2(@Query("type") String type);
-
-    @GET("params")
-    Observable<List<Person>> getInformation3(@Query("type") String type);
-
-    @GET("params")
-    Observable<List<String>> getInformation4(@Query("type") String type);
-
+    Observable<List<T>> getInformation(@Query("type") String type);
 
 }
