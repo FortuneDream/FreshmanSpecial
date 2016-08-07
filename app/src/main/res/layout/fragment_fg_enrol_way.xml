@@ -3,9 +3,32 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/first_way_information_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="须知路线"
-        android:textSize="33sp"
-        />
+    android:text="从机场到学校"
+        android:textSize="16sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/first_way_information_title_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
+        android:textSize="13sp" />
+    <TextView
+        android:id="@+id/handbook_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
+        android:textSize="13sp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc" />
 </LinearLayout>

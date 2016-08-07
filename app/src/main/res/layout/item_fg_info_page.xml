@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+    <ImageView
+        android:id="@+id/iv_fg_info_small_pic"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/test"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        />
+    <TextView
+        android:id="@+id/tv_fg_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="纸上烤肉"
+        android:layout_marginRight="15dp"
+        android:maxLength="13"
+        android:singleLine="true"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_alignTop="@+id/iv_fg_info_small_pic"
+        android:layout_toEndOf="@+id/iv_fg_info_small_pic"
+        android:layout_toRightOf="@+id/iv_fg_info_small_pic" />
+
+    <TextView
+        android:id="@+id/tv_fg_info_content_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="简介：好吃不贵"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:singleLine="true"
+        android:maxLength="25"
+        android:ellipsize="end"
+        android:layout_below="@+id/tv_fg_info_title"
+        android:layout_alignStart="@+id/tv_fg_info_title"
+        android:layout_alignLeft="@+id/tv_fg_info_title" />
+    <TextView
+        android:id="@+id/tv_fg_info_content_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="位置：新校门十字路口右边五十米，新世纪百货超市旁"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:maxLines="2"
+        android:maxLength="25"
+        android:ellipsize="end"
+        android:layout_below="@+id/tv_fg_info_content_s"
+        android:layout_alignStart="@+id/tv_fg_info_content_s"
+        android:layout_alignLeft="@+id/tv_fg_info_content_s" />
+    <ImageView
+        android:id="@+id/iv_news_item_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

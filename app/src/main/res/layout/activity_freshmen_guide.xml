@@ -18,6 +18,12 @@
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabTextAppearance="@style/TabLayout"
         app:tabTextColor="#666666"/>
+    <ImageView
+        android:id="@+id/tab_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc"
+        />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/freshmen_guide_viewPager"

@@ -1,17 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
-        android:id="@+id/report_information"
+        android:id="@+id/report_information_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="报到须知："
-        android:textSize="33sp"
-        />
+        android:textSize="16sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/report_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
+        android:textSize="13sp" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc" />
 
+    <TextView
+        android:id="@+id/safety_information_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="安全须知："
+        android:textSize="16sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/safety_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc" />
+
+    <TextView
+        android:id="@+id/scholarship_information_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="奖学金/助学金须知："
+        android:textSize="16sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/scholarship_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc" />
+    <TextView
+        android:id="@+id/handbook_information_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="学生手册节选"
+        android:textSize="16sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/handbook_information_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ccc" />
 
 </LinearLayout>
