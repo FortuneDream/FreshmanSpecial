@@ -28,7 +28,6 @@ import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.QQGroup;
 import java.util.ArrayList;
 
 public class FreshmenGuideActivity extends AppCompatActivity {
-    public static Bitmap pictureChecked;
     ImageButton back;
     TextView title;
     TabLayout tabLayout;
@@ -59,7 +58,7 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                 finish();
             }
         });
 
@@ -107,24 +106,20 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         Bitmap background = ScreenUtils.snapShotWithStatusBar(FreshmenGuideActivity.this);
         //压缩一下图片
         Bitmap background_small= ThumbnailUtils.extractThumbnail(background,
-                (int) (view.getRootView().getWidth()/2.5),
-                (int) (view.getRootView().getHeight()/2.5));
+                (int) (view.getRootView().getWidth()/2),
+                (int) (view.getRootView().getHeight()/2));
 
-        //获取点击的图片
-        // picture = BitmapUtil.getBitmapFromDrawable(getResources().getDrawable(R.drawable.maimai));
-        //转成字节数组发送
-        //intent.putExtra("background", BitmapUtil.getBytesFromBitmap(background_small));
         long startMs = System.currentTimeMillis();
+        ShowBigPictureActivity.showBigPicture(FreshmenGuideActivity.this,
+                BitmapUtil.getBytesFromBitmap(background_small),
+                "http://img5.imgtn.bdimg.com/it/u=471926043,2104091042&fm=21&gp=0.jpg"
+                );
 
-        show(FreshmenGuideActivity.this,
-                BitmapUtil.getBitmapFromDrawable(getResources().getDrawable(R.drawable.
-                test)),
-                BitmapUtil.getBytesFromBitmap(background_small));
         //添加过渡动画
         overridePendingTransition(0, R.anim.abc_fade_in);
 
         long endMs = System.currentTimeMillis();
-        Log.d("time123456", "first:"+startMs
+        Log.d("time_difference", "first:"+startMs
                 +"->second:"+endMs
                 +"->timeDifference:"
                 +(endMs-startMs)
@@ -132,8 +127,5 @@ public class FreshmenGuideActivity extends AppCompatActivity {
 
 
     }
-    public static void show(Context context, Bitmap smallPictureChecked, byte [] bisBackground){
-        pictureChecked = smallPictureChecked;
-        ShowBigPictureActivity.showBigPicture(context,bisBackground);
-    }
+
 }
