@@ -17,6 +17,7 @@ import android.view.View;
  * Cake View
  */
 public class Yellowcake extends View {
+    private boolean DEBUG = false;
     private static final String TAG = "Yellowcake";
     private static final int X = 0;
     private static final int Y = 1;
@@ -27,15 +28,24 @@ public class Yellowcake extends View {
     private boolean emptyCenter;
     private int textColor;
     private float scale;
+    private final float requestedCornerDegree;
     private float cornerDegree;
     private int textSize;
     private int[] colors;
     private int[] numbers;
     private int sum;
     private float radius;
-    private Paint paint;
+    private Paint mPaint;
     private RectF rectF;
     private Path path;
+
+    private float dpScale;
+    private boolean centerBorder = false;
+
+
+    public void setCenterBorder(boolean centerBorder) {
+        this.centerBorder = centerBorder;
+    }
 
     public void setData(int[] numbers, int[] colors) {
         this.colors = colors;
@@ -44,6 +54,7 @@ public class Yellowcake extends View {
         for (int number : numbers) {
             sum += number;
         }
+        invalidate();
     }
 
     public Yellowcake(Context context) {
@@ -52,12 +63,15 @@ public class Yellowcake extends View {
 
     public Yellowcake(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        //Default data
+//        setData(new int[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
+        setData(new int[]{1}, new int[]{0xFF66CCFF});
     }
 
 
     public Yellowcake(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        paint = new Paint();
+        mPaint = new Paint();
         rectF = new RectF();
         path = new Path();
 
@@ -69,7 +83,7 @@ public class Yellowcake extends View {
         scale = typedArray.getFloat(R.styleable.Yellowcake_scale, 4);
         //TODO 需要巨量的计算来适配
 //        cornerDegree = typedArray.getFloat(R.styleable.Yellowcake_cornerDegree, 5);
-        cornerDegree = 5;
+        requestedCornerDegree = 5;
         typedArray.recycle();
     }
 
@@ -84,31 +98,46 @@ public class Yellowcake extends View {
         int width = 0;
         switch (widthMode) {
             case MeasureSpec.EXACTLY:
-                Log.d(TAG, "widthMode: EXACTLY");
+                if (DEBUG) {
+
+                    Log.d(TAG, "widthMode: EXACTLY");
+                }
                 width = widthSize;
                 break;
             case MeasureSpec.UNSPECIFIED:
-                Log.d(TAG, "widthMode: UNSPECIFIED");
+                if (DEBUG) {
+                    Log.d(TAG, "widthMode: UNSPECIFIED");
+                }
             case MeasureSpec.AT_MOST:
-                Log.d(TAG, "widthMode: AT_MOST");
+                if (DEBUG) {
+                    Log.d(TAG, "widthMode: AT_MOST");
+                }
                 width = Utils.dp2px(getContext(), 128);
                 break;
 
         }
         switch (heightMode) {
             case MeasureSpec.EXACTLY:
-                Log.d(TAG, "heightMode: EXACTLY");
+                if (DEBUG) {
+                    Log.d(TAG, "heightMode: EXACTLY");
+                }
                 height = heightSize;
                 break;
             case MeasureSpec.UNSPECIFIED:
-                Log.d(TAG, "heightMode: UNSPECIFIED");
+                if (DEBUG) {
+                    Log.d(TAG, "heightMode: UNSPECIFIED");
+                }
             case MeasureSpec.AT_MOST:
-                Log.d(TAG, "heightMode: AT_MOST");
+                if (DEBUG) {
+                    Log.d(TAG, "heightMode: AT_MOST");
+                }
                 height = Utils.dp2px(getContext(), 128);
                 break;
 
         }
-        Log.d(TAG, "onMeasure: width:" + width + "height:" + height);
+        if (DEBUG) {
+            Log.d(TAG, "onMeasure: width:" + width + "height:" + height);
+        }
         radius = Math.min(height, width) / 2 - Utils.dp2px(getContext(), 2 * scale);
         textSize = Utils.px2sp(getContext(), Utils.dp2px(getContext(), radius / scale / 8 * 7));
         setMeasuredDimension(width, height);
@@ -119,15 +148,20 @@ public class Yellowcake extends View {
         super.onDraw(canvas);
         boolean drawBorder = true;
         boolean borderDrawn = false;
+        dpScale = 15 / scale * radius / 180;
+        if (numbers.length == 1) {
+            cornerDegree = 0;
+        } else {
+            cornerDegree = requestedCornerDegree;
+        }
         if (emptyCenter) {
 //        Cut canvas
 //        DIFFERENCE/XOR   ->  cut inner
 //        null/others          ->  cut outer
-            path.addCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, radius / 3 - 2, Path.Direction.CW);
+            path.addCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, radius / 3 - dpScale / 5, Path.Direction.CW);
             canvas.clipPath(path, Region.Op.DIFFERENCE);
         }
 
-//TODO 多次画
         final double finalStartAngle = (Math.random() * 360);
         double sweepAngle;
         double percent;
@@ -148,48 +182,67 @@ public class Yellowcake extends View {
                 //扇形
                 if (borderDrawn) {
                     resetPaint();
-                    paint.setColor(colors[i]);
+                    mPaint.setColor(colors[i]);
                 } else {
                     resetStrokePaint();
-                    paint.setColor(getDarkColor(colors[i]));
+                    mPaint.setColor(getDarkColor(colors[i]));
                 }
-                final float tmpScale = 15 / scale * radius / 180;
                 double[] triFunctions = getTriFunctions((float) startAngle, (float) sweepAngle);
-                Log.d(TAG, "sin: " + triFunctions[SIN] + "cos: " + triFunctions[COS]);
-                rectF.set((float) (getMeasuredWidth() / 2 - radius + triFunctions[COS] * tmpScale),
-                        (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * tmpScale),
-                        (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * tmpScale),
-                        (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * tmpScale));
-                canvas.drawArc(rectF, (float) startAngle + cornerDegree, (float) sweepAngle - 2 * cornerDegree, true, paint);
+                if (DEBUG) {
+                    Log.d(TAG, "sin: " + triFunctions[SIN] + "cos: " + triFunctions[COS]);
+                }
+                rectF.set((float) (getMeasuredWidth() / 2 - radius + triFunctions[COS] * dpScale),
+                        (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * dpScale),
+                        (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * dpScale),
+                        (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * dpScale));
+                canvas.drawArc(rectF, (float) startAngle + cornerDegree, (float) sweepAngle - 2 * cornerDegree, true, mPaint);
                 //小扇形
                 double cornerRadius = getCornerRadius(cornerDegree, radius);
-                Log.d(TAG, "cornerRadius: " + cornerRadius);
-                rectF.set((float) (getMeasuredWidth() / 2 - radius + triFunctions[COS] * tmpScale + cornerRadius),
-                        (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * tmpScale + cornerRadius),
-                        (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * tmpScale - cornerRadius),
-                        (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * tmpScale - cornerRadius));
+                if (DEBUG) {
+                    Log.d(TAG, "cornerRadius: " + cornerRadius);
+                }
+                rectF.set((float) (getMeasuredWidth() / 2 - radius + triFunctions[COS] * dpScale + cornerRadius),
+                        (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * dpScale + cornerRadius),
+                        (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * dpScale - cornerRadius),
+                        (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * dpScale - cornerRadius));
                 //误差导致出现间隙，所以角度要稍微调整
-                canvas.drawArc(rectF, (float) startAngle, (float) (cornerDegree + 0.1), true, paint);
-                canvas.drawArc(rectF, (float) (startAngle + sweepAngle - cornerDegree - 0.1), cornerDegree, true, paint);
+                canvas.drawArc(rectF, (float) startAngle, (float) (cornerDegree + 0.1), true, mPaint);
+                canvas.drawArc(rectF, (float) (startAngle + sweepAngle - cornerDegree - 0.1), cornerDegree, true, mPaint);
 
                 //角圆
                 double[] tmp = getTriFunctions(startAngle, 2.3 * 5);
-                Log.d(TAG, "X: " + (getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * tmpScale)) + "  Y: " + (getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * tmpScale)));
+                if (DEBUG) {
+                    Log.d(TAG, "X: " + (getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * dpScale)) + "  Y: " + (getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * dpScale)));
+                }
                 if (borderDrawn) {
-                    paint.setColor(colors[i]);
+                    mPaint.setColor(colors[i]);
                 } else {
-                    paint.setColor(getDarkColor(colors[i]));
+                    mPaint.setColor(getDarkColor(colors[i]));
                 }
                 canvas.drawCircle(
-                        getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * tmpScale),
-                        getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * tmpScale),
-                        (float) cornerRadius, paint);
+                        getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * dpScale),
+                        getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * dpScale),
+                        (float) cornerRadius, mPaint);
 
                 tmp = getTriFunctions(startAngle + sweepAngle - 2.3 * 5, 2.3 * 5);
                 canvas.drawCircle(
-                        getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * tmpScale),
-                        getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * tmpScale), (
-                                float) cornerRadius, paint);
+                        getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * dpScale),
+                        getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * dpScale), (
+                                float) cornerRadius, mPaint);
+
+                //中间边界
+                //TODO 需要优化方案。。。因为误差导致了一些奇怪的问题。。。
+                if (centerBorder) {
+                    if (border && borderDrawn) {
+                        resetPaint();
+                        mPaint.setColor(getDarkColor(colors[i]));
+                        rectF.set((float) (getMeasuredWidth() / 2 - radius / 3 + triFunctions[COS] * dpScale),
+                                (float) (getMeasuredHeight() / 2 - radius / 3 + triFunctions[SIN] * dpScale),
+                                (float) (getMeasuredWidth() / 2 + radius / 3 + triFunctions[COS] * dpScale),
+                                (float) (getMeasuredHeight() / 2 + radius / 3 + triFunctions[SIN] * dpScale));
+                        canvas.drawArc(rectF, (float) startAngle, (float) sweepAngle, true, mPaint);
+                    }
+                }
 
 //            小圆圆心标注
 //            paint.setColor(Color.BLACK);
@@ -199,7 +252,6 @@ public class Yellowcake extends View {
                 startAngle += sweepAngle;
             }
             if (!border || borderDrawn) {
-
                 drawBorder = false;
             } else {
                 borderDrawn = true;
@@ -210,13 +262,13 @@ public class Yellowcake extends View {
         for (int i = 0; i < numbers.length; i++) {
             resetPaint();
             if (textColor != 1) {
-                paint.setColor(textColor);
+                mPaint.setColor(textColor);
             } else {
-                paint.setColor(getDarkColor(colors[i]));
+                mPaint.setColor(getDarkColor(colors[i]));
             }
-            paint.setTextSize(textSize);
-            paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(Utils.formatNumber(percents[i]) + "%", (float) positions[i][X], (float) positions[i][Y], paint);
+            mPaint.setTextSize(textSize);
+            mPaint.setTextAlign(Paint.Align.CENTER);
+            canvas.drawText(Utils.formatNumber(percents[i]) + "%", (float) positions[i][X], (float) positions[i][Y], mPaint);
         }
 
 
@@ -224,19 +276,19 @@ public class Yellowcake extends View {
 
     private void drawGraph(boolean stroke) {
         if (stroke) {
-            paint.setStyle(Paint.Style.STROKE);
+            mPaint.setStyle(Paint.Style.STROKE);
         }
     }
 
     private void resetPaint() {
-        paint.reset();
-        paint.setAntiAlias(true);
+        mPaint.reset();
+        mPaint.setAntiAlias(true);
     }
 
     private void resetStrokePaint() {
         resetPaint();
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(15 / scale * radius / 180);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(15 / scale * radius / 180);
     }
 
     /**

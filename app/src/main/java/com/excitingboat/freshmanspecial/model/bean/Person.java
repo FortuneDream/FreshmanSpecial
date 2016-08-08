@@ -6,8 +6,10 @@ package com.excitingboat.freshmanspecial.model.bean;
  */
 public class Person {
     private String username;
+    private String sex;
     private String studentId;
     private String phoneNumber;
+    private String qq;
     private String birthday;
 
     public String getBirthday() {
@@ -26,6 +28,14 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
     public String getStudentId() {
         return studentId;
     }
@@ -40,5 +50,13 @@ public class Person {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
     }
 }
