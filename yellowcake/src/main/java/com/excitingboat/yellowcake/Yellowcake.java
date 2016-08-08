@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import static com.excitingboat.yellowcake.Utils.getDarkColor;
+
 /**
  * Created by PinkD on 2016/8/5.
  * Cake View
@@ -148,7 +150,7 @@ public class Yellowcake extends View {
         super.onDraw(canvas);
         boolean drawBorder = true;
         boolean borderDrawn = false;
-        dpScale = 15 / scale * radius / 180;
+        dpScale = 20 / scale * radius / 180;
         if (numbers.length == 1) {
             cornerDegree = 0;
         } else {
@@ -308,23 +310,6 @@ public class Yellowcake extends View {
         return new double[]{x, y};
     }
 
-
-    /**
-     * Function 自动改变颜色
-     *
-     * @param color input color
-     * @return changed color
-     */
-    private int getDarkColor(int color) {
-        int red = Color.red(color);
-        int green = Color.green(color);
-        int blue = Color.blue(color);
-        red *= (float) red / 0xFF * 0.8;
-        green *= (float) green / 0xFF * 0.8;
-        blue *= (float) blue / 0xFF * 0.8;
-        color = Color.rgb(red, green, blue);
-        return color;
-    }
 
     /**
      * Function 求出正余弦

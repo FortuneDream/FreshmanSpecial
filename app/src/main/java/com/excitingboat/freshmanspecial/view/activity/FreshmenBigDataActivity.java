@@ -19,7 +19,7 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ArrayList<Fragment> fragments;
-    private String[] titles = {"男女比例", "最难科目", "就业率", "考研率"};
+    private String[] titles = {"男女比例", "最难科目", "毕业去向"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_big_data);
 
         fragments = new ArrayList<>();
-        fragments.add(new BigDataFragmentCake());
         fragments.add(new BigDataFragmentCake());
         fragments.add(new BigDataFragmentCake());
         fragments.add(new BigDataFragmentCake());

@@ -8,4 +8,14 @@
         <attr name="divide" format="boolean" />
         <attr name="cornerDegree" format="float" />
     </declare-styleable>
+
+    <declare-styleable name="ColorTextListView">
+        <attr name="max" format="integer" />
+        <attr name="marginTop" format="dimension" />
+        <attr name="gravity" format="enum" >
+            <enum name="center" value="1" />
+            <enum name="left" value="2" />
+            <enum name="right" value="3" />
+        </attr>
+    </declare-styleable>
 </resources>
