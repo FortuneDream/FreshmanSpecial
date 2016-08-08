@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by PinkD on 2016/8/8.
+ * ColorTextAdapter
  */
 public abstract class ColorTextAdapter implements Adapter {
     private List<ColorTextListView.ViewHolder> viewHolders;
@@ -30,6 +31,10 @@ public abstract class ColorTextAdapter implements Adapter {
     public void addAll(Collection<? extends ColorText> collection) {
         colorTexts.addAll(collection);
         dataSetObservable.notifyChanged();
+    }
+
+    public void clear() {
+        colorTexts.clear();
     }
 
     public ColorTextAdapter(List<ColorText> colorTexts) {

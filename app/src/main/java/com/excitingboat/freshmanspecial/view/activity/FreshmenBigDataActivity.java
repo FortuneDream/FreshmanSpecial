@@ -9,8 +9,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter_1;
+import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter_2;
+import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter_3;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
-import com.excitingboat.freshmanspecial.view.fragment.BigData.BigDataFragmentCake;
+import com.excitingboat.freshmanspecial.view.fragment.BigData.BigDataFragmentCake_1;
+import com.excitingboat.freshmanspecial.view.fragment.BigData.BigDataFragmentCake_2;
 
 import java.util.ArrayList;
 
@@ -38,9 +42,16 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_big_data);
 
         fragments = new ArrayList<>();
-        fragments.add(new BigDataFragmentCake());
-        fragments.add(new BigDataFragmentCake());
-        fragments.add(new BigDataFragmentCake());
+        //TODO Fix Bugs
+        BigDataFragmentCake_1 fragment1 = new BigDataFragmentCake_1();
+        BigDataFragmentCake_2 fragment2 = new BigDataFragmentCake_2();
+        BigDataFragmentCake_2 fragment3 = new BigDataFragmentCake_2();
+        fragment1.setBigDataAdapter(new BigDataAdapter_1());
+        fragment2.setBigDataAdapter(new BigDataAdapter_2());
+        fragment3.setBigDataAdapter(new BigDataAdapter_3());
+        fragments.add(fragment1);
+        fragments.add(fragment2);
+        fragments.add(fragment3);
         tabLayout = (TabLayout) findViewById(R.id.freshmen_big_data_tabLayout);
         viewPager = (ViewPager) findViewById(R.id.freshmen_big_data_viewPager);
         tabLayout.setupWithViewPager(viewPager);

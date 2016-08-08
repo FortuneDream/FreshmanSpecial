@@ -34,8 +34,8 @@ public class Yellowcake extends View {
     private float cornerDegree;
     private int textSize;
     private int[] colors;
-    private int[] numbers;
-    private int sum;
+    private double[] numbers;
+    private double sum;
     private float radius;
     private Paint mPaint;
     private RectF rectF;
@@ -49,11 +49,11 @@ public class Yellowcake extends View {
         this.centerBorder = centerBorder;
     }
 
-    public void setData(int[] numbers, int[] colors) {
+    public void setData(double[] numbers, int[] colors) {
         this.colors = colors;
         this.numbers = numbers;
         sum = 0;
-        for (int number : numbers) {
+        for (double number : numbers) {
             sum += number;
         }
         invalidate();
@@ -67,7 +67,7 @@ public class Yellowcake extends View {
         this(context, attrs, 0);
         //Default data
 //        setData(new int[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
-        setData(new int[]{1}, new int[]{0xFF66CCFF});
+        setData(new double[]{1}, new int[]{0xFF66CCFF});
     }
 
 
