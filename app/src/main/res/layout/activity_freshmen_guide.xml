@@ -17,7 +17,7 @@
         app:tabIndicatorHeight="2dp"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabTextAppearance="@style/TabLayout"
-        app:tabTextColor="#666666"/>
+        app:tabTextColor="#333333"/>
     <ImageView
         android:id="@+id/tab_divider"
         android:layout_width="match_parent"
