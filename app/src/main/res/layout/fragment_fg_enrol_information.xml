@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="报到须知："
-        android:textSize="16sp"
+        android:textColor="#353537"
+        android:textSize="20sp"
         android:layout_margin="10dp"/>
     <TextView
         android:id="@+id/report_information_content"
@@ -18,8 +19,11 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:lineSpacingExtra="5dp"
         android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-        android:textSize="13sp" />
+        android:textSize="17.3sp"
+        android:textColor="#888888"
+        />
 
     <ImageView
         android:layout_width="match_parent"
@@ -31,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="安全须知："
-        android:textSize="16sp"
+        android:textColor="#353537"
+        android:textSize="20sp"
         android:layout_margin="10dp"/>
     <TextView
         android:id="@+id/safety_information_content"
@@ -40,8 +45,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:lineSpacingExtra="5dp"
         android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-        android:textSize="13sp" />
+        android:textSize="17.3sp"
+        android:textColor="#888888" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -53,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="奖学金/助学金须知："
-        android:textSize="16sp"
+        android:textColor="#353537"
+        android:textSize="20sp"
         android:layout_margin="10dp"/>
     <TextView
         android:id="@+id/scholarship_information_content"
@@ -62,8 +70,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:lineSpacingExtra="5dp"
         android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-        android:textSize="13sp" />
+        android:textSize="17.3sp"
+        android:textColor="#888888" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -74,7 +84,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="学生手册节选"
-        android:textSize="16sp"
+        android:textColor="#353537"
+        android:textSize="20sp"
         android:layout_margin="10dp"/>
     <TextView
         android:id="@+id/handbook_information_content"
@@ -83,8 +94,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
+        android:lineSpacingExtra="5dp"
         android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-        android:textSize="13sp" />
+        android:textSize="17.3sp"
+        android:textColor="#888888"/>
 
     <ImageView
         android:layout_width="match_parent"

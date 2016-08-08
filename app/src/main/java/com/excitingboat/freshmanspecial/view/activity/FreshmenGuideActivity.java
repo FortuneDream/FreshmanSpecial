@@ -7,6 +7,7 @@ import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -58,7 +59,8 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 finish();
+               // showBigPicture(view);
+                finish();
             }
         });
 
@@ -102,30 +104,12 @@ public class FreshmenGuideActivity extends AppCompatActivity {
 
     public void showBigPicture(View view){
 
-        //获取屏幕截图
-        Bitmap background = ScreenUtils.snapShotWithStatusBar(FreshmenGuideActivity.this);
-        //压缩一下图片
-        Bitmap background_small= ThumbnailUtils.extractThumbnail(background,
-                (int) (view.getRootView().getWidth()/2),
-                (int) (view.getRootView().getHeight()/2));
-
-        long startMs = System.currentTimeMillis();
         ShowBigPictureActivity.showBigPicture(FreshmenGuideActivity.this,
-                BitmapUtil.getBytesFromBitmap(background_small),
-                "http://img5.imgtn.bdimg.com/it/u=471926043,2104091042&fm=21&gp=0.jpg"
+                "http://img5.imgtn.bdimg.com/it/u=471926043,2104091042&fm=21&gp=0.jpg",
+                view
                 );
-
-        //添加过渡动画
+        //添加过渡动画，一定要添加！！
         overridePendingTransition(0, R.anim.abc_fade_in);
-
-        long endMs = System.currentTimeMillis();
-        Log.d("time_difference", "first:"+startMs
-                +"->second:"+endMs
-                +"->timeDifference:"
-                +(endMs-startMs)
-        );
-
-
     }
 
 }

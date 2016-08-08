@@ -49,7 +49,6 @@ public final class BitmapUtil {
     }
 
 
-
     /**
      * 把bitmap转化为bytes
      *
@@ -58,7 +57,7 @@ public final class BitmapUtil {
      */
     public static byte[] getBytesFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 50, baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         return baos.toByteArray();
     }
 

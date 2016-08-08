@@ -6,6 +6,7 @@ package com.excitingboat.freshmanspecial.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -120,6 +121,14 @@ public class ScreenUtils
         view.destroyDrawingCache();
         return bp;
 
+    }
+    public static Bitmap screenShot(View view) {
+
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
     }
 
 }
