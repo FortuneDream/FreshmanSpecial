@@ -42,10 +42,10 @@ public final class BitmapUtil {
     private static final String TAG = BitmapUtil.class.getSimpleName();
 
     /**
-     * 不要放任何实例在这个类里
+     * 不能被实例化哈
      */
     private BitmapUtil() {
-        throw new Error("都说了不需要实例!");
+        throw new Error("都说了不需要实例化!");
     }
 
 

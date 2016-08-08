@@ -2,38 +2,39 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="90dp">
-    <ImageView
+    android:layout_height="72dp">
+    <com.excitingboat.freshmanspecial.CustomView.RoundImageView
         android:id="@+id/iv_fg_info_small_pic"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/test"
-        android:scaleType="fitXY"
-        android:layout_marginLeft="15dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="#000"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+
         />
     <TextView
         android:id="@+id/tv_fg_info_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="纸上烤肉"
-        android:layout_marginRight="15dp"
+        android:text="四人间（旧）"
+        android:layout_marginTop="12.3dp"
         android:maxLength="13"
         android:singleLine="true"
-        android:textSize="17sp"
+        android:textSize="13sp"
         android:textColor="#000"
-        android:layout_alignTop="@+id/iv_fg_info_small_pic"
-        android:layout_toEndOf="@+id/iv_fg_info_small_pic"
-        android:layout_toRightOf="@+id/iv_fg_info_small_pic" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iv_fg_info_small_pic"
+        android:layout_toEndOf="@+id/iv_fg_info_small_pic" />
 
     <TextView
         android:id="@+id/tv_fg_info_content_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="简介：好吃不贵"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
+        android:text="楼栋：1、5、6栋"
+        android:textSize="10sp"
         android:singleLine="true"
         android:maxLength="25"
         android:ellipsize="end"
@@ -44,8 +45,9 @@
         android:id="@+id/tv_fg_info_content_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="位置：新校门十字路口右边五十米，新世纪百货超市旁"
-        android:layout_marginTop="5dp"
+        android:text="配置：公共卫生间 卫生间 洗漱间 空调 洗衣机"
+        android:textSize="10sp"
+        android:layout_marginTop="4.3dp"
         android:layout_marginRight="15dp"
         android:maxLines="2"
         android:maxLength="25"

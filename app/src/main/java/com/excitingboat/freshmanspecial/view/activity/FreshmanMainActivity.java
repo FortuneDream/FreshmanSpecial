@@ -3,9 +3,11 @@ package com.excitingboat.freshmanspecial.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.utils.DensityUtils;
 
 public class FreshmanMainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -14,6 +16,7 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_freshman_main);
         init();
+        Log.d("danwei", "onCreate: "+"dp:"+ DensityUtils.pxTodp(FreshmanMainActivity.this,169));
     }
 
     private void init() {
