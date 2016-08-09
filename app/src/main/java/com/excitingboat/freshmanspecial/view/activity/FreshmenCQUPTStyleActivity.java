@@ -1,13 +1,28 @@
 package com.excitingboat.freshmanspecial.view.activity;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
+import com.excitingboat.freshmanspecial.view.fragment.Style.OrganizationFragment;
+import com.excitingboat.freshmanspecial.view.fragment.Style.PictureFragment;
+import com.excitingboat.freshmanspecial.view.fragment.Style.PictureGridFragment;
+import com.excitingboat.freshmanspecial.view.fragment.Style.PictureListFragment;
+
+import java.util.ArrayList;
 
 public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ArrayList<Fragment> fragments;
+    private String[] titles = {"学生组织", "原创重邮", "美在重邮","优秀学子","优秀教师"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +39,30 @@ public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
             }
         });
         ((TextView)findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_cqupt_style);
+
+
+        fragments = new ArrayList<>();
+        OrganizationFragment fragment1 = new OrganizationFragment();
+        PictureListFragment fragment2 = new PictureListFragment();
+        PictureFragment fragment3 = new PictureFragment();
+        PictureGridFragment fragment4 = new PictureGridFragment();
+        PictureGridFragment fragment5 = new PictureGridFragment();
+        //TODO Add Adapter
+//        fragment1.setBigDataAdapter(new BigDataAdapter_1());
+//        fragment2.setBigDataAdapter(new BigDataAdapter_2());
+//        fragment3.setBigDataAdapter(new BigDataAdapter_3());
+        fragments.add(fragment1);
+        fragments.add(fragment2);
+        fragments.add(fragment3);
+        fragments.add(fragment4);
+        fragments.add(fragment5);
+        tabLayout = (TabLayout) findViewById(R.id.freshmen_big_data_tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.freshmen_big_data_viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        FreshmanPagerAdapter adapter = new FreshmanPagerAdapter(getSupportFragmentManager());
+        adapter.setTitles(titles);
+        adapter.setFragments(fragments);
+        viewPager.setAdapter(adapter);
 
     }
 }

@@ -1,6 +1,7 @@
 package com.excitingboat.yellowcake;
 
 import android.content.Context;
+import android.graphics.Color;
 
 import java.text.DecimalFormat;
 
@@ -32,4 +33,24 @@ public class Utils {
         DecimalFormat decimalFormat = new DecimalFormat("#.#");
         return decimalFormat.format(number);
     }
+
+
+    /**
+     * Function 自动改变颜色
+     *
+     * @param color input color
+     * @return changed color
+     */
+    public static int getDarkColor(int color) {
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+        red *= (float) red / 0xFF * 0.8;
+        green *= (float) green / 0xFF * 0.8;
+        blue *= (float) blue / 0xFF * 0.8;
+        color = Color.rgb(red, green, blue);
+        return color;
+    }
+
+
 }

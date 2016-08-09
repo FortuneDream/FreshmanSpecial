@@ -3,6 +3,7 @@ package com.excitingboat.yellowcake;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -13,12 +14,15 @@ import android.view.View;
  * RoundedRectangleView
  */
 public class RoundedRectangleView extends View {
-    private boolean DEBUG = true;
+    private boolean DEBUG = false;
     private static final String TAG = "RoundedRectangleView";
+
+    private int color;
+
     private Paint mPaint;
+    private Path path;
     private RectF rectF;
     private float radius;
-    private float cornerDegree;
 
     public RoundedRectangleView(Context context) {
         this(context, null);
@@ -30,7 +34,15 @@ public class RoundedRectangleView extends View {
 
     public RoundedRectangleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        mPaint = new Paint();
+        path = new Path();
+        rectF = new RectF();
+        color = 0xFF66CCFF;
+
+
     }
+
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -84,15 +96,25 @@ public class RoundedRectangleView extends View {
             Log.d(TAG, "onMeasure: width:" + width + "height:" + height);
         }
         radius = Math.min(height, width) / 2;
-//        textSize = Utils.px2sp(getContext(), Utils.dp2px(getContext(), radius / scale / 8 * 7));
-        setMeasuredDimension((int) (2 * radius), (int) (2 * radius));
+        setMeasuredDimension(width, height);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        rectF.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
-
+        float startX = 0;
+        float startY = 0;
+        if (getMeasuredWidth() > radius) {
+            startX = getMeasuredWidth() / 2 - radius;
+        }
+        if (getMeasuredHeight() > radius) {
+            startY = getMeasuredHeight() / 2 - radius;
+        }
+        resetPaint();
+        mPaint.setColor(color);
+        rectF.set(startX, startY, startX + 2 * radius, startY + 2 * radius);
+        path.addRoundRect(rectF, radius / 3, radius / 3, Path.Direction.CCW);
+        canvas.drawPath(path, mPaint);
     }
 
 
@@ -101,10 +123,14 @@ public class RoundedRectangleView extends View {
         mPaint.setAntiAlias(true);
     }
 
-    private void resetStrokePaint() {
-        resetPaint();
-        mPaint.setStyle(Paint.Style.STROKE);
-//        mPaint.setStrokeWidth(15 / scale * radius / 180);
+
+    public int getColor() {
+        return color;
     }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
 
 }

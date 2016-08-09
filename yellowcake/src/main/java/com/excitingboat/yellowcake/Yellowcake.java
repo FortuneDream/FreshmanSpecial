@@ -3,7 +3,6 @@ package com.excitingboat.yellowcake;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -11,6 +10,8 @@ import android.graphics.Region;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import static com.excitingboat.yellowcake.Utils.getDarkColor;
 
 /**
  * Created by PinkD on 2016/8/5.
@@ -32,8 +33,8 @@ public class Yellowcake extends View {
     private float cornerDegree;
     private int textSize;
     private int[] colors;
-    private int[] numbers;
-    private int sum;
+    private double[] numbers;
+    private double sum;
     private float radius;
     private Paint mPaint;
     private RectF rectF;
@@ -47,11 +48,11 @@ public class Yellowcake extends View {
         this.centerBorder = centerBorder;
     }
 
-    public void setData(int[] numbers, int[] colors) {
+    public void setData(double[] numbers, int[] colors) {
         this.colors = colors;
         this.numbers = numbers;
         sum = 0;
-        for (int number : numbers) {
+        for (double number : numbers) {
             sum += number;
         }
         invalidate();
@@ -65,7 +66,7 @@ public class Yellowcake extends View {
         this(context, attrs, 0);
         //Default data
 //        setData(new int[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
-        setData(new int[]{1}, new int[]{0xFF66CCFF});
+        setData(new double[]{1}, new int[]{0xFF66CCFF});
     }
 
 
@@ -148,7 +149,7 @@ public class Yellowcake extends View {
         super.onDraw(canvas);
         boolean drawBorder = true;
         boolean borderDrawn = false;
-        dpScale = 15 / scale * radius / 180;
+        dpScale = 20 / scale * radius / 180;
         if (numbers.length == 1) {
             cornerDegree = 0;
         } else {
@@ -167,11 +168,19 @@ public class Yellowcake extends View {
         double percent;
         double[] percents = new double[numbers.length];
         double[][] positions = new double[numbers.length][2];
-
+        boolean tooSmall;
+        float cornerDegree;
         while (drawBorder) {
             double startAngle = finalStartAngle;
             for (int i = 0; i < numbers.length; i++) {
-                percent = numbers[i] * 100D / sum;
+                percent = numbers[i] * 100 / sum;
+                cornerDegree = this.cornerDegree;
+                if (percent < 0.5) {
+                    continue;
+                }
+                if (percent < 3) {
+                    cornerDegree /= 3 * percent;
+                }
                 sweepAngle = percent * 3.6;
 
                 //保存文字位置数据
@@ -195,7 +204,13 @@ public class Yellowcake extends View {
                         (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * dpScale),
                         (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * dpScale),
                         (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * dpScale));
-                canvas.drawArc(rectF, (float) startAngle + cornerDegree, (float) sweepAngle - 2 * cornerDegree, true, mPaint);
+//TODO 先这样处理吧、、、
+                if (percent < 2) {
+                    canvas.drawArc(rectF, (float) startAngle - cornerDegree, (float) sweepAngle, true, mPaint);
+                    continue;
+                } else {
+                    canvas.drawArc(rectF, (float) startAngle + cornerDegree, (float) sweepAngle - 2 * cornerDegree, true, mPaint);
+                }
                 //小扇形
                 double cornerRadius = getCornerRadius(cornerDegree, radius);
                 if (DEBUG) {
@@ -308,23 +323,6 @@ public class Yellowcake extends View {
         return new double[]{x, y};
     }
 
-
-    /**
-     * Function 自动改变颜色
-     *
-     * @param color input color
-     * @return changed color
-     */
-    private int getDarkColor(int color) {
-        int red = Color.red(color);
-        int green = Color.green(color);
-        int blue = Color.blue(color);
-        red *= (float) red / 0xFF * 0.8;
-        green *= (float) green / 0xFF * 0.8;
-        blue *= (float) blue / 0xFF * 0.8;
-        color = Color.rgb(red, green, blue);
-        return color;
-    }
 
     /**
      * Function 求出正余弦
