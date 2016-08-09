@@ -7,6 +7,7 @@ import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.view.adapter.MyColorTextAdapter;
 import com.excitingboat.yellowcake.ColorText;
 import com.excitingboat.yellowcake.ColorTextListView;
+import com.excitingboat.yellowcake.Yellowcake;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,8 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         ColorTextListView colorTextListView = (ColorTextListView) findViewById(R.id.list);
+        Yellowcake yellowcake = (Yellowcake) findViewById(R.id.test_cake);
+        yellowcake.setData(new double[]{1, 88, 9}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
         MyColorTextAdapter myColorTextAdapter = new MyColorTextAdapter();
         colorTexts = new ArrayList<>();
         colorTexts.add(new ColorText(0xFF66CCFF, "天依"));

@@ -15,7 +15,8 @@ import android.widget.TextView;
  */
 public class ColorTextListView extends FrameLayout {
 
-    private final String TAG = "ColorTextListView";
+    private static final boolean DEBUG = false;
+    private static final String TAG = "ColorTextListView";
 
     public static final int GRAVITY_CENTER = 1;
     public static final int GRAVITY_LEFT = 2;
@@ -45,9 +46,10 @@ public class ColorTextListView extends FrameLayout {
         max = typedArray.getInt(R.styleable.ColorTextListView_max, 3);
         gravity = typedArray.getInt(R.styleable.ColorTextListView_gravity, 1);
         margin = typedArray.getDimension(R.styleable.ColorTextListView_marginTop, 10);
-        Log.d(TAG, "ColorTextListView: gravity:" + gravity);
-        Log.d(TAG, "ColorTextListView: max:" + max);
-
+        if (DEBUG) {
+            Log.d(TAG, "ColorTextListView: gravity:" + gravity);
+            Log.d(TAG, "ColorTextListView: max:" + max);
+        }
         typedArray.recycle();
 
         myObserver = new MyObserver();
@@ -63,8 +65,8 @@ public class ColorTextListView extends FrameLayout {
         int count = colorTextAdapter.getCount();
         for (int i = 0; i < count; i++) {
             ColorTextView child = new ColorTextView(getContext());
-            addView(child, -1);
             colorTextAdapter.setData(new ViewHolder(child), i);
+            addView(child, -1);
         }
     }
 
@@ -81,7 +83,9 @@ public class ColorTextListView extends FrameLayout {
             }
             height = getChildAt(tmp - 1).getMeasuredHeight();
         }
-        Log.d(TAG, "onMeasure: " + tmp + "*" + height);
+        if (DEBUG) {
+            Log.d(TAG, "onMeasure: " + tmp + "*" + height);
+        }
         setMeasuredDimension(getMeasuredWidth(), (int) (tmp * (height + margin)));
     }
 
@@ -96,10 +100,12 @@ public class ColorTextListView extends FrameLayout {
         final int parentTop = getPaddingTop();
         final int parentBottom = bottom - top - getPaddingBottom();
         int childCount = getChildCount();
-        Log.d(TAG, "layoutChildren:parentLeft: " + parentLeft);
-        Log.d(TAG, "layoutChildren:parentRight: " + parentRight);
-        Log.d(TAG, "layoutChildren:parentTop: " + parentTop);
-        Log.d(TAG, "layoutChildren:parentBottom: " + parentBottom);
+        if (DEBUG) {
+            Log.d(TAG, "layoutChildren:parentLeft: " + parentLeft);
+            Log.d(TAG, "layoutChildren:parentRight: " + parentRight);
+            Log.d(TAG, "layoutChildren:parentTop: " + parentTop);
+            Log.d(TAG, "layoutChildren:parentBottom: " + parentBottom);
+        }
         int remain = max;
 
         left = parentLeft;
@@ -108,11 +114,14 @@ public class ColorTextListView extends FrameLayout {
         float len = (parentRight - parentLeft) / max;
         float marginStart = 0;
         for (int i = 0; i < childCount; i++) {
-            Log.d(TAG, "layoutChildren:left: " + left);
-            Log.d(TAG, "layoutChildren:top: " + top);
-            Log.d(TAG, "layoutChildren:remain: " + remain);
             View child = getChildAt(i);
-            Log.d(TAG, "child.getMeasuredWidth(): " + child.getMeasuredWidth());
+
+            if (DEBUG) {
+                Log.d(TAG, "layoutChildren:left: " + left);
+                Log.d(TAG, "layoutChildren:top: " + top);
+                Log.d(TAG, "layoutChildren:remain: " + remain);
+                Log.d(TAG, "child.getMeasuredWidth(): " + child.getMeasuredWidth());
+            }
             if (newLine) {
                 switch (gravity) {
                     case GRAVITY_CENTER:
@@ -136,7 +145,9 @@ public class ColorTextListView extends FrameLayout {
                 remain = max;
                 left = (int) (parentLeft + marginStart);
                 top += child.getMeasuredHeight() + margin;
-                Log.d(TAG, "layoutChildren:top----->" + top);
+                if (DEBUG) {
+                    Log.d(TAG, "layoutChildren:top----->" + top);
+                }
             }
         }
     }
@@ -146,20 +157,8 @@ public class ColorTextListView extends FrameLayout {
 
         @Override
         public void onChanged() {
-            int count = colorTextAdapter.getCount();
-            if (count == getChildCount()) {
-                for (int i = 0; i < count; i++) {
-                    if (colorTextAdapter.getItem(i).getColor() == colorTextAdapter.getViewHolders().get(i).getRoundedRectangleView().getColor()
-                            || !colorTextAdapter.getItem(i).getText().equals(colorTextAdapter.getViewHolders().get(i).getTextView().getText().toString())) {
-                        colorTextAdapter.getViewHolders().get(i).getTextView().setText(colorTextAdapter.getItem(i).getText());
-                        colorTextAdapter.getViewHolders().get(i).getRoundedRectangleView().setColor(colorTextAdapter.getItem(i).getColor());
-                    }
-                }
-                requestLayout();
-            } else {
-                removeAllViews();
-                refreshView();
-            }
+            removeAllViews();
+            refreshView();
         }
 
         @Override

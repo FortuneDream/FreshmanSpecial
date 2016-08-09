@@ -15,7 +15,7 @@
         android:layout_height="match_parent" />
 
     <com.excitingboat.yellowcake.Yellowcake
-        android:id="@+id/cake"
+        android:id="@+id/test_cake"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         />

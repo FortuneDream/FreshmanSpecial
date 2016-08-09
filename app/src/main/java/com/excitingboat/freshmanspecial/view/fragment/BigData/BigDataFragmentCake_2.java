@@ -56,7 +56,8 @@ public class BigDataFragmentCake_2 extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemSelected: position:" + position);
                 if (position != 0) {
-                    bigDataAdapter.setData(yellowcake, myColorTextAdapter, position);
+                    myColorTextAdapter.clear();
+                    bigDataAdapter.setData(yellowcake, myColorTextAdapter, position - 1);
                 }
             }
 

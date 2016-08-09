@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.config.Data;
 import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter;
+import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter_1;
 import com.excitingboat.freshmanspecial.view.adapter.MyColorTextAdapter;
 import com.excitingboat.yellowcake.ColorTextListView;
 import com.excitingboat.yellowcake.Yellowcake;
@@ -28,7 +29,7 @@ import java.util.List;
  */
 public class BigDataFragmentCake_1 extends Fragment {
     private static final String TAG = "BigDataFragmentCake_1";
-    private BigDataAdapter bigDataAdapter;
+    private BigDataAdapter_1 bigDataAdapter;
     private List<String> major;
     private Spinner spinner1;
     private Spinner spinner2;
@@ -68,6 +69,7 @@ public class BigDataFragmentCake_1 extends Fragment {
                     return;
                 }
                 Collections.addAll(major, Data.MAJOR[position - 1]);
+                bigDataAdapter.setSchoolPosition(position - 1);
             }
 
             @Override
@@ -78,8 +80,9 @@ public class BigDataFragmentCake_1 extends Fragment {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spinner1.getSelectedItemId() > 0) {
-                    bigDataAdapter.setData(yellowcake, myColorTextAdapter, position);
+                if (spinner1.getSelectedItemId() > 0 && position > 0) {
+                    myColorTextAdapter.clear();
+                    bigDataAdapter.setData(yellowcake, myColorTextAdapter, position - 1);
                 }
             }
 
@@ -102,7 +105,7 @@ public class BigDataFragmentCake_1 extends Fragment {
         return bigDataAdapter;
     }
 
-    public void setBigDataAdapter(BigDataAdapter bigDataAdapter) {
+    public void setBigDataAdapter(BigDataAdapter_1 bigDataAdapter) {
         this.bigDataAdapter = bigDataAdapter;
     }
 }

@@ -30,11 +30,17 @@ public abstract class ColorTextAdapter implements Adapter {
 
     public void addAll(Collection<? extends ColorText> collection) {
         colorTexts.addAll(collection);
-        dataSetObservable.notifyChanged();
+        notifyDataSetChanged();
+    }
+
+    public void setColorTexts(List<ColorText> colorTexts) {
+        this.colorTexts = colorTexts;
+        notifyDataSetChanged();
     }
 
     public void clear() {
         colorTexts.clear();
+        notifyDataSetChanged();
     }
 
     public ColorTextAdapter(List<ColorText> colorTexts) {
