@@ -6,8 +6,9 @@
         android:id="@+id/first_way_information_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    android:text="从机场到学校"
-        android:textSize="16sp"
+        android:textColor="#353537"
+        android:text="从机场到学校"
+        android:textSize="15.5sp"
         android:layout_margin="10dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
+            android:textColor="#555555"
             android:text="线路一: "/>
         <TextView
             android:id="@+id/first_way_information_content_one"
@@ -26,8 +28,9 @@
             android:lineSpacingExtra="5dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
+            android:textColor="#888888"
             android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/f_one"
             />
     </RelativeLayout>
@@ -39,7 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
+            android:textColor="#555555"
             android:text="线路二: "/>
         <TextView
             android:id="@+id/first_way_information_content_two"
@@ -48,8 +52,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:lineSpacingExtra="5dp"
+            android:textColor="#888888"
             android:text="新匙，然后到风雨操场报到，领取相应物品。"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/f_two"/>
             />
     </RelativeLayout>
@@ -61,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
+            android:textColor="#555555"
             android:text="线路三: "/>
         <TextView
             android:id="@+id/first_way_information_content_three"
@@ -70,8 +76,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:lineSpacingExtra="5dp"
+            android:textColor="#888888"
             android:text="新领取相应物品。"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/f_three"
             />
     </RelativeLayout>
@@ -84,8 +91,9 @@
         android:id="@+id/second_way_information_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#353537"
         android:text="从火车站到学校"
-        android:textSize="16sp"
+        android:textSize="15.5sp"
         android:layout_margin="10dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -95,7 +103,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
+            android:textColor="#555555"
             android:text="线路一: "/>
         <TextView
             android:id="@+id/second_way_information_content_one"
@@ -104,8 +113,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:lineSpacingExtra="5dp"
+            android:textColor="#888888"
             android:text="新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/s_one"
             />
     </RelativeLayout>
@@ -117,7 +127,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
+            android:textColor="#555555"
             android:text="线路二: "/>
         <TextView
             android:id="@+id/second_way_information_content_two"
@@ -126,8 +137,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:lineSpacingExtra="5dp"
-            android:text="线路二：新 匙，然后到风雨操场报到，领取相应物品。"
-            android:textSize="13sp"
+            android:textColor="#888888"
+            android:text="然后到风雨操场报到，领取相应物品。"
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/s_two"
             />
     </RelativeLayout>
@@ -141,8 +153,9 @@
         android:id="@+id/third_way_information_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#353537"
         android:text="从汽车站到学校"
-        android:textSize="16sp"
+        android:textSize="15.5sp"
         android:layout_margin="10dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -152,8 +165,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
-            android:text="线路二: "/>
+            android:textSize="12.5sp"
+            android:textColor="#555555"
+            android:text="线路一: "/>
         <TextView
             android:id="@+id/third_way_information_content_one"
             android:layout_width="match_parent"
@@ -161,8 +175,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:lineSpacingExtra="5dp"
+            android:textColor="#888888"
             android:text="线路一：新生先找到自己所住楼栋，到宿管登记，拿寝室钥匙，然后到风雨操场报到，领取相应物品。"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/t_one"
             />
     </RelativeLayout>
@@ -174,8 +189,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textSize="13sp"
-            android:text="线路一: "/>
+            android:textColor="#555555"
+            android:textSize="12.5sp"
+            android:text="线路二: "/>
         <TextView
             android:id="@+id/third_way_information_content_two"
             android:layout_width="match_parent"
@@ -184,8 +200,9 @@
             android:layout_marginBottom="10dp"
             android:lineSpacingExtra="5dp"
             android:text="然后到风雨操场报到，领取相应物品。"
-            android:textSize="13sp"
+            android:textSize="12.5sp"
             android:layout_toRightOf="@+id/t_two"
+            android:textColor="#888888"
             />
     </RelativeLayout>
 

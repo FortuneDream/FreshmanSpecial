@@ -23,6 +23,7 @@
         <activity android:name=".view.activity.FreshmenBigDataActivity" />
         <activity android:name=".view.activity.FreshmenCQUPTStyleActivity" />
         <activity android:name=".view.activity.TestActivity"></activity>
+        <activity android:name=".view.activity.ShowBigPictureActivity"/>
     </application>
 
 </manifest>
