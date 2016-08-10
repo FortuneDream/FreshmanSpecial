@@ -49,6 +49,7 @@ public class BigDataFragmentCake_2 extends Fragment {
 
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.spinner, bigDataAdapter.getSchool());
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);//设置下拉框显示值的样式
         arrayAdapter.notifyDataSetChanged();
         spinner1.setAdapter(arrayAdapter);
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
