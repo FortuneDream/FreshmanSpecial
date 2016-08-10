@@ -1,9 +1,6 @@
 package com.excitingboat.freshmanspecial.view.adapter;
 
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
-import com.excitingboat.freshmanspecial.config.Data;
+import com.excitingboat.freshmanspecial.config.BigData;
 import com.excitingboat.yellowcake.ColorText;
 import com.excitingboat.yellowcake.Yellowcake;
 
@@ -22,12 +19,12 @@ public abstract class BigDataAdapter {
     public BigDataAdapter() {
         school = new ArrayList<>();
         colorTexts = new ArrayList<>();
-        Collections.addAll(school, Data.SCHOOL);
+        Collections.addAll(school, BigData.SCHOOL);
         init();
     }
 
     /**
-     * Override it to init Data
+     * Override it to init BigData
      */
     protected void init(){}
 

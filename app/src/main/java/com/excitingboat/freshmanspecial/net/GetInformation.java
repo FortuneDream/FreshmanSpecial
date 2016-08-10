@@ -1,8 +1,7 @@
 package com.excitingboat.freshmanspecial.net;
 
-import com.excitingboat.freshmanspecial.model.bean.Person;
-import com.excitingboat.freshmanspecial.model.bean.TitleContent;
-import com.excitingboat.freshmanspecial.model.bean.TitleContentPicture;
+import com.excitingboat.freshmanspecial.model.bean.TheExcellent;
+import com.excitingboat.freshmanspecial.model.bean.Video;
 
 import java.util.List;
 
@@ -14,9 +13,18 @@ import rx.Observable;
  * Created by PinkD on 2016/8/4.
  * Retrofit Network Interface
  */
-public interface GetInformation<T> {
+public interface GetInformation {
 
-    @GET("params")
-    Observable<List<T>> getInformation(@Query("type") String type);
+    int STUDENT = 0;
+    int TEACHER = 1;
+    int VIDEO = 2;
+    @GET("api")
+    Observable<List<TheExcellent>> getStudent(@Query("param") String param);
+
+    @GET("api")
+    Observable<List<TheExcellent>> getTeacher(@Query("param") String param);
+
+    @GET("api")
+    Observable<List<Video>> getVideo(@Query("param") String param);
 
 }

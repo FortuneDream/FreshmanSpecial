@@ -12,6 +12,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.excitingboat.freshmanspecial.utils.MyGlideModule"
+            android:value="GlideModule" />
+
         <activity android:name=".view.activity.FreshmanMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +26,7 @@
         <activity android:name=".view.activity.FreshmenGuideActivity" />
         <activity android:name=".view.activity.FreshmenBigDataActivity" />
         <activity android:name=".view.activity.FreshmenCQUPTStyleActivity" />
-        <activity android:name=".view.activity.TestActivity"></activity>
+        <activity android:name=".view.activity.TestActivity"/>
         <activity android:name=".view.activity.ShowBigPictureActivity"/>
     </application>
 
