@@ -30,7 +30,7 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:gravity="right"
+        app:gravity="center"
         app:max="2"
         />
 </LinearLayout>

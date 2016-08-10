@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.excitingboat.freshmanspecial.R;
-import com.excitingboat.freshmanspecial.config.Data;
+import com.excitingboat.freshmanspecial.config.BigData;
 import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter;
 import com.excitingboat.freshmanspecial.view.adapter.BigDataAdapter_1;
 import com.excitingboat.freshmanspecial.view.adapter.MyColorTextAdapter;
@@ -68,7 +68,7 @@ public class BigDataFragmentCake_1 extends Fragment {
                 if (position == 0) {
                     return;
                 }
-                Collections.addAll(major, Data.MAJOR[position - 1]);
+                Collections.addAll(major, BigData.MAJOR[position - 1]);
                 bigDataAdapter.setSchoolPosition(position - 1);
             }
 

@@ -2,9 +2,9 @@ package com.excitingboat.freshmanspecial.config;
 
 /**
  * Created by PinkD on 2016/8/7.
- * Data
+ * BigData
  */
-public class Data {
+public class BigData {
 
     public static final String[] SCHOOL = new String[]{"请选择学院", "通信与信息工程学院 ", "计算机科学与技术学院",
             "光电工程学院", "自动化学院", "理学院", "生物信息学院", "经济管理学院 ", "体育学院", "外国语学院",

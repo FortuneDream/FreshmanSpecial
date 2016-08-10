@@ -1,6 +1,6 @@
 package com.excitingboat.freshmanspecial.view.adapter;
 
-import com.excitingboat.freshmanspecial.config.Data;
+import com.excitingboat.freshmanspecial.config.BigData;
 import com.excitingboat.yellowcake.ColorText;
 import com.excitingboat.yellowcake.Yellowcake;
 
@@ -13,14 +13,14 @@ public class BigDataAdapter_2 extends BigDataAdapter {
     @Override
     public void setData(Yellowcake yellowcake, MyColorTextAdapter myColorTextAdapter, int position) {
         double[] numbers = new double[]{
-                Data.HARD_SUBJECT_PERCENT[0][position],
-                Data.HARD_SUBJECT_PERCENT[1][position],
-                Data.HARD_SUBJECT_PERCENT[2][position]
+                BigData.HARD_SUBJECT_PERCENT[0][position],
+                BigData.HARD_SUBJECT_PERCENT[1][position],
+                BigData.HARD_SUBJECT_PERCENT[2][position]
         };
 
-        yellowcake.setData(numbers, Data.COLORS);
+        yellowcake.setData(numbers, BigData.COLORS);
         for (int i = 0; i < 3; i++) {
-            myColorTextAdapter.add(new ColorText(Data.COLORS[i], Data.HARD_SUBJECT[i][position]));
+            myColorTextAdapter.add(new ColorText(BigData.COLORS[i], BigData.HARD_SUBJECT[i][position]));
         }
         myColorTextAdapter.notifyDataSetChanged();
     }

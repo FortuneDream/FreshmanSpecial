@@ -12,21 +12,27 @@ import rx.functions.Action1;
  * 通用Presenter
  */
 public class GetInformationPresenter<T> implements BasePresenter {
-    private IGetInformation iGetInformation;
+    private int which;
+    private IGetInformation<T> iGetInformation;
     private GetInformationModule<T> getInformationModule;
-    private Action1<List<T>> requestSuccess;
+    private Action1<List> requestSuccess;
     private RequestFail requestFail;
 
 
-    public GetInformationPresenter(IGetInformation iGetInformation) {
+    public GetInformationPresenter(IGetInformation<T> iGetInformation, int which) {
         this.iGetInformation = iGetInformation;
         getInformationModule = new GetInformationModule<>();
-        requestSuccess = new RequestSuccess<T>();
+        requestSuccess = new RequestSuccess();
         requestFail = new RequestFail();
+        this.which = which;
     }
 
-    public void getInformation(String type) {
-        getInformationModule.getInformation(type, requestSuccess, requestFail);
+    public int getWhich() {
+        return which;
+    }
+
+    public void getInformation(String param) {
+        getInformationModule.getInformation(param, which, requestSuccess, requestFail);
     }
 
     @Override
@@ -34,9 +40,9 @@ public class GetInformationPresenter<T> implements BasePresenter {
         iGetInformation = null;
     }
 
-    private class RequestSuccess<A> implements Action1<List<A>> {
+    private class RequestSuccess implements Action1<List> {
         @Override
-        public void call(List<A> list) {
+        public void call(List list) {
             iGetInformation.requestSuccess(list);
         }
     }

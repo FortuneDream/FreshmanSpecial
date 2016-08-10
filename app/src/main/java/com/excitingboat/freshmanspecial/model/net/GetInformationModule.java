@@ -13,12 +13,28 @@ import rx.schedulers.Schedulers;
  * getInformation From Server
  */
 public class GetInformationModule<T> {
-    public void getInformation(String target, Action1<List<T>> success, Action1<Throwable> fail) {
-        GetInformation<T> getInformation = (GetInformation<T>) SingleRetrofit.getInstance().getRetrofit().create(GetInformation.class);
-        getInformation.getInformation(target)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(success, fail);
+    public void getInformation(String param, int which, Action1<List> success, Action1<Throwable> fail) {
+        GetInformation getInformation =  SingleRetrofit.getInstance().getRetrofit().create(GetInformation.class);
+        switch (which) {
+            case GetInformation.STUDENT:
+                getInformation.getStudent(param)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(success, fail);
+                break;
+            case GetInformation.TEACHER:
+                getInformation.getTeacher(param)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(success, fail);
+                break;
+            case GetInformation.VIDEO:
+                getInformation.getVideo(param)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(success, fail);
+                break;
+        }
     }
 }
 

@@ -7,6 +7,7 @@
     <string name="freshman_login">新生登录</string>
 
     <string name="network_error">网络错误</string>
+    <string name="load_fail">网络错误</string>
 
 
     <string name="name">姓名</string>

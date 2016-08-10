@@ -42,7 +42,7 @@ public class ColorTextListView extends FrameLayout {
     public ColorTextListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        TypedArray typedArray = context.obtainStyledAttributes(R.styleable.ColorTextListView);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ColorTextListView);
         max = typedArray.getInt(R.styleable.ColorTextListView_max, 3);
         gravity = typedArray.getInt(R.styleable.ColorTextListView_gravity, 1);
         margin = typedArray.getDimension(R.styleable.ColorTextListView_marginTop, 10);

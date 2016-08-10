@@ -1,8 +1,6 @@
 package com.excitingboat.freshmanspecial.view.adapter;
 
-import android.util.Log;
-
-import com.excitingboat.freshmanspecial.config.Data;
+import com.excitingboat.freshmanspecial.config.BigData;
 import com.excitingboat.yellowcake.ColorText;
 import com.excitingboat.yellowcake.Yellowcake;
 
@@ -18,7 +16,7 @@ public class BigDataAdapter_1 extends BigDataAdapter{
     @Override
     protected void init() {
         school.clear();
-        Collections.addAll(school, Data.SCHOOL_1);
+        Collections.addAll(school, BigData.SCHOOL_1);
     }
 
     public int getSchoolPosition() {
@@ -31,9 +29,9 @@ public class BigDataAdapter_1 extends BigDataAdapter{
 
     @Override
     public void setData(Yellowcake yellowcake, MyColorTextAdapter myColorTextAdapter, int position) {
-        yellowcake.setData(Data.MAN_WOMAN[schoolPosition][position], Data.COLORS);
-        colorTexts.add(new ColorText(Data.COLORS[0], "男"));
-        colorTexts.add(new ColorText(Data.COLORS[1], "女"));
+        yellowcake.setData(BigData.MAN_WOMAN[schoolPosition][position], BigData.COLORS);
+        colorTexts.add(new ColorText(BigData.COLORS[0], "男"));
+        colorTexts.add(new ColorText(BigData.COLORS[1], "女"));
         //也不知道是怎么回事，，，反正就是不能添加。。只能set了。。。
         myColorTextAdapter.setColorTexts(colorTexts);
 //        myColorTextAdapter.addAll(colorTexts);

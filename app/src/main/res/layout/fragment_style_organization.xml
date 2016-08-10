@@ -4,34 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="48dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="100">
+        android:layout_marginStart="12dp"
+        android:weightSum="100"
+        android:layout_marginLeft="12dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="20"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="团委直属部门"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="20"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="校学生会"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="20"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="科技联合会"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="20"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="社团联合会"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="20"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="大学生艺术团"
             />
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        />
 </LinearLayout>

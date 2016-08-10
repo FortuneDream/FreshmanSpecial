@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Region;
@@ -42,6 +43,8 @@ public class Yellowcake extends View {
 
     private float dpScale;
     private boolean centerBorder = false;
+
+    private PaintFlagsDrawFilter paintFlagsDrawFilter;
 
 
     public void setCenterBorder(boolean centerBorder) {
@@ -86,6 +89,8 @@ public class Yellowcake extends View {
 //        cornerDegree = typedArray.getFloat(R.styleable.Yellowcake_cornerDegree, 5);
         requestedCornerDegree = 5;
         typedArray.recycle();
+
+        paintFlagsDrawFilter = new PaintFlagsDrawFilter(0, Paint.FILTER_BITMAP_FLAG | Paint.ANTI_ALIAS_FLAG);
     }
 
     @Override
@@ -115,8 +120,8 @@ public class Yellowcake extends View {
                 }
                 width = Utils.dp2px(getContext(), 128);
                 break;
-
         }
+
         switch (heightMode) {
             case MeasureSpec.EXACTLY:
                 if (DEBUG) {
@@ -134,8 +139,8 @@ public class Yellowcake extends View {
                 }
                 height = Utils.dp2px(getContext(), 128);
                 break;
-
         }
+
         if (DEBUG) {
             Log.d(TAG, "onMeasure: width:" + width + "height:" + height);
         }
@@ -147,6 +152,7 @@ public class Yellowcake extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        canvas.setDrawFilter(paintFlagsDrawFilter);
         boolean drawBorder = true;
         boolean borderDrawn = false;
         dpScale = 20 / scale * radius / 180;
