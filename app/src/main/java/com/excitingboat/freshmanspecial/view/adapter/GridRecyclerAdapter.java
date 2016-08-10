@@ -84,10 +84,10 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
 
         public void setData(Context context, TheExcellent theExcellent) {
             Glide.with(context)
-                    .load(theExcellent.getImage())
+                    .load(theExcellent.getData())
                     .into(roundRectImageView);
             name.setText(theExcellent.getName());
-            school.setText(theExcellent.getSchool());
+            school.setText(theExcellent.getDescription());
         }
     }
 }

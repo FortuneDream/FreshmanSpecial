@@ -1,19 +1,49 @@
 package com.excitingboat.freshmanspecial.model.bean;
 
+import java.util.List;
+
 /**
  * Created by PinkD on 2016/8/10.
+ * Video
  */
 public class Video {
+    private String id;
     private String name;
     private String time;
-    private String image;
+    private List<Photo> data;
+    private String introduction;
+    private String video_url;
 
-    public String getImage() {
-        return image;
+    public String getVideo_url() {
+        return video_url;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setVideo_url(String video_url) {
+        this.video_url = video_url;
+    }
+
+    public List<Photo> getData() {
+        return data;
+    }
+
+    public void setData(List<Photo> data) {
+        this.data = data;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     public String getName() {

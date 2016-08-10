@@ -22,7 +22,7 @@ import java.util.List;
  * Created by PinkD on 2016/8/9.
  * PictureGridFragment
  */
-public class PictureGridFragment extends Fragment implements IGetInformation<TheExcellent> {
+public class PictureGridFragment extends Fragment implements IGetInformation<TheExcellent>,GridRecyclerAdapter.OnItemClickListener{
     private GetInformationPresenter<TheExcellent> presenter;
     private RecyclerView recyclerView;
     private GridRecyclerAdapter gridRecyclerAdapter;
@@ -36,6 +36,7 @@ public class PictureGridFragment extends Fragment implements IGetInformation<The
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         recyclerView = (RecyclerView) inflater.inflate(R.layout.recyclerview, container, false);
+        gridRecyclerAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(gridRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         return recyclerView;
@@ -44,7 +45,7 @@ public class PictureGridFragment extends Fragment implements IGetInformation<The
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //TODO
-        presenter.getInformation(null);
+//        presenter.getInformation(null);
     }
 
     @Override
@@ -55,5 +56,10 @@ public class PictureGridFragment extends Fragment implements IGetInformation<The
     @Override
     public void requestFail() {
         Toast.makeText(getContext(), R.string.load_fail, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        //TODO show a Dialog
     }
 }

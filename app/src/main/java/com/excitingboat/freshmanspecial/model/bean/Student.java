@@ -3,10 +3,10 @@ package com.excitingboat.freshmanspecial.model.bean;
 import java.util.List;
 
 /**
- * Created by PinkD on 2016/8/4.
- * TheExcellent
+ * Created by PinkD on 2016/8/11.
+ * Student
  */
-public class TheExcellent {
+public class Student {
 //TODO
     private String id;
     private String name;

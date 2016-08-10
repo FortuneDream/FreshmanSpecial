@@ -1,11 +1,10 @@
 package com.excitingboat.freshmanspecial.presenter;
 
+import com.excitingboat.freshmanspecial.model.bean.Wrapper;
 import com.excitingboat.freshmanspecial.model.net.GetInformationModule;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
-import java.util.List;
-
-import rx.functions.Action1;
+import rx.Subscriber;
 
 /**
  * Created by PinkD on 2016/8/4.
@@ -14,16 +13,12 @@ import rx.functions.Action1;
 public class GetInformationPresenter<T> implements BasePresenter {
     private int which;
     private IGetInformation<T> iGetInformation;
-    private GetInformationModule<T> getInformationModule;
-    private Action1<List> requestSuccess;
-    private RequestFail requestFail;
+    private GetInformationModule getInformationModule;
 
 
     public GetInformationPresenter(IGetInformation<T> iGetInformation, int which) {
         this.iGetInformation = iGetInformation;
-        getInformationModule = new GetInformationModule<>();
-        requestSuccess = new RequestSuccess();
-        requestFail = new RequestFail();
+        getInformationModule = new GetInformationModule();
         this.which = which;
     }
 
@@ -31,8 +26,8 @@ public class GetInformationPresenter<T> implements BasePresenter {
         return which;
     }
 
-    public void getInformation(String param) {
-        getInformationModule.getInformation(param, which, requestSuccess, requestFail);
+    public void getInformation(String[] param) {
+        getInformationModule.getInformation(param, which, (Subscriber) new MySubscriber());
     }
 
     @Override
@@ -40,17 +35,21 @@ public class GetInformationPresenter<T> implements BasePresenter {
         iGetInformation = null;
     }
 
-    private class RequestSuccess implements Action1<List> {
-        @Override
-        public void call(List list) {
-            iGetInformation.requestSuccess(list);
-        }
-    }
+    class MySubscriber extends Subscriber<Wrapper<T>> {
 
-    private class RequestFail implements Action1<Throwable> {
         @Override
-        public void call(Throwable throwable) {
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
             iGetInformation.requestFail();
+        }
+
+        @Override
+        public void onNext(Wrapper<T> wrapper) {
+            iGetInformation.requestSuccess(wrapper.getData());
         }
     }
 }

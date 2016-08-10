@@ -40,6 +40,10 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
         notifyDataSetChanged();
     }
 
+    public List<Video> getData() {
+        return data;
+    }
+
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
@@ -85,7 +89,7 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
 
         public void setData(Context context, Video video) {
             Glide.with(context)
-                    .load(video.getImage())
+                    .load(video.getData().get(0))
                     .into(roundRectImageView);
             name.setText(video.getName());
             school.setText(video.getTime());

@@ -1,5 +1,6 @@
 package com.excitingboat.freshmanspecial.view.fragment.Style;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
+import com.excitingboat.freshmanspecial.view.activity.WebActivity;
 import com.excitingboat.freshmanspecial.view.adapter.GridRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.adapter.LinearRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
@@ -46,7 +48,7 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //TODO
-        presenter.getInformation(null);
+//        presenter.getInformation(null);
     }
 
     @Override
@@ -61,6 +63,8 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
 
     @Override
     public void onItemClick(View view,int position) {
-
+        Intent intent = new Intent(getContext(), WebActivity.class);
+        intent.putExtra("url", linearRecyclerAdapter.getData().get(position).getVideo_url());
+        startActivity(intent);
     }
 }
