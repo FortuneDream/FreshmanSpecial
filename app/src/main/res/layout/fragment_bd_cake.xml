@@ -9,7 +9,10 @@
         android:id="@+id/spinner_1"
         android:layout_width="match_parent"
         android:layout_height="36dp"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginBottom="15dp"
         style="@style/spinner_style"
 
         android:spinnerMode="dropdown"
@@ -50,4 +53,5 @@
         app:gravity="center"
         app:max="2"
         />
+
 </LinearLayout>
