@@ -1,5 +1,7 @@
 package com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,18 +23,18 @@ import com.excitingboat.freshmanspecial.R;
 /**
  * Created by xushuzhan on 2016/8/4.
  */
-public class EnrolInformationFragment extends Fragment{
-
-        View view;
+public class EnrolInformationFragment extends Fragment implements View.OnClickListener{
+    public boolean isShow = false;
+    View view;
     TextView  ReportInformation;
     TextView SafetyInformation;
     TextView ScholarshipInformation;
     TextView HandbookInformation;
 
-    CheckBox C1;
-    CheckBox C2;
-    CheckBox C3;
-    CheckBox C4;
+    ImageButton IV1;
+    ImageButton IV2;
+    ImageButton IV3;
+    ImageButton IV4;
 
 
 
@@ -47,57 +51,134 @@ public class EnrolInformationFragment extends Fragment{
 
     private void initview() {
         ReportInformation = (TextView) view.findViewById(R.id.report_information_content);
+        ReportInformation.setOnClickListener(this);
         SafetyInformation = (TextView) view .findViewById(R.id.safety_information_content);
+        SafetyInformation.setOnClickListener(this);
         ScholarshipInformation = (TextView) view .findViewById(R.id.scholarship_information_content);
+        ScholarshipInformation.setOnClickListener(this);
         HandbookInformation = (TextView) view .findViewById(R.id.handbook_information_content);
+        HandbookInformation.setOnClickListener(this);
 
-        C1 = (CheckBox) view.findViewById(R.id.cb_report_information);
-        C1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    ReportInformation.setMaxLines(10000);
-                }else{
-                    ReportInformation.setMaxLines(3);
-                }
-            }
-        });
-        C2 = (CheckBox) view.findViewById(R.id.cb_safety_information);
-        C2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    SafetyInformation.setMaxLines(10000);
-                }else{
-                    SafetyInformation.setMaxLines(3);
-                }
-            }
-        });
-        C3 = (CheckBox) view.findViewById(R.id.cb_scholarship_information);
-        C3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    ScholarshipInformation.setMaxLines(10000);
-                }else{
-                    ScholarshipInformation.setMaxLines(3);
-                }
-            }
-        });
-        C4 = (CheckBox) view.findViewById(R.id.cb_handbook_information);
-        C4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-                    HandbookInformation.setMaxLines(10000);
-                }else{
-                    HandbookInformation.setMaxLines(3);
-                }
-            }
-        });
+        IV1 = (ImageButton) view.findViewById(R.id.ib_report_information);
+        IV1.setOnClickListener(this);
+        IV2 = (ImageButton) view.findViewById(R.id.ib_safety_information);
+        IV2.setOnClickListener(this);
+        IV3 = (ImageButton) view.findViewById(R.id.ib_scholarship_information);
+        IV3.setOnClickListener(this);
+        IV4 = (ImageButton) view.findViewById(R.id.ib_handbook_information);
+        IV4.setOnClickListener(this);
+
+
+
+//        C1 = (CheckBox) view.findViewById(R.id.cb_report_information);
+//        C1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(b){
+//                    ReportInformation.setMaxLines(10000);
+//                }else{
+//                    ReportInformation.setMaxLines(3);
+//                }
+//            }
+//        });
+//        C2 = (CheckBox) view.findViewById(R.id.cb_safety_information);
+//        C2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(b){
+//                    SafetyInformation.setMaxLines(10000);
+//                }else{
+//                    SafetyInformation.setMaxLines(3);
+//                }
+//            }
+//        });
+//        C3 = (CheckBox) view.findViewById(R.id.cb_scholarship_information);
+//        C3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(b){
+//                    ScholarshipInformation.setMaxLines(10000);
+//                }else{
+//                    ScholarshipInformation.setMaxLines(3);
+//                }
+//            }
+//        });
+//        C4 = (CheckBox) view.findViewById(R.id.cb_handbook_information);
+//        C4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(b){
+//                    HandbookInformation.setMaxLines(10000);
+//                }else{
+//                    HandbookInformation.setMaxLines(3);
+//                }
+//            }
+//        });
 
 
     }
+
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.ib_report_information:
+            case R.id.report_information_content:
+                if(isShow){
+                    ReportInformation.setMaxLines(3);
+                    IV1.setBackground(getContext().getResources().getDrawable(R.drawable.more_content));
+                    isShow = false;
+                }else {
+                    ReportInformation.setMaxLines(10000);
+                    IV1.setBackground(getContext().getResources().getDrawable(R.drawable.hint_content));
+                    isShow = true;
+                }
+                break;
+            case R.id.ib_safety_information:
+            case R.id.safety_information_content:
+                if(isShow){
+                    SafetyInformation.setMaxLines(3);
+                    IV2.setBackground(getContext().getResources().getDrawable(R.drawable.more_content));
+                    isShow = false;
+                }else {
+                    SafetyInformation.setMaxLines(10000);
+                    IV2.setBackground(getContext().getResources().getDrawable(R.drawable.hint_content));
+                    isShow = true;
+                }
+                break;
+            case R.id.ib_scholarship_information:
+            case R.id.scholarship_information_content:
+                if(isShow){
+                    ScholarshipInformation.setMaxLines(3);
+                    IV3.setBackground(getContext().getResources().getDrawable(R.drawable.more_content));
+                    isShow = false;
+                }else {
+                    ScholarshipInformation.setMaxLines(10000);
+                    IV3.setBackground(getContext().getResources().getDrawable(R.drawable.hint_content));
+                    isShow = true;
+                }
+                break;
+            case R.id.ib_handbook_information:
+            case R.id.handbook_information_content:
+                if(isShow){
+                    HandbookInformation.setMaxLines(3);
+                    IV4.setBackground(getContext().getResources().getDrawable(R.drawable.more_content));
+                    isShow = false;
+                }else {
+                    HandbookInformation.setMaxLines(10000);
+                    IV4.setBackground(getContext().getResources().getDrawable(R.drawable.hint_content));
+                    isShow = true;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
+
     private void initData() {
         ReportInformation.setText("一、新生入学时间：2016年9月7日、8日。\n" +
                 "新生报到需要物品：报到时需持我校新生录取通知书、高考准考证及身份证三证入学报到，因故不能及时报道者，需要及时向学校请假。未请假或逾期未报道者视为放弃入学资格。\n" +
@@ -243,6 +324,7 @@ public class EnrolInformationFragment extends Fragment{
                         "6、\t对违反国家招生规定入学者，学校不发给学历证书、学位证书；已发的学历证书、学位证书应予追回并交上级主管部门宣布证书无效。\n" +
                         "7、\t毕业证、结业证、肄业证和学位证书遗失或损坏不能补发，可由学校出具证明书。证明书和原证书具有等同效力。\n");
     }
+
 
 
 }

@@ -34,12 +34,13 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 />
-            <CheckBox
-                android:background="@drawable/more_content_selector"
-                android:id="@+id/cb_report_information"
-                android:layout_width="35.5dp"
-                android:layout_height="10dp"
+            <ImageButton
+                android:background="@drawable/more_content"
+                android:id="@+id/ib_report_information"
+                android:layout_width="40dp"
+                android:layout_height="11.5dp"
                 android:layout_marginRight="10dp"
+                android:src="?android:attr/selectableItemBackground"
                 android:button="@null"
                 android:layout_below="@+id/report_information_content"
                 android:layout_alignRight="@+id/report_information_content"
@@ -77,13 +78,13 @@
             android:maxLines="3"
             android:ellipsize="end"
             />
-        <CheckBox
+        <ImageButton
             android:background="@drawable/more_content_selector"
-            android:id="@+id/cb_safety_information"
-            android:layout_width="35.5dp"
-            android:layout_height="10dp"
+            android:id="@+id/ib_safety_information"
+            android:layout_width="40dp"
+            android:layout_height="11.5dp"
             android:layout_marginRight="10dp"
-            android:button="@null"
+            android:src="?android:attr/selectableItemBackground"
             android:layout_below="@+id/safety_information_content"
             android:layout_alignRight="@+id/safety_information_content"
             android:layout_alignEnd="@+id/safety_information_content" />
@@ -120,16 +121,17 @@
             android:maxLines="3"
             android:ellipsize="end"
             />
-        <CheckBox
+        <ImageButton
             android:background="@drawable/more_content_selector"
-            android:id="@+id/cb_scholarship_information"
-            android:layout_width="35.5dp"
-            android:layout_height="10dp"
+            android:id="@+id/ib_scholarship_information"
+            android:layout_width="40dp"
+            android:layout_height="11.5dp"
             android:layout_marginRight="10dp"
-            android:button="@null"
+            android:src="?android:attr/selectableItemBackground"
             android:layout_below="@+id/scholarship_information_content"
             android:layout_alignRight="@+id/scholarship_information_content"
-            android:layout_alignEnd="@+id/scholarship_information_content" />
+            android:layout_alignEnd="@+id/scholarship_information_content"
+            android:checked="false" />
 
     </RelativeLayout>
 
@@ -165,13 +167,13 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 />
-            <CheckBox
+            <ImageButton
                 android:background="@drawable/more_content_selector"
-                android:id="@+id/cb_handbook_information"
-                android:layout_width="35.5dp"
-                android:layout_height="10dp"
+                android:id="@+id/ib_handbook_information"
+                android:layout_width="40dp"
+                android:layout_height="11.5dp"
                 android:layout_marginRight="10dp"
-                android:button="@null"
+                android:src="?android:attr/selectableItemBackground"
                 android:layout_below="@+id/handbook_information_content"
                 android:layout_alignRight="@+id/handbook_information_content"
                 android:layout_alignEnd="@+id/handbook_information_content" />
