@@ -3,6 +3,7 @@ package com.excitingboat.freshmanspecial.view.fragment.Style;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,12 @@ import com.excitingboat.freshmanspecial.config.Config;
  * BeautifulCQUPTFragment
  */
 public class BeautifulCQUPTFragment extends Fragment {
+    private static final String TAG = "BeautifulCQUPTFragment";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView: ");
         return inflater.inflate(R.layout.fragment_beautiful_cqupt, container, false);
     }
 

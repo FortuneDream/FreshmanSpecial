@@ -2,13 +2,13 @@ package com.excitingboat.freshmanspecial.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
-import com.excitingboat.freshmanspecial.model.bean.TheExcellent;
 import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.utils.RoundRectImageView;
 
@@ -50,12 +50,12 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(parent);
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fg_info_page, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.setData(context, data.get(position));
+//        holder.setData(context, data.get(position));
     }
 
     @Override

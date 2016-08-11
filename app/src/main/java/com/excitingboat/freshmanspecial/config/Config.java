@@ -23,9 +23,8 @@ public class Config {
     public static final int ERROR_NETWORK = 0;
     public static final int ERROR_INCORRECT = 1;
 
-    public static final int INFORMATION_TYPE_TITLE_CONTENT = 0;
-    public static final int INFORMATION_TYPE_TITLE_CONTENT_PICTURE = 1;
-    public static final int INFORMATION_TYPE_PICTURE = 2;
-    public static final int INFORMATION_TYPE_PERSONAL = 3;
+    public static final int PAGE = 0;
+    public static final int SIZE = 1;
+
 
 }

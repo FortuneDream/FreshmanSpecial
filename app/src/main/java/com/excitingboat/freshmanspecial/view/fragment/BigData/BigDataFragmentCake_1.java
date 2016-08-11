@@ -45,7 +45,6 @@ public class BigDataFragmentCake_1 extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         spinner1 = (Spinner) view.findViewById(R.id.spinner_1);
         spinner2 = (Spinner) view.findViewById(R.id.spinner_2);
         yellowcake = (Yellowcake) view.findViewById(R.id.cake);

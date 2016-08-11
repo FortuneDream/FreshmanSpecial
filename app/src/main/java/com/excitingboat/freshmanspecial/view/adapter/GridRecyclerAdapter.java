@@ -2,6 +2,7 @@ package com.excitingboat.freshmanspecial.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -19,8 +20,8 @@ import java.util.List;
  * Created by PinkD on 2016/8/10.
  * GridRecyclerAdapter
  */
-public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapter.ViewHolder> {
-    private List<TheExcellent> data;
+public class GridRecyclerAdapter<T extends TheExcellent> extends RecyclerView.Adapter<GridRecyclerAdapter.ViewHolder> {
+    private List<T> data;
     private Context context;
     private OnItemClickListener onItemClickListener;
 
@@ -29,13 +30,13 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
         this.data = new ArrayList<>();
     }
 
-    public void add(TheExcellent theExcellent) {
+    public void add(T theExcellent) {
         data.add(theExcellent);
         notifyDataSetChanged();
     }
 
-    public void addAll(Collection<TheExcellent> theExcellents) {
-        data.addAll(theExcellents);
+    public void addAll(Collection<T> theExcellent) {
+        data.addAll(theExcellent);
         notifyDataSetChanged();
     }
 
@@ -45,7 +46,7 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(parent);
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_picture, parent, false));
     }
 
     @Override
@@ -66,13 +67,13 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         private RoundRectImageView roundRectImageView;
         private TextView name;
-        private TextView school;
+        private TextView description;
 
         public ViewHolder(final View itemView) {
             super(itemView);
             roundRectImageView = (RoundRectImageView) itemView.findViewById(R.id.item_picture);
             name = (TextView) itemView.findViewById(R.id.item_name);
-            school = (TextView) itemView.findViewById(R.id.item_school);
+            description = (TextView) itemView.findViewById(R.id.item_school);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -82,12 +83,12 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
             });
         }
 
-        public void setData(Context context, TheExcellent theExcellent) {
+        public void setData(Context context, T theExcellent) {
             Glide.with(context)
                     .load(theExcellent.getData())
                     .into(roundRectImageView);
             name.setText(theExcellent.getName());
-            school.setText(theExcellent.getDescription());
+            description.setText(theExcellent.getDescription());
         }
     }
 }

@@ -10,6 +10,16 @@ public class Wrapper<T> {
     private int status;
     private String info;
     private List<T> data;
+    private int total;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
 
     public List<T> getData() {
         return data;

@@ -10,7 +10,8 @@ import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.model.bean.Wrapper;
 
 import retrofit2.http.Field;
-import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -27,25 +28,25 @@ public interface GetInformation {
     int DAILY_LIFE = 5;
     int FOOD = 6;
 
-    @GET(Api.STUDENT)
-    Observable<Wrapper<Student>> getStudent(@Field("page") String page, @Field("size") String size);
+    @POST(Api.STUDENT)
+    Observable<Wrapper<Student>> getStudent(@Query("page") String page, @Query("size") String size);
 
-    @GET(Api.TEACHER)
-    Observable<Wrapper<Teacher>> getTeacher(@Field("page") String page, @Field("size") String size);
+    @POST(Api.TEACHER)
+    Observable<Wrapper<Teacher>> getTeacher(@Query("page") String page, @Query("size") String size);
 
-    @GET(Api.ORIGINAL)
-    Observable<Wrapper<Video>> getVideo(@Field("page") String page, @Field("size") String size);
+    @POST(Api.ORIGINAL)
+    Observable<Wrapper<Video>> getVideo(@Query("page") String page, @Query("size") String size);
 
-    @GET(Api.DORMITORY)
-    Observable<Wrapper<Dormitory>> getDormitory(@Field("page") String page, @Field("size") String size);
+    @POST(Api.DORMITORY)
+    Observable<Wrapper<Dormitory>> getDormitory(@Query("page") String page, @Query("size") String size);
 
-    @GET(Api.SIGHT)
-    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Field("page") String page, @Field("size") String size);
+    @POST(Api.SIGHT)
+    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Query("page") String page, @Query("size") String size);
 
-    @GET(Api.DAILY_LIFE)
-    Observable<Wrapper<Place>> getDaily(@Field("page") String page, @Field("size") String size);
+    @POST(Api.DAILY_LIFE)
+    Observable<Wrapper<Place>> getDaily(@Query("page") String page, @Query("size") String size);
 
-    @GET(Api.FOOD)
-    Observable<Wrapper<PlaceWithIntroduction>> getFood(@Field("page") String page, @Field("size") String size);
+    @POST(Api.FOOD)
+    Observable<Wrapper<PlaceWithIntroduction>> getFood(@Query("page") String page, @Query("size") String size);
 
 }

@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 
 public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
 
+    private static final String TAG = "CQUPTStyleActivity";
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ArrayList<Fragment> fragments;
@@ -46,13 +48,12 @@ public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
         fragments = new ArrayList<>();
         OrganizationFragment fragment1 = new OrganizationFragment();
         PictureListFragment fragment2 = new PictureListFragment();
-        fragment2.setPresenter(new GetInformationPresenter<>(fragment2, GetInformation.VIDEO));
-
+        fragment2.setPresenter(this, new GetInformationPresenter<>(fragment2, GetInformation.VIDEO));
         BeautifulCQUPTFragment fragment3 = new BeautifulCQUPTFragment();
         PictureGridFragment fragment4 = new PictureGridFragment();
-        fragment4.setPresenter(new GetInformationPresenter<>(fragment4, GetInformation.STUDENT));
+        fragment4.setPresenter(this, new GetInformationPresenter<>(fragment4, GetInformation.STUDENT));
         PictureGridFragment fragment5 = new PictureGridFragment();
-        fragment5.setPresenter(new GetInformationPresenter<>(fragment5, GetInformation.TEACHER));
+        fragment5.setPresenter(this, new GetInformationPresenter<>(fragment5, GetInformation.TEACHER));
         //TODO Add Adapter
 //        fragment1.setBigDataAdapter(new BigDataAdapter_1());
 //        fragment2.setBigDataAdapter(new BigDataAdapter_2());

@@ -1,5 +1,6 @@
 package com.excitingboat.freshmanspecial.model.net;
 
+import com.excitingboat.freshmanspecial.config.Config;
 import com.excitingboat.freshmanspecial.model.bean.Wrapper;
 import com.excitingboat.freshmanspecial.net.GetInformation;
 
@@ -16,43 +17,43 @@ public class GetInformationModule {
         GetInformation getInformation = SingleRetrofit.getInstance().getRetrofit().create(GetInformation.class);
         switch (which) {
             case GetInformation.STUDENT:
-                getInformation.getStudent(param[0], param[1])
+                getInformation.getStudent(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
             case GetInformation.TEACHER:
-                getInformation.getTeacher(param[0], param[1])
+                getInformation.getTeacher(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
             case GetInformation.VIDEO:
-                getInformation.getVideo(param[0], param[1])
+                getInformation.getVideo(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
             case GetInformation.DORMITORY:
-                getInformation.getDormitory(param[0], param[1])
+                getInformation.getDormitory(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
             case GetInformation.SIGHT:
-                getInformation.getSight(param[0], param[1])
+                getInformation.getSight(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
             case GetInformation.DAILY_LIFE:
-                getInformation.getDaily(param[0], param[1])
+                getInformation.getDaily(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
             case GetInformation.FOOD:
-                getInformation.getFood(param[0], param[1])
+                getInformation.getFood(param[Config.PAGE], param[Config.SIZE])
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);

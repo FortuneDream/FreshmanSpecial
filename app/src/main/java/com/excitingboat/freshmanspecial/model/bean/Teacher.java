@@ -6,7 +6,7 @@ import java.util.List;
  * Created by PinkD on 2016/8/11.
  * Teacher
  */
-public class Teacher {
+public class Teacher extends TheExcellent{
 //TODO
     private String id;
     private String name;
