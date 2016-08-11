@@ -14,7 +14,6 @@
         android:layout_marginLeft="18dp"
         android:layout_marginBottom="15dp"
         style="@style/spinner_style"
-
         android:spinnerMode="dropdown"
         android:dropDownVerticalOffset="36dp"
         android:dropDownWidth="match_parent"
@@ -25,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_margin="@dimen/activity_horizontal_margin"
-
         style="@style/spinner_style"
         android:spinnerMode="dropdown"
         android:dropDownVerticalOffset="36dp"

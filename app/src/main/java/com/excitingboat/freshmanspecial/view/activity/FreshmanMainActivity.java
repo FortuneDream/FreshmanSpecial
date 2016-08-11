@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.utils.DensityUtils;
 
 public class FreshmanMainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,8 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
         findViewById(R.id.freshman_guide_card).setOnClickListener(this);
         findViewById(R.id.freshman_big_data_card).setOnClickListener(this);
         findViewById(R.id.freshman_cqupt_card).setOnClickListener(this);
+        title = (TextView) findViewById(R.id.tv_toolbar_title);
+        title.setText("2016年新生专题网");
     }
 
     @Override
