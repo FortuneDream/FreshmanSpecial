@@ -10,7 +10,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="16.5sp"
             android:text="这些东西很重要"
             android:textColor="#353537"
             android:layout_margin="10dp"
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="16.5sp"
             android:text="生活上的细节也不能够忽视"
             android:textColor="#353537"
             android:layout_margin="10dp"

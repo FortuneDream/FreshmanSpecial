@@ -30,10 +30,10 @@ public class QQGroup extends Fragment {
     private void initView() {
         QQGroupFreshman = (TextView) view.findViewById(R.id.qq_group_freshman);
         QQGroupFreshman.setText(Html.fromHtml("各学院新生群：<BR>\n" +
-                "通信与信息工程学院：561165428<BR>\n" +
+                "通信与信息工程学院：561165428 \n" +
                 "554320581（交流群）<BR>\n" +
-                "计算机与科学技术学院：295557817<BR>（学生会）\n" +
-                "338572942<BR>\n" +
+                "计算机与科学技术学院：295557817 \n" +
+                "338572942 （学生会）<BR>\n" +
                 "自动化学院：152354704<BR>\n" +
                 "光电学院 国际半导体学院：481054099<BR>\n" +
                 "软件工程学院：237085236<BR>\n" +
@@ -43,12 +43,12 @@ public class QQGroup extends Fragment {
                 "传媒艺术学院：218509477<BR>\n" +
                 "生物信息学院：201563258<BR>\n" +
                 "法学院：569104494<BR>\n" +
-                "经济管理学院：107961087<BR>（信管：324274314)<BR>工程管理：547781573<BR>工商：497763971<BR>电子商务： 578509964）<BR>\n" +
-                "（国际学院）中美合作群：548496592 <BR>\n" +
+                "经济管理学院：107961087 （信管：324274314)<BR>工程管理：547781573<BR>工商：497763971<BR>电子商务： 578509964）<BR>\n" +
+                "中美合作群：548496592（国际学院） <BR>\n" +
                 "理学院：301047601<BR>\n" +
-                "重邮16级广电与树莓类，群号码：495242730<BR>\n" +
-                "重邮新生群（中加），群号码：580035411<BR>\n" +
-                "国际学院，中美群，345070285，辅导员创建<BR>\n"));
+                "重邮16级广电与树莓类 群 ：495242730<BR>\n" +
+                "重邮新生群（中加） ：580035411<BR>\n" +
+                "国际学院，中美群:345070285 (辅导员创建)<BR>\n"));
         QQGroupFellowVillager = (TextView) view.findViewById(R.id.qq_group_fellow_villager);
         QQGroupFellowVillager.setText(Html.fromHtml("贵州：126851693\n" +
                 "<BR>河北：548535234\n" +
