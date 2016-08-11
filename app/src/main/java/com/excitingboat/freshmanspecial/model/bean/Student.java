@@ -7,12 +7,11 @@ import java.util.List;
  * Student
  */
 public class Student {
-//TODO
     private String id;
     private String name;
     private String description;
     private String introduction;
-    private List<Photo> data;
+    private List<Photo> photo;
 
     public String getIntroduction() {
         return introduction;
@@ -30,12 +29,12 @@ public class Student {
         this.description = description;
     }
 
-    public List<Photo> getData() {
-        return data;
+    public List<Photo> getPhoto() {
+        return photo;
     }
 
-    public void setData(List<Photo> data) {
-        this.data = data;
+    public void setPhoto(List<Photo> photo) {
+        this.photo = photo;
     }
 
     public String getId() {
@@ -57,7 +56,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "data=" + data +
+                "data=" + photo +
                 ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

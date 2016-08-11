@@ -4,14 +4,15 @@ import com.excitingboat.freshmanspecial.config.Api;
 import com.excitingboat.freshmanspecial.model.bean.Dormitory;
 import com.excitingboat.freshmanspecial.model.bean.Place;
 import com.excitingboat.freshmanspecial.model.bean.PlaceWithIntroduction;
+import com.excitingboat.freshmanspecial.model.bean.Sight;
 import com.excitingboat.freshmanspecial.model.bean.Student;
 import com.excitingboat.freshmanspecial.model.bean.Teacher;
 import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.model.bean.Wrapper;
 
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -27,26 +28,40 @@ public interface GetInformation {
     int SIGHT = 4;
     int DAILY_LIFE = 5;
     int FOOD = 6;
+    int CQUPT_SIGHT = 7;
 
+
+    @FormUrlEncoded
     @POST(Api.STUDENT)
-    Observable<Wrapper<Student>> getStudent(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<Student>> getStudent(@Field("page") String page, @Field("size") String size);
 
+    @FormUrlEncoded
     @POST(Api.TEACHER)
-    Observable<Wrapper<Teacher>> getTeacher(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<Teacher>> getTeacher(@Field("page") String page, @Field("size") String size);
 
+    @FormUrlEncoded
     @POST(Api.ORIGINAL)
-    Observable<Wrapper<Video>> getVideo(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<Video>> getVideo(@Field("page") String page, @Field("size") String size);
 
+    @FormUrlEncoded
     @POST(Api.DORMITORY)
-    Observable<Wrapper<Dormitory>> getDormitory(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<Dormitory>> getDormitory(@Field("page") String page, @Field("size") String size);
 
+    @FormUrlEncoded
     @POST(Api.SIGHT)
-    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Field("page") String page, @Field("size") String size);
 
+    @FormUrlEncoded
     @POST(Api.DAILY_LIFE)
-    Observable<Wrapper<Place>> getDaily(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<Place>> getDaily(@Field("page") String page, @Field("size") String size);
 
+    @FormUrlEncoded
     @POST(Api.FOOD)
-    Observable<Wrapper<PlaceWithIntroduction>> getFood(@Query("page") String page, @Query("size") String size);
+    Observable<Wrapper<PlaceWithIntroduction>> getFood(@Field("page") String page, @Field("size") String size);
+
+    @FormUrlEncoded
+    @POST(Api.CQUPT_SIGHT)
+    Observable<Wrapper<Sight>> getCQUPTSight(@Field("page") String page, @Field("size") String size);
+
 
 }

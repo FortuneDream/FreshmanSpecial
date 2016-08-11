@@ -58,6 +58,12 @@ public class GetInformationModule {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(subscriber);
                 break;
+            case GetInformation.CQUPT_SIGHT:
+                getInformation.getCQUPTSight(param[Config.PAGE], param[Config.SIZE])
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(subscriber);
+                break;
         }
     }
 }

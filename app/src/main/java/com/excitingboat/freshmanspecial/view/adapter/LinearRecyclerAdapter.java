@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Created by PinkD on 2016/8/10.
- * GridRecyclerAdapter
+ * StudentRecyclerAdapter
  */
 public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAdapter.ViewHolder> {
     private List<Video> data;

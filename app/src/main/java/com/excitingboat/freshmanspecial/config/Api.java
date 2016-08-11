@@ -12,5 +12,6 @@ public class Api {
     public static final String ORIGINAL = "cquptOriginal";
     public static final String TEACHER = "outstandingTeacher";
     public static final String STUDENT = "outstandingStudent";
+    public static final String CQUPT_SIGHT = "cquptView";
 
 }

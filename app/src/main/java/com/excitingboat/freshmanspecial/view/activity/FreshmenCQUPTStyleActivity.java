@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,8 +14,9 @@ import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
 import com.excitingboat.freshmanspecial.view.fragment.Style.BeautifulCQUPTFragment;
 import com.excitingboat.freshmanspecial.view.fragment.Style.OrganizationFragment;
-import com.excitingboat.freshmanspecial.view.fragment.Style.PictureGridFragment;
 import com.excitingboat.freshmanspecial.view.fragment.Style.PictureListFragment;
+import com.excitingboat.freshmanspecial.view.fragment.Style.StudentGridFragment;
+import com.excitingboat.freshmanspecial.view.fragment.Style.TeacherGridFragment;
 
 import java.util.ArrayList;
 
@@ -50,14 +50,10 @@ public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
         PictureListFragment fragment2 = new PictureListFragment();
         fragment2.setPresenter(this, new GetInformationPresenter<>(fragment2, GetInformation.VIDEO));
         BeautifulCQUPTFragment fragment3 = new BeautifulCQUPTFragment();
-        PictureGridFragment fragment4 = new PictureGridFragment();
+        StudentGridFragment fragment4 = new StudentGridFragment();
         fragment4.setPresenter(this, new GetInformationPresenter<>(fragment4, GetInformation.STUDENT));
-        PictureGridFragment fragment5 = new PictureGridFragment();
+        TeacherGridFragment fragment5 = new TeacherGridFragment();
         fragment5.setPresenter(this, new GetInformationPresenter<>(fragment5, GetInformation.TEACHER));
-        //TODO Add Adapter
-//        fragment1.setBigDataAdapter(new BigDataAdapter_1());
-//        fragment2.setBigDataAdapter(new BigDataAdapter_2());
-//        fragment3.setBigDataAdapter(new BigDataAdapter_3());
         fragments.add(fragment1);
         fragments.add(fragment2);
         fragments.add(fragment3);

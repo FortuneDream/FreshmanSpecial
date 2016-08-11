@@ -55,14 +55,17 @@ public class GetInformationPresenter<T> implements BasePresenter {
         @Override
         public void onError(Throwable e) {
             iGetInformation.requestFail();
-            Log.d(TAG, "onError");
+            System.out.println(e.toString());
+            Log.d(TAG, "onError------>" + e.getMessage());
         }
 
         @Override
         public void onNext(Wrapper<T> wrapper) {
             Log.d(TAG, "onNext");
-            iGetInformation.requestSuccess(wrapper.getData());
-            total = wrapper.getTotal();
+            if (iGetInformation != null) {
+                iGetInformation.requestSuccess(wrapper.getData());
+                total = wrapper.getTotal();
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ import com.excitingboat.freshmanspecial.config.Config;
  * Created by PinkD on 2016/6/19.
  * For Glide
  */
-public class MyGlideModule implements GlideModule{
+public class MyGlideModule implements GlideModule {
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
         builder.setDiskCache(new DiskLruCacheFactory(Config.cacheDir.toString(), 20 * Config.MB));

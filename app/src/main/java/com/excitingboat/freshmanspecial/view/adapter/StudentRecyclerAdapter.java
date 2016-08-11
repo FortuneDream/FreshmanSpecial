@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
-import com.excitingboat.freshmanspecial.model.bean.TheExcellent;
+import com.excitingboat.freshmanspecial.model.bean.Student;
 import com.excitingboat.freshmanspecial.utils.RoundRectImageView;
 
 import java.util.ArrayList;
@@ -18,26 +18,31 @@ import java.util.List;
 
 /**
  * Created by PinkD on 2016/8/10.
- * GridRecyclerAdapter
+ * StudentRecyclerAdapter
  */
-public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapter.ViewHolder> {
-    private List<TheExcellent> data;
+public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentRecyclerAdapter.ViewHolder> {
+    private static final String TAG = "StudentRecyclerAdapter";
+    private List<Student> data;
     private Context context;
     private OnItemClickListener onItemClickListener;
 
-    public GridRecyclerAdapter(Context context) {
+    public StudentRecyclerAdapter(Context context) {
         this.context = context;
         this.data = new ArrayList<>();
     }
 
-    public void add(TheExcellent theExcellent) {
+    public void add(Student theExcellent) {
         data.add(theExcellent);
         notifyDataSetChanged();
     }
 
-    public void addAll(Collection<TheExcellent> theExcellent) {
+    public void addAll(Collection<Student> theExcellent) {
         data.addAll(theExcellent);
         notifyDataSetChanged();
+    }
+
+    public List<Student> getData() {
+        return data;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -51,7 +56,11 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.setData(context, data.get(position));
+        Glide.with(context)
+                .load(data.get(position).getPhoto().get(0).getPhoto_thumbnail_src())
+                .into(holder.roundRectImageView);
+        holder.name.setText(data.get(position).getName());
+        holder.description.setText(data.get(position).getDescription());
     }
 
     @Override
@@ -81,14 +90,6 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
                     onItemClickListener.onItemClick(itemView, getLayoutPosition());
                 }
             });
-        }
-
-        public void setData(Context context, TheExcellent theExcellent) {
-            Glide.with(context)
-                    .load(theExcellent.getData())
-                    .into(roundRectImageView);
-            name.setText(theExcellent.getName());
-            description.setText(theExcellent.getDescription());
         }
     }
 }

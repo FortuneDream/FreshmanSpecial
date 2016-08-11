@@ -3,22 +3,13 @@ package com.excitingboat.freshmanspecial.model.bean;
 import java.util.List;
 
 /**
- * Created by PinkD on 2016/8/11.
- * Place
+ * Created by PinkD on 2016/8/12.
+ * Sight
  */
-public class Place {
+public class Sight {
     private String id;
     private String name;
-    private String address;
     private List<Photo> photo;
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getId() {
         return id;
@@ -46,11 +37,10 @@ public class Place {
 
     @Override
     public String toString() {
-        return "Place{" +
-                "address='" + address + '\'' +
-                ", id='" + id + '\'' +
+        return "Sight{" +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", data=" + photo +
+                ", photo=" + photo +
                 '}';
     }
 }

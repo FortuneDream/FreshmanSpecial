@@ -6,36 +6,26 @@ import java.util.List;
  * Created by PinkD on 2016/8/11.
  * Teacher
  */
-public class Teacher extends TheExcellent{
-//TODO
+public class Teacher{
     private String id;
     private String name;
-    private String description;
-    private String introduction;
-    private List<Photo> data;
+    private String college;
+    private List<Photo> photo;
 
-    public String getIntroduction() {
-        return introduction;
+    public String getCollege() {
+        return college;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    public void setCollege(String college) {
+        this.college = college;
     }
 
-    public String getDescription() {
-        return description;
+    public List<Photo> getPhoto() {
+        return photo;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<Photo> getData() {
-        return data;
-    }
-
-    public void setData(List<Photo> data) {
-        this.data = data;
+    public void setPhoto(List<Photo> photo) {
+        this.photo = photo;
     }
 
     public String getId() {
@@ -57,11 +47,10 @@ public class Teacher extends TheExcellent{
     @Override
     public String toString() {
         return "Teacher{" +
-                "data=" + data +
+                "data=" + photo +
                 ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", introduction='" + introduction + '\'' +
+                ", description='" + college + '\'' +
                 '}';
     }
 }

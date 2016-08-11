@@ -17,8 +17,8 @@ import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
 import com.excitingboat.freshmanspecial.view.activity.WebActivity;
-import com.excitingboat.freshmanspecial.view.adapter.GridRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.adapter.LinearRecyclerAdapter;
+import com.excitingboat.freshmanspecial.view.adapter.StudentRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
  * Created by PinkD on 2016/8/9.
  * PictureListFragment
  */
-public class PictureListFragment extends Fragment implements IGetInformation<Video>, GridRecyclerAdapter.OnItemClickListener {
+public class PictureListFragment extends Fragment implements IGetInformation<Video>, StudentRecyclerAdapter.OnItemClickListener {
 
     private static final String TAG = "PictureListFragment";
     private GetInformationPresenter<Video> presenter;
@@ -35,7 +35,7 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
     private LinearRecyclerAdapter linearRecyclerAdapter;
     private int currentPage;
 
-    public void setPresenter(Context context,GetInformationPresenter<Video> presenter) {
+    public void setPresenter(Context context, GetInformationPresenter<Video> presenter) {
         this.presenter = presenter;
         linearRecyclerAdapter = new LinearRecyclerAdapter(context);
     }
