@@ -20,8 +20,8 @@ import java.util.List;
  * Created by PinkD on 2016/8/10.
  * GridRecyclerAdapter
  */
-public class GridRecyclerAdapter<T extends TheExcellent> extends RecyclerView.Adapter<GridRecyclerAdapter.ViewHolder> {
-    private List<T> data;
+public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapter.ViewHolder> {
+    private List<TheExcellent> data;
     private Context context;
     private OnItemClickListener onItemClickListener;
 
@@ -30,12 +30,12 @@ public class GridRecyclerAdapter<T extends TheExcellent> extends RecyclerView.Ad
         this.data = new ArrayList<>();
     }
 
-    public void add(T theExcellent) {
+    public void add(TheExcellent theExcellent) {
         data.add(theExcellent);
         notifyDataSetChanged();
     }
 
-    public void addAll(Collection<T> theExcellent) {
+    public void addAll(Collection<TheExcellent> theExcellent) {
         data.addAll(theExcellent);
         notifyDataSetChanged();
     }
@@ -83,7 +83,7 @@ public class GridRecyclerAdapter<T extends TheExcellent> extends RecyclerView.Ad
             });
         }
 
-        public void setData(Context context, T theExcellent) {
+        public void setData(Context context, TheExcellent theExcellent) {
             Glide.with(context)
                     .load(theExcellent.getData())
                     .into(roundRectImageView);

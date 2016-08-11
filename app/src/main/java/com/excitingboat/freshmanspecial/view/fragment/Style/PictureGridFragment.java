@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.model.bean.TheExcellent;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
 import com.excitingboat.freshmanspecial.view.adapter.GridRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
@@ -23,15 +24,15 @@ import java.util.List;
  * Created by PinkD on 2016/8/9.
  * PictureGridFragment
  */
-public class PictureGridFragment<T> extends Fragment implements IGetInformation<T>, GridRecyclerAdapter.OnItemClickListener {
+public class PictureGridFragment extends Fragment implements IGetInformation<TheExcellent>, GridRecyclerAdapter.OnItemClickListener {
     private static final String TAG = "PictureGridFragment";
-    private GetInformationPresenter<T> presenter;
+    private GetInformationPresenter<TheExcellent> presenter;
     private RecyclerView recyclerView;
     private GridRecyclerAdapter gridRecyclerAdapter;
     private int currentPage;
 
 
-    public void setPresenter(Context context, GetInformationPresenter<T> presenter) {
+    public void setPresenter(Context context, GetInformationPresenter<TheExcellent> presenter) {
         this.presenter = presenter;
         gridRecyclerAdapter = new GridRecyclerAdapter(context);
         currentPage = 0;
@@ -54,7 +55,7 @@ public class PictureGridFragment<T> extends Fragment implements IGetInformation<
     }
 
     @Override
-    public void requestSuccess(List<T> list) {
+    public void requestSuccess(List<TheExcellent> list) {
         gridRecyclerAdapter.addAll(list);
         currentPage += 1;
     }
