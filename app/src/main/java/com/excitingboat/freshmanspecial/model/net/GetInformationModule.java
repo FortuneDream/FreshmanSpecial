@@ -13,7 +13,7 @@ import rx.schedulers.Schedulers;
  * getInformation From Server
  */
 public class GetInformationModule {
-    public void getInformation(String[] param, int which, Subscriber<Wrapper> subscriber) {
+    public void getInformation(int[] param, int which, Subscriber<Wrapper> subscriber) {
         GetInformation getInformation = SingleRetrofit.getInstance().getRetrofit().create(GetInformation.class);
         switch (which) {
             case GetInformation.STUDENT:

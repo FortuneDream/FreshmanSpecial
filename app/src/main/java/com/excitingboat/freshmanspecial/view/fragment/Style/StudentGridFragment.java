@@ -58,13 +58,15 @@ public class StudentGridFragment extends Fragment implements IGetInformation<Stu
         studentRecyclerAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(studentRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        presenter.getInformation(new String[]{String.valueOf(currentPage), String.valueOf(15)});
+        presenter.getInformation(new int[]{currentPage, 15});
     }
 
     @Override
     public void requestSuccess(List<Student> list) {
-        studentRecyclerAdapter.addAll(list);
-        currentPage += 1;
+        if (list.size() > 0) {
+            studentRecyclerAdapter.addAll(list);
+            presenter.getInformation(new int[]{++currentPage, 15});
+        }
     }
 
     @Override

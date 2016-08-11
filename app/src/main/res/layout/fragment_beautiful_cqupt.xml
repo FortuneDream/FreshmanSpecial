@@ -70,6 +70,7 @@
             android:id="@+id/beauty_image_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:roundDegree="@dimen/default_round_degree"
             />
 
 

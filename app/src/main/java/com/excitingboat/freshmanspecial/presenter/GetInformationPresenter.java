@@ -30,7 +30,7 @@ public class GetInformationPresenter<T> implements BasePresenter {
         return which;
     }
 
-    public void getInformation(String[] param) {
+    public void getInformation(int[] param) {
         getInformationModule.getInformation(param, which, (Subscriber) new MySubscriber());
         Log.d(TAG, "request");
     }

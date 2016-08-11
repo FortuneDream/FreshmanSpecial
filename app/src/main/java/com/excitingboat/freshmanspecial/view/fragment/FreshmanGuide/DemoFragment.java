@@ -36,14 +36,16 @@ public class DemoFragment<T> extends Fragment implements IGetInformation<T> {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter.getInformation(new String[]{String.valueOf(currentPage), String.valueOf(10)});
+        presenter.getInformation(new int[]{currentPage, 15});
         //init RecyclerView
     }
 
     @Override
     public void requestSuccess(List<T> list) {
-        //adapter.addAll/notify
-        currentPage++;
+        if (list.size() > 0) {
+            //adapter.addAll/notify
+            presenter.getInformation(new int[]{++currentPage, 15});
+        }
     }
 
     @Override

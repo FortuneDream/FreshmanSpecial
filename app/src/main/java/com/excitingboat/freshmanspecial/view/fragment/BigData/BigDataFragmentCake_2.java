@@ -61,6 +61,8 @@ public class BigDataFragmentCake_2 extends Fragment {
                     }
                     myColorTextAdapter.clear();
                     bigDataAdapter.setData(yellowcake, myColorTextAdapter, position - 1);
+                } else {
+                    resetCake();
                 }
             }
 
@@ -78,4 +80,10 @@ public class BigDataFragmentCake_2 extends Fragment {
     public void setBigDataAdapter(BigDataAdapter bigDataAdapter) {
         this.bigDataAdapter = bigDataAdapter;
     }
+
+    private void resetCake() {
+        yellowcake.setVisibility(View.GONE);
+        myColorTextAdapter.clear();
+    }
+
 }

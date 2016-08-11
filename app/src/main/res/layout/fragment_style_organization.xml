@@ -73,6 +73,9 @@
         <TextView
             android:id="@+id/org_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="请选择一个组织"
+            android:gravity="center"
+            />
     </ScrollView>
 </LinearLayout>

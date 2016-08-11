@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +37,7 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
     public void setPresenter(Context context, GetInformationPresenter<Video> presenter) {
         this.presenter = presenter;
         linearRecyclerAdapter = new LinearRecyclerAdapter(context);
+        currentPage = 0;
     }
 
     @Nullable
@@ -51,13 +51,15 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         recyclerView.setAdapter(linearRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        presenter.getInformation(new String[]{String.valueOf(currentPage), String.valueOf(15)});
+        presenter.getInformation(new int[]{currentPage, 15});
     }
 
     @Override
     public void requestSuccess(List<Video> list) {
-        linearRecyclerAdapter.addAll(list);
-        currentPage += 1;
+        if (list.size() > 0) {
+            linearRecyclerAdapter.addAll(list);
+            presenter.getInformation(new int[]{++currentPage, 15});
+        }
     }
 
     @Override
@@ -71,6 +73,8 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
         intent.putExtra("url", linearRecyclerAdapter.getData().get(position).getVideo_url());
         startActivity(intent);
     }
+
+
 
     @Override
     public void onDestroy() {

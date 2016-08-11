@@ -57,13 +57,15 @@ public class TeacherGridFragment extends Fragment implements IGetInformation<Tea
         teacherRecyclerAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(teacherRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        presenter.getInformation(new String[]{String.valueOf(currentPage), String.valueOf(15)});
+        presenter.getInformation(new int[]{currentPage, 15});
     }
 
     @Override
     public void requestSuccess(List<Teacher> list) {
-        teacherRecyclerAdapter.addAll(list);
-        currentPage += 1;
+        if (list.size() > 0) {
+            teacherRecyclerAdapter.addAll(list);
+            presenter.getInformation(new int[]{++currentPage, 15});
+        }
     }
 
     @Override

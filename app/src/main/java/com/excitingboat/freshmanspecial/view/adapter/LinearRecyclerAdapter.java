@@ -96,4 +96,5 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
         }
 
     }
+
 }

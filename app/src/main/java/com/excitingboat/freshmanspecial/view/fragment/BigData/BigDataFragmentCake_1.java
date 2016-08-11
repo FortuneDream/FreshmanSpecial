@@ -67,10 +67,8 @@ public class BigDataFragmentCake_1 extends Fragment {
                 Log.d(TAG, "onItemSelected: position:" + position);
                 resetMajor();
                 if (position == 0) {
+                    resetCake();
                     return;
-                }
-                if (yellowcake.getVisibility() != View.VISIBLE) {
-                    yellowcake.setVisibility(View.VISIBLE);
                 }
                 Collections.addAll(major, BigData.MAJOR[position - 1]);
                 bigDataAdapter.setSchoolPosition(position - 1);
@@ -87,6 +85,11 @@ public class BigDataFragmentCake_1 extends Fragment {
                 if (spinner1.getSelectedItemId() > 0 && position > 0) {
                     myColorTextAdapter.clear();
                     bigDataAdapter.setData(yellowcake, myColorTextAdapter, position - 1);
+                    if (yellowcake.getVisibility() != View.VISIBLE) {
+                        yellowcake.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    resetCake();
                 }
             }
 
@@ -103,6 +106,12 @@ public class BigDataFragmentCake_1 extends Fragment {
         major.add("请选择专业");
         arrayAdapter2.notifyDataSetChanged();
         spinner2.setSelection(0);
+        resetCake();
+    }
+
+    private void resetCake() {
+        yellowcake.setVisibility(View.GONE);
+        myColorTextAdapter.clear();
     }
 
     public BigDataAdapter getBigDataAdapter() {

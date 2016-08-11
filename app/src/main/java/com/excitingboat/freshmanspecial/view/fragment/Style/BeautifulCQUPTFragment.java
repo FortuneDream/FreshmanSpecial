@@ -52,7 +52,7 @@ public class BeautifulCQUPTFragment extends Fragment implements IGetInformation<
                 (ImageView) view.findViewById(R.id.beauty_image_9),
                 (ImageView) view.findViewById(R.id.beauty_image_10)
         };
-        getInformationPresenter.getInformation(new String[]{String.valueOf(0), String.valueOf(15)});
+        getInformationPresenter.getInformation(new int[]{0, 15});
     }
 
     @Override

@@ -33,35 +33,35 @@ public interface GetInformation {
 
     @FormUrlEncoded
     @POST(Api.STUDENT)
-    Observable<Wrapper<Student>> getStudent(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<Student>> getStudent(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.TEACHER)
-    Observable<Wrapper<Teacher>> getTeacher(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<Teacher>> getTeacher(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.ORIGINAL)
-    Observable<Wrapper<Video>> getVideo(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<Video>> getVideo(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.DORMITORY)
-    Observable<Wrapper<Dormitory>> getDormitory(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<Dormitory>> getDormitory(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.SIGHT)
-    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.DAILY_LIFE)
-    Observable<Wrapper<Place>> getDaily(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<Place>> getDaily(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.FOOD)
-    Observable<Wrapper<PlaceWithIntroduction>> getFood(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<PlaceWithIntroduction>> getFood(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.CQUPT_SIGHT)
-    Observable<Wrapper<Sight>> getCQUPTSight(@Field("page") String page, @Field("size") String size);
+    Observable<Wrapper<Sight>> getCQUPTSight(@Field("page") int page, @Field("size") int size);
 
 
 }
