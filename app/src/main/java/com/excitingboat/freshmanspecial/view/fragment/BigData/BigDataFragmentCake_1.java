@@ -67,6 +67,9 @@ public class BigDataFragmentCake_1 extends Fragment {
                 if (position == 0) {
                     return;
                 }
+                if (yellowcake.getVisibility() != View.VISIBLE) {
+                    yellowcake.setVisibility(View.VISIBLE);
+                }
                 Collections.addAll(major, BigData.MAJOR[position - 1]);
                 bigDataAdapter.setSchoolPosition(position - 1);
             }

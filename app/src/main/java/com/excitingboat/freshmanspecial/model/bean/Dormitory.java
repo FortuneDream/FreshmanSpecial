@@ -34,4 +34,13 @@ public class Dormitory {
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
+
+    @Override
+    public String toString() {
+        return "Dormitory{" +
+                "data=" + data +
+                ", id='" + id + '\'' +
+                ", introduction='" + introduction + '\'' +
+                '}';
+    }
 }

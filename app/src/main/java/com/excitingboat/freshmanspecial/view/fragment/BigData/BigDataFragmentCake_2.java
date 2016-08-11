@@ -56,6 +56,9 @@ public class BigDataFragmentCake_2 extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemSelected: position:" + position);
                 if (position != 0) {
+                    if (yellowcake.getVisibility() != View.VISIBLE) {
+                        yellowcake.setVisibility(View.VISIBLE);
+                    }
                     myColorTextAdapter.clear();
                     bigDataAdapter.setData(yellowcake, myColorTextAdapter, position - 1);
                 }

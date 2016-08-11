@@ -14,4 +14,10 @@ public class PlaceWithIntroduction extends Place {
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "introduction='" + introduction;
+    }
 }

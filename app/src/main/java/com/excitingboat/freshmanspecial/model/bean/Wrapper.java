@@ -44,4 +44,14 @@ public class Wrapper<T> {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Wrapper{" +
+                "data=" + data +
+                ", status=" + status +
+                ", info='" + info + '\'' +
+                ", total=" + total +
+                '}';
+    }
 }

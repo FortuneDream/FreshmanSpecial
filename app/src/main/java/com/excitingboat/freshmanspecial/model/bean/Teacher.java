@@ -53,4 +53,15 @@ public class Teacher extends TheExcellent{
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "data=" + data +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", introduction='" + introduction + '\'' +
+                '}';
+    }
 }

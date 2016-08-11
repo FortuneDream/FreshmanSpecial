@@ -43,4 +43,14 @@ public class Place {
     public void setData(List<Photo> data) {
         this.data = data;
     }
+
+    @Override
+    public String toString() {
+        return "Place{" +
+                "address='" + address + '\'' +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

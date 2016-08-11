@@ -53,4 +53,15 @@ public class TheExcellent {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "TheExcellent{" +
+                "data=" + data +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", introduction='" + introduction + '\'' +
+                '}';
+    }
 }

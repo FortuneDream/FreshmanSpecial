@@ -10,7 +10,7 @@ public class Video {
     private String id;
     private String name;
     private String time;
-    private List<Photo> data;
+    private List<Photo> photo;
     private String introduction;
     private String video_url;
 
@@ -22,12 +22,12 @@ public class Video {
         this.video_url = video_url;
     }
 
-    public List<Photo> getData() {
-        return data;
+    public List<Photo> getPhoto() {
+        return photo;
     }
 
-    public void setData(List<Photo> data) {
-        this.data = data;
+    public void setPhoto(List<Photo> photo) {
+        this.photo = photo;
     }
 
     public String getId() {
@@ -60,5 +60,17 @@ public class Video {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Video{" +
+                "Photo=" + photo +
+                ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", time='" + time + '\'' +
+                ", introduction='" + introduction + '\'' +
+                ", video_url='" + video_url + '\'' +
+                '}';
     }
 }

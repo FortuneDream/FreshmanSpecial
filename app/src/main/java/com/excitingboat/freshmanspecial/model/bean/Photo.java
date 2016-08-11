@@ -32,4 +32,13 @@ public class Photo {
     public void setPhoto_thumbnail_src(String photo_thumbnail_src) {
         this.photo_thumbnail_src = photo_thumbnail_src;
     }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id='" + id + '\'' +
+                ", photo_src='" + photo_src + '\'' +
+                ", photo_thumbnail_src='" + photo_thumbnail_src + '\'' +
+                '}';
+    }
 }
