@@ -24,11 +24,11 @@ import java.util.List;
 
 /**
  * Created by PinkD on 2016/8/9.
- * PictureListFragment
+ * VideoListFragment
  */
-public class PictureListFragment extends Fragment implements IGetInformation<Video>, StudentRecyclerAdapter.OnItemClickListener {
+public class VideoListFragment extends Fragment implements IGetInformation<Video>{
 
-    private static final String TAG = "PictureListFragment";
+    private static final String TAG = "VideoListFragment";
     private GetInformationPresenter<Video> presenter;
     private RecyclerView recyclerView;
     private LinearRecyclerAdapter linearRecyclerAdapter;
@@ -65,13 +65,6 @@ public class PictureListFragment extends Fragment implements IGetInformation<Vid
     @Override
     public void requestFail() {
         Toast.makeText(getContext(), R.string.load_fail, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onItemClick(View view, int position) {
-        Intent intent = new Intent(getContext(), WebActivity.class);
-        intent.putExtra("url", linearRecyclerAdapter.getData().get(position).getVideo_url());
-        startActivity(intent);
     }
 
 

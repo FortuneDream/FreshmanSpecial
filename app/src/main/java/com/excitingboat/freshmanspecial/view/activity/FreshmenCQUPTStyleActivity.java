@@ -14,7 +14,7 @@ import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
 import com.excitingboat.freshmanspecial.view.fragment.Style.BeautifulCQUPTFragment;
 import com.excitingboat.freshmanspecial.view.fragment.Style.OrganizationFragment;
-import com.excitingboat.freshmanspecial.view.fragment.Style.PictureListFragment;
+import com.excitingboat.freshmanspecial.view.fragment.Style.VideoListFragment;
 import com.excitingboat.freshmanspecial.view.fragment.Style.StudentGridFragment;
 import com.excitingboat.freshmanspecial.view.fragment.Style.TeacherGridFragment;
 
@@ -47,7 +47,7 @@ public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
 
         fragments = new ArrayList<>();
         OrganizationFragment fragment1 = new OrganizationFragment();
-        PictureListFragment fragment2 = new PictureListFragment();
+        VideoListFragment fragment2 = new VideoListFragment();
         fragment2.setPresenter(this, new GetInformationPresenter<>(fragment2, GetInformation.VIDEO));
         BeautifulCQUPTFragment fragment3 = new BeautifulCQUPTFragment();
         StudentGridFragment fragment4 = new StudentGridFragment();

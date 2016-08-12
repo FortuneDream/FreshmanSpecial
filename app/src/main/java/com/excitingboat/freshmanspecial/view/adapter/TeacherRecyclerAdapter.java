@@ -86,7 +86,9 @@ public class TeacherRecyclerAdapter extends RecyclerView.Adapter<TeacherRecycler
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClickListener.onItemClick(itemView, getLayoutPosition());
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemClick(itemView, getLayoutPosition());
+                    }
                 }
             });
         }

@@ -25,6 +25,7 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentRecycler
     private List<Student> data;
     private Context context;
     private OnItemClickListener onItemClickListener;
+    private OnItemLongClickListener onItemLongClickListener;
 
     public StudentRecyclerAdapter(Context context) {
         this.context = context;
@@ -73,6 +74,10 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentRecycler
         void onItemClick(View view, int position);
     }
 
+    public interface OnItemLongClickListener {
+        boolean OnItemLongClick(View view, int position);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private RoundRectImageView roundRectImageView;
         private TextView name;
@@ -87,7 +92,9 @@ public class StudentRecyclerAdapter extends RecyclerView.Adapter<StudentRecycler
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClickListener.onItemClick(itemView, getLayoutPosition());
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemClick(itemView, getLayoutPosition());
+                    }
                 }
             });
         }

@@ -1,5 +1,7 @@
 package com.excitingboat.freshmanspecial.view.adapter;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
@@ -25,6 +28,7 @@ import java.util.List;
 public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAdapter.ViewHolder> {
     private List<Video> data;
     private Context context;
+    private ClipboardManager clipboardManager;
 
     public LinearRecyclerAdapter(Context context, List<Video> data) {
         this.context = context;
@@ -91,6 +95,17 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
                     Uri uri = Uri.parse(data.get(getLayoutPosition()).getVideo_url());
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     context.startActivity(intent);
+                }
+            });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    if (clipboardManager == null) {
+                        clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    }
+                    clipboardManager.setPrimaryClip(ClipData.newPlainText("url", data.get(getLayoutPosition()).getVideo_url()));
+                    Toast.makeText(context, "视频地址已复制到剪贴板", Toast.LENGTH_SHORT).show();
+                    return true;
                 }
             });
         }
