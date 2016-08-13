@@ -59,7 +59,7 @@
         android:maxLength="25"
         android:singleLine="true"
         android:text="1、5、6栋"
-        android:textColor="#d9d9db"
+        android:textColor="#888888"
         android:textSize="12.5sp" />
 
     <TextView
@@ -90,7 +90,7 @@
         android:maxLength="25"
         android:maxLines="2"
         android:text="公共卫生间 卫生间 洗漱间 空调 洗衣机 公共卫生间 卫生间 洗漱间 空调 洗衣机"
-        android:textColor="#d9d9db"
+        android:textColor="#888888"
         android:textSize="12.5sp" />
 
     <View

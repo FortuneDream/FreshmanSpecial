@@ -11,8 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.model.bean.Dormitory;
+import com.excitingboat.freshmanspecial.model.bean.Place;
 import com.excitingboat.freshmanspecial.view.activity.ShowBigPictureActivity;
 import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter;
+import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xushuzhan on 2016/8/4.
@@ -60,4 +66,6 @@ public class InfoPageFragment extends Fragment {
             }
         });
     }
+
+
 }

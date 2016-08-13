@@ -17,9 +17,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.model.bean.Dormitory;
+import com.excitingboat.freshmanspecial.net.GetInformation;
+import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
 import com.excitingboat.freshmanspecial.utils.BitmapUtil;
 import com.excitingboat.freshmanspecial.utils.ScreenUtils;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
+import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DormitorySituationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolInformationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolWayFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.InfoPageFragment;
@@ -76,8 +80,8 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         freshmanPagerAdapter.setTitles(titles);
         mFragments = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
-            if (i == 2 || i == 5 || i == 6 || i == 7) {
-                mFragments.add(InfoPageFragment.newInstance(ViewPagerId[i]));
+            if (i == 5 || i == 6 || i == 7) {
+                mFragments.add(InfoPageFragment.newInstance(i));
             } else {
                 if (titles[i].equals("入学须知")) {
                     mFragments.add(new EnrolInformationFragment());
@@ -87,6 +91,10 @@ public class FreshmenGuideActivity extends AppCompatActivity {
                     mFragments.add(new NecessaryList());
                 } else if (titles[i].equals("QQ群")) {
                     mFragments.add(new QQGroup());
+                } else if(titles[i].equals("寝室概况")){
+                    DormitorySituationFragment dormitorySituationFragment = new DormitorySituationFragment();
+                    dormitorySituationFragment.setPresenter(new GetInformationPresenter<>(dormitorySituationFragment, GetInformation.DORMITORY));
+                    mFragments.add(dormitorySituationFragment);
                 }
             }
 
