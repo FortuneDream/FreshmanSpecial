@@ -1,27 +1,18 @@
 package com.excitingboat.freshmanspecial.view.activity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
-import com.excitingboat.freshmanspecial.model.bean.Dormitory;
 import com.excitingboat.freshmanspecial.net.GetInformation;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
-import com.excitingboat.freshmanspecial.utils.BitmapUtil;
-import com.excitingboat.freshmanspecial.utils.ScreenUtils;
+import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DormitorySituationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolInformationFragment;
@@ -63,7 +54,7 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // showBigPicture(view);
+                // showBigPicture(view);
                 finish();
             }
         });
@@ -81,25 +72,30 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         mFragments = new ArrayList<>();
         for (int i = 0; i < titles.length; i++) {
             if (i == 5 || i == 6 || i == 7) {
-                mFragments.add(InfoPageFragment.newInstance(i));
+                mFragments.add(new InfoPageFragment());
             } else {
-                if (titles[i].equals("入学须知")) {
-                    mFragments.add(new EnrolInformationFragment());
-                } else if (titles[i].equals("须知路线")) {
-                    mFragments.add(new EnrolWayFragment());
-                } else if (titles[i].equals("必备清单")) {
-                    mFragments.add(new NecessaryList());
-                } else if (titles[i].equals("QQ群")) {
-                    mFragments.add(new QQGroup());
-                } else if(titles[i].equals("寝室概况")){
-                    DormitorySituationFragment dormitorySituationFragment = new DormitorySituationFragment();
-                    dormitorySituationFragment.setPresenter(new GetInformationPresenter<>(dormitorySituationFragment, GetInformation.DORMITORY));
-                    mFragments.add(dormitorySituationFragment);
+                switch (titles[i]) {
+                    case "入学须知":
+                        mFragments.add(new EnrolInformationFragment());
+                        break;
+                    case "须知路线":
+                        mFragments.add(new EnrolWayFragment());
+                        break;
+                    case "必备清单":
+                        mFragments.add(new NecessaryList());
+                        break;
+                    case "QQ群":
+                        mFragments.add(new QQGroup());
+                        break;
+                    case "寝室概况":
+                        DormitorySituationFragment dormitorySituationFragment = new DormitorySituationFragment();
+                        dormitorySituationFragment.setPresenter(new GetInformationPresenter<>(dormitorySituationFragment, GetInformation.DORMITORY));
+                        mFragments.add(dormitorySituationFragment);
+                        break;
                 }
             }
-
         }
-
+        initAdapter();
         freshmanPagerAdapter.setFragments(mFragments);
 
         //设置tablayout的模式
@@ -110,12 +106,21 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    public void showBigPicture(View view){
+    private void initAdapter() {
+        ((InfoPageFragment) mFragments.get(5)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter(mFragments.get(5)));
+        ((InfoPageFragment) mFragments.get(5)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(5)), GetInformation.DAILY_LIFE));
+        ((InfoPageFragment) mFragments.get(6)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter(mFragments.get(6)));
+        ((InfoPageFragment) mFragments.get(6)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(6)), GetInformation.FOOD));
+        ((InfoPageFragment) mFragments.get(7)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter(mFragments.get(7)));
+        ((InfoPageFragment) mFragments.get(7)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(7)), GetInformation.SIGHT));
+    }
+
+    public void showBigPicture(View view) {
 
         ShowBigPictureActivity.showBigPicture(FreshmenGuideActivity.this,
                 "http://img5.imgtn.bdimg.com/it/u=471926043,2104091042&fm=21&gp=0.jpg",
                 view
-                );
+        );
         //添加过渡动画，一定要添加！！
         overridePendingTransition(0, R.anim.abc_fade_in);
     }

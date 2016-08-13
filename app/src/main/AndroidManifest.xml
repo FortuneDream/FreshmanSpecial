@@ -28,7 +28,7 @@
         <activity android:name=".view.activity.FreshmenCQUPTStyleActivity" />
         <activity android:name=".view.activity.TestActivity" />
         <activity android:name=".view.activity.ShowBigPictureActivity" />
-        <activity android:name=".view.activity.WebActivity"></activity>
+        <activity android:name=".view.activity.WebActivity"/>
     </application>
 
 </manifest>
