@@ -15,6 +15,8 @@ import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Sight;
 import com.excitingboat.freshmanspecial.net.GetInformation;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
+import com.excitingboat.freshmanspecial.utils.RoundImageView;
+import com.excitingboat.freshmanspecial.utils.RoundRectImageView;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
 import java.util.List;
@@ -61,7 +63,6 @@ public class BeautifulCQUPTFragment extends Fragment implements IGetInformation<
         for (int i = 0; i < 10; i++) {
             Glide.with(getActivity())
                     .load(list.get(i).getPhoto().get(0).getPhoto_src())
-                    .placeholder(R.drawable.palce_holder)
                     .into(imageViews[i]);
         }
     }

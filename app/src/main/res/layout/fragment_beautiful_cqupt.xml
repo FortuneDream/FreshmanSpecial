@@ -24,18 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:src="@drawable/palce_holder"
             app:roundDegree="@dimen/default_round_degree"
-
             />
 
         <TextView
             android:id="@+id/beauty_text_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="\t\t我抬头仰望，那专属的红绿蓝，牵引着我追寻梦想的思绪。整个校园，就像是一艘正在缓慢行驶的帆船，而这巍峨的第八教学楼仿佛在诉说：“我亲爱的孩子，这里就是你梦想的帆！”"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+
             />
 
         <com.excitingboat.freshmanspecial.utils.RoundRectImageView
@@ -43,7 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:src="@drawable/palce_holder"
             app:roundDegree="@dimen/default_round_degree"
             />
 
@@ -61,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
-            android:src="@drawable/palce_holder"
             android:layout_margin="5dp"
             />
 
@@ -72,7 +69,7 @@
             android:text="\t\t恰同学少年的我，常常奔赴于书生意气浓厚的数字图书馆。它就像一本厚厚的百科全书，而里面珍藏的书籍，是它每一章节最强精彩的部分。当我翻开她的卷首，她告诉我：“静观，静思，静记。”"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/palce_holder"
+
             />
 
         <com.excitingboat.freshmanspecial.utils.RoundRectImageView
@@ -81,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             app:roundDegree="@dimen/default_round_degree"
-            android:src="@drawable/palce_holder"
+
             />
 
 
@@ -91,7 +88,7 @@
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
             android:layout_margin="5dp"
-            android:src="@drawable/palce_holder"
+
             />
 
 
@@ -101,7 +98,7 @@
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
             android:layout_margin="5dp"
-            android:src="@drawable/palce_holder"
+
             />
 
         <TextView
@@ -117,8 +114,7 @@
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
             android:layout_margin="5dp"
-            android:src="@drawable/palce_holder"
-            />
+/>
 
         <TextView
             android:id="@+id/beauty_text_6"
@@ -132,7 +128,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
-            android:src="@drawable/palce_holder"
             android:layout_margin="5dp"
             />
 
@@ -144,7 +139,7 @@
             android:text="\t\t在爬完这个远近闻名的重邮天梯，虽然感觉到一阵疲惫但我的心里，却充满了时时刻刻的幸福。我的一个个向上攀爬的身躯都在激励我：“会当凌绝顶，一览众山小。”"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/palce_holder"
+
             />
 
         <com.excitingboat.freshmanspecial.utils.RoundRectImageView
@@ -152,7 +147,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
-            android:src="@drawable/palce_holder"
             android:layout_margin="5dp"
             />
 
@@ -170,7 +164,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:roundDegree="@dimen/default_round_degree"
-            android:src="@drawable/palce_holder"
             android:layout_margin="5dp"
             />
 

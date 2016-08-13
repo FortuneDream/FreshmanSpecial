@@ -40,12 +40,12 @@ public class DormitorySituationFragment extends Fragment implements IGetInformat
                 (ImageView) view.findViewById(R.id.picture_2),
                 (ImageView) view.findViewById(R.id.picture_3)
         };
-        textViews = new TextView[]{
-                (TextView) view.findViewById(R.id.dormitory_1),
-                (TextView) view.findViewById(R.id.dormitory_2),
-                (TextView) view.findViewById(R.id.dormitory_3),
-                (TextView) view.findViewById(R.id.dormitory_4)
-        };
+//        textViews = new TextView[]{
+//                (TextView) view.findViewById(R.id.dormitory_1),
+//                (TextView) view.findViewById(R.id.dormitory_2),
+//                (TextView) view.findViewById(R.id.dormitory_3),
+//                (TextView) view.findViewById(R.id.dormitory_4)
+//        };
 
     }
 
@@ -55,14 +55,14 @@ public class DormitorySituationFragment extends Fragment implements IGetInformat
 
     @Override
     public void requestSuccess(List<Dormitory> list) {
-        for (int i = 0; i < imageViews.length; i++) {
-            Glide.with(getContext())
-                    .load(list.get(i).getPhoto().get(0).getPhoto_src())
-                    .into(imageViews[i]);
-        }
-        for (int i = 0; i < textViews.length; i++) {
-            textViews[i].setText(list.get(i).getIntroduction());
-        }
+//        for (int i = 1; i < imageViews.length; i++) {
+//            Glide.with(getContext())
+//                    .load(list.get(i).getPhoto().get(0).getPhoto_src())
+//                    .into(imageViews[i]);
+//        }
+//        for (int i = 0; i < textViews.length; i++) {
+//            textViews[i].setText(list.get(i).getIntroduction());
+//        }
     }
 
     @Override

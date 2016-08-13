@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Teacher;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
+import com.excitingboat.freshmanspecial.utils.RoundImageView;
 import com.excitingboat.freshmanspecial.view.adapter.TeacherRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
@@ -34,9 +35,9 @@ public class TeacherGridFragment extends Fragment implements IGetInformation<Tea
     private TeacherRecyclerAdapter teacherRecyclerAdapter;
     private int currentPage;
     private Dialog dialog;
-    private ImageView dialogPicture;
+    private RoundImageView dialogPicture;
     private TextView dialogName;
-    private TextView dialogIntroduction;
+
 
 
     public void setPresenter(Context context, GetInformationPresenter<Teacher> presenter) {
@@ -78,17 +79,15 @@ public class TeacherGridFragment extends Fragment implements IGetInformation<Tea
         if (dialog == null) {
             dialog = new Dialog(getContext());
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.dialog);
-            dialogPicture = (ImageView) dialog.findViewById(R.id.dialog_picture);
+            dialog.setContentView(R.layout.dialog_t);
+            dialogPicture = (RoundImageView) dialog.findViewById(R.id.dialog_picture);
             dialogName = (TextView) dialog.findViewById(R.id.dialog_name);
-            dialogIntroduction = (TextView) dialog.findViewById(R.id.dialog_introduction);
         }
         Glide.with(getContext())
                 .load(teacherRecyclerAdapter.getData().get(position).getPhoto().get(0).getPhoto_src())
                 //.placeholder(R.drawable.loading_t)
                 .into(dialogPicture);
         dialogName.setText(teacherRecyclerAdapter.getData().get(position).getName());
-        dialogIntroduction.setText(teacherRecyclerAdapter.getData().get(position).getCollege());
         dialog.show();
     }
 

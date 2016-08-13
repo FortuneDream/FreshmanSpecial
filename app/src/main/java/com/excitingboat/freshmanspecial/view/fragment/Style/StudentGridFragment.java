@@ -6,6 +6,7 @@ import android.content.pm.FeatureInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.RemoteInput;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Student;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
+import com.excitingboat.freshmanspecial.utils.RoundImageView;
 import com.excitingboat.freshmanspecial.view.adapter.StudentRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
@@ -35,7 +37,7 @@ public class StudentGridFragment extends Fragment implements IGetInformation<Stu
     private StudentRecyclerAdapter studentRecyclerAdapter;
     private int currentPage;
     private Dialog dialog;
-    private ImageView dialogPicture;
+    private RoundImageView dialogPicture;
     private TextView dialogName;
     private TextView dialogIntroduction;
 
@@ -80,7 +82,7 @@ public class StudentGridFragment extends Fragment implements IGetInformation<Stu
             dialog = new Dialog(getContext());
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.dialog);
-            dialogPicture = (ImageView) dialog.findViewById(R.id.dialog_picture);
+            dialogPicture = (RoundImageView) dialog.findViewById(R.id.dialog_picture);
             dialogName = (TextView) dialog.findViewById(R.id.dialog_name);
             dialogIntroduction = (TextView) dialog.findViewById(R.id.dialog_introduction);
         }

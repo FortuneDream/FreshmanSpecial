@@ -2,6 +2,7 @@ package com.excitingboat.freshmanspecial.view.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup.LayoutParams;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,11 +86,15 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
                 holder.introduction.setVisibility(View.VISIBLE);
                 holder.itemView.findViewById(R.id.tv_fg_info_content_introduction).setVisibility(View.VISIBLE);
                 holder.introduction.setText(data.get(position).getIntroduction());
-            } else {
-                holder.itemView.findViewById(R.id.tv_fg_info_content_introduction).setVisibility(View.INVISIBLE);
-                holder.introduction.setVisibility(View.INVISIBLE);
+            } else if(data.get(position).getIntroduction()==null) {
+                holder.IntroductionTitle.setText("位置:");
+                holder.introduction.setText(data.get(position).getAddress());
+                holder.address.setVisibility(View.INVISIBLE);
+                holder.itemView.findViewById(R.id.tv_fg_info_content_position).setVisibility(View.INVISIBLE);
             }
+
             holder.title.setText(data.get(position).getName());
+
         }
 
     }
@@ -104,13 +109,15 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
         private TextView title;
         private TextView introduction;
         private TextView address;
-
+        private TextView IntroductionTitle;
+       LayoutParams para;
         public MyViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.iv_fg_info_small_pic);
             title = (TextView) itemView.findViewById(R.id.tv_fg_info_title);
             introduction = (TextView) itemView.findViewById(R.id.tv_fg_info_content_s);
             address = (TextView) itemView.findViewById(R.id.tv_fg_info_content_address);
+            IntroductionTitle= (TextView) itemView.findViewById(R.id.tv_fg_info_content_introduction);
             itemView.setOnClickListener(FreshGuideRecyclerViewAdapter.this);
         }
     }
