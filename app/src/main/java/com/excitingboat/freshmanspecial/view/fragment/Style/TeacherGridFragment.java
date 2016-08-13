@@ -85,7 +85,7 @@ public class TeacherGridFragment extends Fragment implements IGetInformation<Tea
         }
         Glide.with(getContext())
                 .load(teacherRecyclerAdapter.getData().get(position).getPhoto().get(0).getPhoto_src())
-                .placeholder(R.drawable.loading_t)
+                //.placeholder(R.drawable.loading_t)
                 .into(dialogPicture);
         dialogName.setText(teacherRecyclerAdapter.getData().get(position).getName());
         dialogIntroduction.setText(teacherRecyclerAdapter.getData().get(position).getCollege());

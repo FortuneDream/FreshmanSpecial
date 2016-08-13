@@ -40,7 +40,7 @@ public class RoundRectImageView extends ImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        rectF.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
+        rectF.set(0, 0, getWidth(), getHeight());
         clipPath.addRoundRect(rectF, roundDegree, roundDegree, Path.Direction.CW);
         canvas.setDrawFilter(paintFlagsDrawFilter);
         canvas.clipPath(clipPath, Region.Op.INTERSECT);
