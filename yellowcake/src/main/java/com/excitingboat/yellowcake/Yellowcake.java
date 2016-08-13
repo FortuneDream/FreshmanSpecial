@@ -19,7 +19,7 @@ import static com.excitingboat.yellowcake.Utils.getDarkColor;
  * Cake View
  */
 public class Yellowcake extends View {
-    private boolean DEBUG = false;
+    private boolean DEBUG = true;
     private static final String TAG = "Yellowcake";
     private static final int X = 0;
     private static final int Y = 1;
@@ -41,8 +41,7 @@ public class Yellowcake extends View {
     private RectF rectF;
     private Path path;
 
-    private float dpScale;
-    private boolean centerBorder = false;
+    private boolean centerBorder;
 
     private PaintFlagsDrawFilter paintFlagsDrawFilter;
 
@@ -68,8 +67,9 @@ public class Yellowcake extends View {
     public Yellowcake(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         //Default data
-        setData(new double[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
+//        setData(new double[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
 //        setData(new double[]{1, 88, 9}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
+        setData(new double[]{5, 1, 1}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
 //        setData(new double[]{1}, new int[]{0xFF66CCFF});
     }
 
@@ -89,6 +89,7 @@ public class Yellowcake extends View {
         //TODO 需要巨量的计算来适配圆角
 //        cornerDegree = typedArray.getFloat(R.styleable.Yellowcake_cornerDegree, 5);
         requestedCornerDegree = 5;
+        centerBorder = false;
         typedArray.recycle();
 
         paintFlagsDrawFilter = new PaintFlagsDrawFilter(0, Paint.FILTER_BITMAP_FLAG | Paint.ANTI_ALIAS_FLAG);
@@ -156,7 +157,7 @@ public class Yellowcake extends View {
         canvas.setDrawFilter(paintFlagsDrawFilter);
         boolean drawBorder = true;
         boolean borderDrawn = false;
-        dpScale = 20 / scale * radius / 180;
+        float dpScale = 20 / scale * radius / 180;
         if (numbers.length == 1) {
             cornerDegree = 0;
         } else {
@@ -169,13 +170,12 @@ public class Yellowcake extends View {
             path.addCircle(getMeasuredWidth() / 2, getMeasuredHeight() / 2, radius / 3 - dpScale / 5, Path.Direction.CW);
             canvas.clipPath(path, Region.Op.DIFFERENCE);
         }
-
+        //随机生成起始角度
         final double finalStartAngle = (Math.random() * 360);
         double sweepAngle;
         double percent;
         double[] percents = new double[numbers.length];
         double[][] positions = new double[numbers.length][2];
-        boolean tooSmall;
         float cornerDegree;
         while (drawBorder) {
             double startAngle = finalStartAngle;
@@ -185,15 +185,15 @@ public class Yellowcake extends View {
                 if (percent < 0.5) {
                     continue;
                 }
-                if (percent < 3) {
+                if (percent < 5) {
                     cornerDegree /= 3 * percent;
                 }
                 sweepAngle = percent * 3.6;
 
-                //保存文字位置数据
+                //保存文字位置和数据
                 positions[i] = getTextPosition(getMeasuredWidth() / 2, getMeasuredHeight() / 2, radius, (float) startAngle, (float) sweepAngle, 1F / 3);
                 percents[i] = percent;
-
+//先画边界，再在上面画
                 //去掉两边的扇形->小于半径的扇形->角上的圆
                 //扇形
                 if (borderDrawn) {
@@ -207,13 +207,17 @@ public class Yellowcake extends View {
                 if (DEBUG) {
                     Log.d(TAG, "sin: " + triFunctions[SIN] + "cos: " + triFunctions[COS]);
                 }
+
+                //TODO dpScale
                 rectF.set((float) (getMeasuredWidth() / 2 - radius + triFunctions[COS] * dpScale),
                         (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * dpScale),
                         (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * dpScale),
                         (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * dpScale));
 //TODO 先这样处理吧、、、
                 if (percent < 2) {
-                    canvas.drawArc(rectF, (float) startAngle - cornerDegree, (float) sweepAngle, true, mPaint);
+//                    canvas.drawArc(rectF, (float) startAngle - cornerDegree, (float) sweepAngle, true, mPaint);
+                    canvas.drawArc(rectF, (float) startAngle, (float) sweepAngle, true, mPaint);
+                    startAngle += sweepAngle;
                     continue;
                 } else {
                     canvas.drawArc(rectF, (float) startAngle + cornerDegree, (float) sweepAngle - 2 * cornerDegree, true, mPaint);

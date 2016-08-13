@@ -10,9 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.excitingboat.freshmanspecial.view.activity.TestActivity">
 
+<!--
     <com.excitingboat.yellowcake.RoundedRectangleView
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
+-->
 
     <com.excitingboat.yellowcake.Yellowcake
         android:id="@+id/test_cake"
