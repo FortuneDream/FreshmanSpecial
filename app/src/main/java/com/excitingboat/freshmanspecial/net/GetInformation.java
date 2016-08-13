@@ -51,9 +51,15 @@ public interface GetInformation {
     @POST(Api.SIGHT)
     Observable<Wrapper<PlaceWithIntroduction>> getSight(@Field("page") int page, @Field("size") int size);
 
+/*
     @FormUrlEncoded
     @POST(Api.DAILY_LIFE)
     Observable<Wrapper<Place>> getDaily(@Field("page") int page, @Field("size") int size);
+*/
+
+    @FormUrlEncoded
+    @POST(Api.DAILY_LIFE)
+    Observable<Wrapper<PlaceWithIntroduction>> getDaily(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.FOOD)

@@ -13,6 +13,7 @@ import rx.Subscriber;
  * 通用Presenter
  */
 public class GetInformationPresenter<T> implements BasePresenter {
+    public static final boolean DEBUG = true;
     private static final String TAG = "GetInformationPresenter";
     private int total;
     private int which;
@@ -32,7 +33,9 @@ public class GetInformationPresenter<T> implements BasePresenter {
 
     public void getInformation(int[] param) {
         getInformationModule.getInformation(param, which, (Subscriber) new MySubscriber());
-        Log.d(TAG, "request");
+        if (DEBUG) {
+            Log.d(TAG, "request");
+        }
     }
 
     public int getTotal() {
@@ -48,20 +51,27 @@ public class GetInformationPresenter<T> implements BasePresenter {
 
         @Override
         public void onCompleted() {
-
-            Log.d(TAG, "onCompleted");
+            if (DEBUG) {
+                Log.d(TAG, "onCompleted");
+            }
         }
 
         @Override
         public void onError(Throwable e) {
             iGetInformation.requestFail();
-            System.out.println(e.toString());
-            Log.d(TAG, "onError------>" + e.getMessage());
+
+            if (DEBUG) {
+                Log.d(TAG, "onError------>" + e.getMessage());
+            }
         }
 
         @Override
         public void onNext(Wrapper<T> wrapper) {
-            Log.d(TAG, "onNext");
+            if (DEBUG) {
+                Log.d(TAG, "onNext");
+                System.out.println(wrapper.toString());
+                System.out.println(wrapper.getData());
+            }
             if (iGetInformation != null) {
                 iGetInformation.requestSuccess(wrapper.getData());
                 total = wrapper.getTotal();

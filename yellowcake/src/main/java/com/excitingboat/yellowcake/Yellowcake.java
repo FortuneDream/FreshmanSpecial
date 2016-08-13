@@ -68,8 +68,9 @@ public class Yellowcake extends View {
     public Yellowcake(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         //Default data
-//        setData(new int[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
-        setData(new double[]{1}, new int[]{0xFF66CCFF});
+        setData(new double[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
+//        setData(new double[]{1, 88, 9}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
+//        setData(new double[]{1}, new int[]{0xFF66CCFF});
     }
 
 
@@ -85,7 +86,7 @@ public class Yellowcake extends View {
         emptyCenter = typedArray.getBoolean(R.styleable.Yellowcake_emptyCenter, true);
         textColor = typedArray.getColor(R.styleable.Yellowcake_textColor, 1);
         scale = typedArray.getFloat(R.styleable.Yellowcake_scale, 4);
-        //TODO 需要巨量的计算来适配
+        //TODO 需要巨量的计算来适配圆角
 //        cornerDegree = typedArray.getFloat(R.styleable.Yellowcake_cornerDegree, 5);
         requestedCornerDegree = 5;
         typedArray.recycle();

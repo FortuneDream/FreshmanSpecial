@@ -9,14 +9,14 @@ import java.util.List;
 public class Dormitory {
     private String id;
     private String introduction;
-    private List<Photo> data;
+    private List<Photo> photo;
 
-    public List<Photo> getData() {
-        return data;
+    public List<Photo> getPhoto() {
+        return photo;
     }
 
-    public void setData(List<Photo> data) {
-        this.data = data;
+    public void setPhoto(List<Photo> photo) {
+        this.photo = photo;
     }
 
     public String getId() {
@@ -38,8 +38,8 @@ public class Dormitory {
     @Override
     public String toString() {
         return "Dormitory{" +
-                "data=" + data +
-                ", id='" + id + '\'' +
+                "data=" + photo +
+                ", photo='" + id + '\'' +
                 ", introduction='" + introduction + '\'' +
                 '}';
     }
