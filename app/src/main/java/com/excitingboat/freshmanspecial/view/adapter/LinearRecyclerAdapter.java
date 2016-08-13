@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +57,7 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fg_info_page, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cs_orign_cqupt, parent, false));
     }
 
     @Override
@@ -75,19 +76,19 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private RoundRectImageView roundRectImageView;
+        private ImageView roundRectImageView;
         private TextView name;
         private TextView introduction;
         private TextView time;
 
         public ViewHolder(final View itemView) {
             super(itemView);
-            roundRectImageView = (RoundRectImageView) itemView.findViewById(R.id.iv_fg_info_small_pic);
-            name = (TextView) itemView.findViewById(R.id.tv_fg_info_title);
-            introduction = (TextView) itemView.findViewById(R.id.tv_fg_info_content_big);
-            time = (TextView) itemView.findViewById(R.id.tv_fg_info_content_s);
-            ((TextView) itemView.findViewById(R.id.tv_fg_info_content_title_s)).setText("简介");
-            ((TextView) itemView.findViewById(R.id.tv_fg_info_content_title_big)).setText("时长");
+            roundRectImageView = (ImageView) itemView.findViewById(R.id.iv_cs_info_small_pic);
+            name = (TextView) itemView.findViewById(R.id.tv_cs_info_title);
+            introduction = (TextView) itemView.findViewById(R.id.tv_cs_info_content_big);
+            time = (TextView) itemView.findViewById(R.id.tv_cs_info_content_s);
+            ((TextView) itemView.findViewById(R.id.tv_cs_info_content_title_big)).setText("简介");
+            ((TextView) itemView.findViewById(R.id.tv_cs_info_content_title_s)).setText("时长");
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

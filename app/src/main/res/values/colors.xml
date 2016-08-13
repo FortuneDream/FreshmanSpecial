@@ -7,4 +7,5 @@
     <color name="white">#FFF</color>
     <color name="pressed">#1111</color>
     <color name="divide">#6666</color>
+    <color name="background">#f2f2f0</color>
 </resources>

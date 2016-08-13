@@ -61,6 +61,7 @@ public class FreshmenCQUPTStyleActivity extends AppCompatActivity {
         fragments.add(fragment5);
         tabLayout = (TabLayout) findViewById(R.id.freshmen_cqupt_tabLayout);
         viewPager = (ViewPager) findViewById(R.id.freshmen_cqupt_viewPager);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
         FreshmanPagerAdapter adapter = new FreshmanPagerAdapter(getSupportFragmentManager());
         adapter.setTitles(titles);
