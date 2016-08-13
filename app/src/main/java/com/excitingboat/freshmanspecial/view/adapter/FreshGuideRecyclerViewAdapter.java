@@ -33,13 +33,13 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
     @Override
     public void onClick(View view) {
         if (onItemClickListener != null) {
-            onItemClickListener.onItemClick(view);
+            onItemClickListener.onItemClick(view, (String) view.getTag());
         }
     }
 
 
     public interface OnItemClickListener {
-        void onItemClick(View view);
+        void onItemClick(View view,String url);
     }
 
     public void setData(List<PlaceWithIntroduction> data) {
@@ -65,6 +65,7 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fg_info_page, parent, false);
+        view.setOnClickListener(this);
         return new MyViewHolder(view);
     }
 
@@ -74,6 +75,8 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
             Glide.with(context)
                     .load(data.get(position).getPhoto().get(0).getPhoto_src())
                     .into(holder.imageView);
+
+            holder.itemView.setTag(data.get(position).getPhoto().get(0).getPhoto_src());
             if (data.get(position).getAddress() != null) {
                 holder.itemView.findViewById(R.id.tv_fg_info_content_position).setVisibility(View.VISIBLE);
                 holder.address.setVisibility(View.VISIBLE);
@@ -110,7 +113,6 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
         private TextView introduction;
         private TextView address;
         private TextView IntroductionTitle;
-       LayoutParams para;
         public MyViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.iv_fg_info_small_pic);
@@ -118,7 +120,7 @@ public class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter<FreshGui
             introduction = (TextView) itemView.findViewById(R.id.tv_fg_info_content_s);
             address = (TextView) itemView.findViewById(R.id.tv_fg_info_content_address);
             IntroductionTitle= (TextView) itemView.findViewById(R.id.tv_fg_info_content_introduction);
-            itemView.setOnClickListener(FreshGuideRecyclerViewAdapter.this);
+
         }
     }
 }

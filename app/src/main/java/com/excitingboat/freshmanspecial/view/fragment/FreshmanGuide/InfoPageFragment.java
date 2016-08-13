@@ -1,5 +1,6 @@
 package com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,10 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.PlaceWithIntroduction;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
+import com.excitingboat.freshmanspecial.utils.RoundImageView;
 import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
@@ -25,7 +31,8 @@ public class InfoPageFragment extends Fragment implements FreshGuideRecyclerView
     private FreshGuideRecyclerViewAdapter recyclerviewAdapter;
     private GetInformationPresenter<PlaceWithIntroduction> presenter;
     private int currentPage;
-
+    private Dialog dialog;
+    RoundImageView dialogPicture;
     public void setRecyclerviewAdapter(FreshGuideRecyclerViewAdapter recyclerviewAdapter) {
         this.recyclerviewAdapter = recyclerviewAdapter;
         currentPage = 0;
@@ -67,8 +74,19 @@ public class InfoPageFragment extends Fragment implements FreshGuideRecyclerView
 
 
     @Override
-    public void onItemClick(View view) {
+    public void onItemClick(View view,String url) {
+        if (dialog == null) {
+            dialog = new Dialog(getContext());
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.dialog_fg);
+            dialogPicture = (RoundImageView) dialog.findViewById(R.id.dialog_picture);
 
+    }
+        Glide.with(getContext())
+                .load(url)
+                .into(dialogPicture);
+
+        dialog.show();
     }
 
 
