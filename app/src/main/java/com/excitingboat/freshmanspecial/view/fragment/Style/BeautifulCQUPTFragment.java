@@ -61,6 +61,7 @@ public class BeautifulCQUPTFragment extends Fragment implements IGetInformation<
         for (int i = 0; i < 10; i++) {
             Glide.with(getActivity())
                     .load(list.get(i).getPhoto().get(0).getPhoto_src())
+                    .placeholder(R.drawable.palce_holder)
                     .into(imageViews[i]);
         }
     }

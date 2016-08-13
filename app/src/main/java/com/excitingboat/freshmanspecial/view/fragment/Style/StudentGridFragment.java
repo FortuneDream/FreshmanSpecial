@@ -86,6 +86,7 @@ public class StudentGridFragment extends Fragment implements IGetInformation<Stu
         }
         Glide.with(getContext())
                 .load(studentRecyclerAdapter.getData().get(position).getPhoto().get(0).getPhoto_src())
+                .placeholder(R.drawable.palce_holder)
                 .into(dialogPicture);
         dialogName.setText(studentRecyclerAdapter.getData().get(position).getName());
         dialogIntroduction.setText(studentRecyclerAdapter.getData().get(position).getIntroduction());

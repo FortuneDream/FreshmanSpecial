@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="113dp"
-    android:background="@drawable/default_selector">
+    android:layout_height="100dp"
+    android:src="?android:attr/selectableItemBackground"
+    android:background="#fff">
 
-    <com.excitingboat.freshmanspecial.utils.RoundRectImageView
-        android:id="@+id/iv_fg_info_small_pic"
-        android:layout_width="83dp"
-        android:layout_height="83dp"
-        android:layout_marginBottom="15dp"
+    <ImageView
+        android:id="@+id/iv_cs_info_small_pic"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_centerVertical="true"
         android:background="@color/none"
         android:scaleType="centerCrop"
         android:src="@drawable/test"
-        app:roundDegree="@dimen/default_round_degree"
 
         />
 
     <TextView
-        android:id="@+id/tv_fg_info_title"
+        android:id="@+id/tv_cs_info_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="15.5dp"
-        android:layout_toEndOf="@+id/iv_fg_info_small_pic"
-        android:layout_toRightOf="@+id/iv_fg_info_small_pic"
+        android:layout_marginTop="18dp"
+        android:layout_toEndOf="@+id/iv_cs_info_small_pic"
+        android:layout_toRightOf="@+id/iv_cs_info_small_pic"
         android:maxLength="13"
         android:singleLine="true"
         android:text="四人间（旧）"
@@ -35,26 +33,26 @@
         android:textSize="15.5sp" />
 
     <TextView
-        android:id="@+id/tv_fg_info_content_title_s"
+        android:id="@+id/tv_cs_info_content_title_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_fg_info_title"
-        android:layout_alignStart="@+id/tv_fg_info_title"
-        android:layout_below="@+id/tv_fg_info_title"
+        android:layout_alignLeft="@+id/tv_cs_info_title"
+        android:layout_alignStart="@+id/tv_cs_info_title"
+        android:layout_below="@+id/tv_cs_info_title"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
         android:text="楼栋："
         android:textColor="#444444"
         android:textSize="12.5sp" />
 
     <TextView
-        android:id="@+id/tv_fg_info_content_s"
+        android:id="@+id/tv_cs_info_content_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tv_fg_info_content_title_s"
+        android:layout_alignTop="@+id/tv_cs_info_content_title_s"
         android:layout_marginRight="15dp"
-        android:layout_toRightOf="@+id/tv_fg_info_content_title_s"
+        android:layout_toRightOf="@+id/tv_cs_info_content_title_s"
         android:ellipsize="end"
         android:maxLength="25"
         android:singleLine="true"
@@ -63,29 +61,28 @@
         android:textSize="12.5sp" />
 
     <TextView
-        android:id="@+id/tv_fg_info_content_title_big"
+        android:id="@+id/tv_cs_info_content_title_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tv_fg_info_content_title_s"
-        android:layout_alignStart="@+id/tv_fg_info_content_title_s"
-        android:layout_below="@+id/tv_fg_info_content_s"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="4dp"
         android:ellipsize="end"
         android:maxLength="25"
+        android:layout_marginRight="8dp"
         android:maxLines="2"
         android:text="配置："
         android:textColor="#444444"
-        android:textSize="12.5sp" />
+        android:textSize="12.5sp"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/tv_cs_info_content_title_s"
+        android:layout_alignLeft="@+id/tv_cs_info_content_title_s"
+        android:layout_alignStart="@+id/tv_cs_info_content_title_s" />
 
     <TextView
-        android:id="@+id/tv_fg_info_content_big"
+        android:id="@+id/tv_cs_info_content_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tv_fg_info_content_title_big"
+        android:layout_alignTop="@+id/tv_cs_info_content_title_big"
         android:layout_marginRight="15dp"
-        android:layout_toRightOf="@+id/tv_fg_info_content_title_big"
+        android:layout_toRightOf="@+id/tv_cs_info_content_title_big"
         android:ellipsize="end"
         android:maxLength="25"
         android:maxLines="2"
@@ -97,6 +94,7 @@
         android:id="@+id/iv_news_item_divider"
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
+        android:layout_marginTop="5dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

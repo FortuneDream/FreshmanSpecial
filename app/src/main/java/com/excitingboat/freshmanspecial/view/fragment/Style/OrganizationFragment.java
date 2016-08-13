@@ -42,14 +42,17 @@ public class OrganizationFragment extends Fragment implements View.OnClickListen
         for (TextView textView : textViews) {
             textView.setOnClickListener(this);
         }
+        textViews[0].setBackgroundResource(R.color.background);
+        detail.setText(Html.fromHtml(StyleData.ORGANIZATION[0]));
     }
 
     @Override
     public void onClick(View v) {
         for (TextView textView : textViews) {
             textView.setBackgroundResource(R.color.none);
+//            detail.setBackgroundResource(R.color.background);
         }
-        v.setBackgroundResource(R.color.pressed);
+        v.setBackgroundResource(R.color.background);
         switch (v.getId()) {
             case R.id.org_text_1:
                 detail.setText(Html.fromHtml(StyleData.ORGANIZATION[0]));
