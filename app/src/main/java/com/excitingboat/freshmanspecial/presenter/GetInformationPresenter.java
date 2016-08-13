@@ -13,7 +13,7 @@ import rx.Subscriber;
  * 通用Presenter
  */
 public class GetInformationPresenter<T> implements BasePresenter {
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     private static final String TAG = "GetInformationPresenter";
     private int total;
     private int which;

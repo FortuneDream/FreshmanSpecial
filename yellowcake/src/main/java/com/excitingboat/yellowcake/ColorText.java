@@ -6,8 +6,8 @@ package com.excitingboat.yellowcake;
  */
 
 public class ColorText {
-    int color;
-    String text;
+    private int color;
+    private String text;
 
     public ColorText(int color, String text) {
         this.color = color;
