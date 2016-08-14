@@ -37,7 +37,6 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.freshman_big_data_card:
                 startActivity(new Intent(this, FreshmenBigDataActivity.class));
-//                startActivity(new Intent(this, TestActivity.class));
                 break;
             case R.id.freshman_cqupt_card:
                 startActivity(new Intent(this, FreshmenCQUPTStyleActivity.class));

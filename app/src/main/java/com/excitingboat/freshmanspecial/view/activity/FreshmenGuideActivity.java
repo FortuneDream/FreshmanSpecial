@@ -12,7 +12,8 @@ import android.widget.TextView;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.net.GetInformation;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
-import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter;
+import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter1;
+import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter2;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DormitorySituationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolInformationFragment;
@@ -107,11 +108,11 @@ public class FreshmenGuideActivity extends AppCompatActivity {
     }
 
     private void initAdapter() {
-        ((InfoPageFragment) mFragments.get(5)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter(mFragments.get(5)));
+        ((InfoPageFragment) mFragments.get(5)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter1(mFragments.get(5)));
         ((InfoPageFragment) mFragments.get(5)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(5)), GetInformation.DAILY_LIFE));
-        ((InfoPageFragment) mFragments.get(6)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter(mFragments.get(6)));
+        ((InfoPageFragment) mFragments.get(6)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter1(mFragments.get(6)));
         ((InfoPageFragment) mFragments.get(6)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(6)), GetInformation.FOOD));
-        ((InfoPageFragment) mFragments.get(7)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter(mFragments.get(7)));
+        ((InfoPageFragment) mFragments.get(7)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter2(mFragments.get(7)));
         ((InfoPageFragment) mFragments.get(7)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(7)), GetInformation.SIGHT));
     }
 

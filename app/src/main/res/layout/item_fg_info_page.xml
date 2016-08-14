@@ -15,7 +15,7 @@
         android:layout_marginTop="15dp"
         android:background="@color/none"
         android:scaleType="fitXY"
-        app:roundDegree="13dp"
+        app:roundDegree="@dimen/default_round_degree"
 
         />
 

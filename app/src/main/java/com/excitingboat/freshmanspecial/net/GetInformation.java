@@ -2,10 +2,10 @@ package com.excitingboat.freshmanspecial.net;
 
 import com.excitingboat.freshmanspecial.config.Api;
 import com.excitingboat.freshmanspecial.model.bean.Dormitory;
-import com.excitingboat.freshmanspecial.model.bean.Place;
 import com.excitingboat.freshmanspecial.model.bean.PlaceWithIntroduction;
 import com.excitingboat.freshmanspecial.model.bean.Sight;
 import com.excitingboat.freshmanspecial.model.bean.Student;
+import com.excitingboat.freshmanspecial.model.bean.SurroundSight;
 import com.excitingboat.freshmanspecial.model.bean.Teacher;
 import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.model.bean.Wrapper;
@@ -49,13 +49,7 @@ public interface GetInformation {
 
     @FormUrlEncoded
     @POST(Api.SIGHT)
-    Observable<Wrapper<PlaceWithIntroduction>> getSight(@Field("page") int page, @Field("size") int size);
-
-/*
-    @FormUrlEncoded
-    @POST(Api.DAILY_LIFE)
-    Observable<Wrapper<Place>> getDaily(@Field("page") int page, @Field("size") int size);
-*/
+    Observable<Wrapper<SurroundSight>> getSight(@Field("page") int page, @Field("size") int size);
 
     @FormUrlEncoded
     @POST(Api.DAILY_LIFE)

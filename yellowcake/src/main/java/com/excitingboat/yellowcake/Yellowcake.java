@@ -231,8 +231,8 @@ public class Yellowcake extends View {
                         (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * dpScale - cornerRadius),
                         (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * dpScale - cornerRadius));
                 //误差导致出现间隙，所以角度要稍微调整
-                canvas.drawArc(rectF, (float) startAngle, (float) (cornerDegree + 0.1), true, mPaint);
-                canvas.drawArc(rectF, (float) (startAngle + sweepAngle - cornerDegree - 0.1), cornerDegree, true, mPaint);
+                canvas.drawArc(rectF, (float) (startAngle + 0.5), (float) (cornerDegree - 0.5), true, mPaint);
+                canvas.drawArc(rectF, (float) (startAngle + sweepAngle - cornerDegree - 0.5), (float) (cornerDegree - 0.5), true, mPaint);
 
                 //角圆
                 double[] tmp = getTriFunctions(startAngle, 2.3 * 5);

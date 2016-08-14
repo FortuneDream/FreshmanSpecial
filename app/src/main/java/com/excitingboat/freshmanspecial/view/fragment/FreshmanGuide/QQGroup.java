@@ -3,7 +3,6 @@ package com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,10 +18,11 @@ public class QQGroup extends Fragment {
     TextView QQGroupFreshman;
     TextView QQGroupFellowVillager;
     View view;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_fg_qq_group,container,false);
+        view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_fg_qq_group, container, false);
         initView();
         return view;
     }
@@ -46,7 +46,7 @@ public class QQGroup extends Fragment {
                 "经济管理学院：107961087 （信管：324274314)<BR>工程管理：547781573<BR>工商：497763971<BR>电子商务： 578509964）<BR>\n" +
                 "中美合作群：548496592（国际学院） <BR>\n" +
                 "理学院：301047601<BR>\n" +
-                "重邮16级广电与树莓类 群 ：495242730<BR>\n" +
+                "重邮16级广电与数媒类群 ：495242730<BR>\n" +
                 "重邮新生群（中加） ：580035411<BR>\n" +
                 "国际学院，中美群:345070285 (辅导员创建)<BR>\n"));
         QQGroupFellowVillager = (TextView) view.findViewById(R.id.qq_group_fellow_villager);
