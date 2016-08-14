@@ -19,7 +19,7 @@ import java.util.List;
  * Created by xushuzhan on 2016/8/8.
  * FreshGuideRecyclerViewAdapter
  */
-public class FreshGuideRecyclerViewAdapter1 extends FreshGuideRecyclerViewAdapter implements View.OnClickListener {
+public class FreshGuideRecyclerViewAdapter1 extends FreshGuideRecyclerViewAdapter{
     private List<PlaceWithIntroduction> data;
 
     public FreshGuideRecyclerViewAdapter1(Fragment fragment) {

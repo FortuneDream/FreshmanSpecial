@@ -1,25 +1,19 @@
 package com.excitingboat.freshmanspecial.view.adapter;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.SurroundSight;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by xushuzhan on 2016/8/8.
  * FreshGuideRecyclerViewAdapter
  */
-public class FreshGuideRecyclerViewAdapter2 extends FreshGuideRecyclerViewAdapter implements View.OnClickListener {
+public class FreshGuideRecyclerViewAdapter2 extends FreshGuideRecyclerViewAdapter {
     private List<SurroundSight> data;
 
     public FreshGuideRecyclerViewAdapter2(Fragment fragment) {
@@ -49,7 +43,7 @@ public class FreshGuideRecyclerViewAdapter2 extends FreshGuideRecyclerViewAdapte
                 holder.getIntroduction().setVisibility(View.VISIBLE);
                 holder.itemView.findViewById(R.id.tv_fg_info_content_introduction).setVisibility(View.VISIBLE);
                 holder.getIntroduction().setText(data.get(position).getIntroduction());
-            } else if(data.get(position).getIntroduction()==null) {
+            } else if (data.get(position).getIntroduction() == null) {
                 holder.getIntroductionTitle().setText("位置:");
                 holder.getIntroduction().setText(data.get(position).getTourroute());
                 holder.getAddress().setVisibility(View.INVISIBLE);
