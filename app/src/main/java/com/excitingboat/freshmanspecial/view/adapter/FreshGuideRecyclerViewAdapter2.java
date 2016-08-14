@@ -24,7 +24,6 @@ public class FreshGuideRecyclerViewAdapter2 extends FreshGuideRecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        System.out.println(data);
         if (data.size() > 0) {
             Glide.with(context)
                     .load(data.get(position).getPhoto().get(0).getPhoto_src())
