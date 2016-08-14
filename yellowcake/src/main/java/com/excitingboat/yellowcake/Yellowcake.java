@@ -68,8 +68,8 @@ public class Yellowcake extends View {
         this(context, attrs, 0);
         //Default data
 //        setData(new double[]{3, 1, 3}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF66CCFF});
-//        setData(new double[]{1, 88, 9}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
-        setData(new double[]{5, 1, 1}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
+        setData(new double[]{1, 88, 9}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF});
+//        setData(new double[]{18, 22, 11, 27, 22}, new int[]{0xFF66CCFF, 0xFFEE82EE, 0xFF9999FF, 0xFF66CCFF, 0xFFEE82EE});
 //        setData(new double[]{1}, new int[]{0xFF66CCFF});
     }
 
@@ -157,7 +157,7 @@ public class Yellowcake extends View {
         canvas.setDrawFilter(paintFlagsDrawFilter);
         boolean drawBorder = true;
         boolean borderDrawn = false;
-        float dpScale = 20 / scale * radius / 180;
+        float dpScale = 25 / scale * radius / 180;
         if (numbers.length == 1) {
             cornerDegree = 0;
         } else {
@@ -208,15 +208,14 @@ public class Yellowcake extends View {
                     Log.d(TAG, "sin: " + triFunctions[SIN] + "cos: " + triFunctions[COS]);
                 }
 
-                //TODO dpScale
                 rectF.set((float) (getMeasuredWidth() / 2 - radius + triFunctions[COS] * dpScale),
                         (float) (getMeasuredHeight() / 2 - radius + triFunctions[SIN] * dpScale),
                         (float) (getMeasuredWidth() / 2 + radius + triFunctions[COS] * dpScale),
                         (float) (getMeasuredHeight() / 2 + radius + triFunctions[SIN] * dpScale));
 //TODO 先这样处理吧、、、
                 if (percent < 2) {
-//                    canvas.drawArc(rectF, (float) startAngle - cornerDegree, (float) sweepAngle, true, mPaint);
                     canvas.drawArc(rectF, (float) startAngle, (float) sweepAngle, true, mPaint);
+                    //下面continue了。。。要先把角加上去
                     startAngle += sweepAngle;
                     continue;
                 } else {
@@ -270,10 +269,12 @@ public class Yellowcake extends View {
                     }
                 }
 
-//            小圆圆心标注
-//            paint.setColor(Color.BLACK);
-//            paint.setStrokeWidth(5);
-//            canvas.drawPoint(getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * tmpScale), (getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * tmpScale)), paint);
+                //小圆圆心标注
+//                if (DEBUG) {
+//                    mPaint.setColor(Color.BLACK);
+//                    mPaint.setStrokeWidth(5);
+//                    canvas.drawPoint(getMeasuredWidth() / 2 + (float) (tmp[COS] * (radius - cornerRadius) + triFunctions[COS] * dpScale), (getMeasuredHeight() / 2 + (float) (tmp[SIN] * (radius - cornerRadius) + triFunctions[SIN] * dpScale)), mPaint);
+//                }
 
                 startAngle += sweepAngle;
             }
@@ -298,12 +299,6 @@ public class Yellowcake extends View {
         }
 
 
-    }
-
-    private void drawGraph(boolean stroke) {
-        if (stroke) {
-            mPaint.setStyle(Paint.Style.STROKE);
-        }
     }
 
     private void resetPaint() {
@@ -343,7 +338,7 @@ public class Yellowcake extends View {
      * @return cos, sin
      */
     private double[] getTriFunctions(double startAngle, double sweepAngle) {
-        double targetAngle = (startAngle + sweepAngle / 2) / 180 * Math.PI;
+        double targetAngle = Math.toRadians(startAngle + sweepAngle / 2);
         return new double[]{Math.cos(targetAngle), Math.sin(targetAngle)};
     }
 
@@ -354,7 +349,7 @@ public class Yellowcake extends View {
      */
     private double getCornerRadius(float cornerDegree, float radius) {
         double sin = Math.sin(Math.toRadians(cornerDegree));
-        return sin * radius;
+        return sin * radius / (1 + sin);
     }
 
 }

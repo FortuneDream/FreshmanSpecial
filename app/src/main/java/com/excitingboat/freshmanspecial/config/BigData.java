@@ -24,7 +24,7 @@ public class BigData {
             {"英语类"}, {"先进制造类"}, {"自动化与电气工程类"}};
 
     public static final int[] COLORS = new int[]{
-            0xFF66CCFF, 0xFFEE82EE, 0xFF8DF495, 0xFF9999FF, 0xFFFC7AFC
+            0xFFCFCCFC, 0xFFB9E6FE, 0xFFFEC7E3, 0xFF0B907C
     };
 
     public static final double[][][] MAN_WOMAN = new double[][][]{

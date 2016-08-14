@@ -42,7 +42,6 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbar_title)).setText(R.string.freshman_big_data);
 
         fragments = new ArrayList<>();
-        //TODO Fix Bugs
         BigDataFragmentCake_1 fragment1 = new BigDataFragmentCake_1();
         BigDataFragmentCake_2 fragment2 = new BigDataFragmentCake_2();
         BigDataFragmentCake_2 fragment3 = new BigDataFragmentCake_2();
@@ -58,6 +57,7 @@ public class FreshmenBigDataActivity extends AppCompatActivity {
         FreshmanPagerAdapter adapter = new FreshmanPagerAdapter(getSupportFragmentManager());
         adapter.setTitles(titles);
         adapter.setFragments(fragments);
+        viewPager.setOffscreenPageLimit(5);
         viewPager.setAdapter(adapter);
     }
 }

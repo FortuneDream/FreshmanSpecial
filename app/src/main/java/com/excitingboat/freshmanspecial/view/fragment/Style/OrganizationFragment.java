@@ -25,7 +25,6 @@ public class OrganizationFragment extends Fragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView: ");
         return inflater.inflate(R.layout.fragment_style_organization, container, false);
     }
 

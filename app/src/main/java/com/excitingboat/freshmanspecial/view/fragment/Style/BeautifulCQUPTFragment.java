@@ -15,8 +15,6 @@ import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Sight;
 import com.excitingboat.freshmanspecial.net.GetInformation;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
-import com.excitingboat.freshmanspecial.utils.RoundImageView;
-import com.excitingboat.freshmanspecial.utils.RoundRectImageView;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
 import java.util.List;
@@ -26,6 +24,7 @@ import java.util.List;
  * BeautifulCQUPTFragment
  */
 public class BeautifulCQUPTFragment extends Fragment implements IGetInformation<Sight> {
+    public static final boolean DEBUG = false;
     private static final String TAG = "BeautifulCQUPTFragment";
     private GetInformationPresenter<Sight> getInformationPresenter;
     private View view;
@@ -34,7 +33,9 @@ public class BeautifulCQUPTFragment extends Fragment implements IGetInformation<
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView: ");
+        if (DEBUG) {
+            Log.d(TAG, "onCreateView: ");
+        }
         getInformationPresenter = new GetInformationPresenter<>(this, GetInformation.CQUPT_SIGHT);
         view = inflater.inflate(R.layout.fragment_beautiful_cqupt, container, false);
         return view;
@@ -59,7 +60,9 @@ public class BeautifulCQUPTFragment extends Fragment implements IGetInformation<
 
     @Override
     public void requestSuccess(List<Sight> list) {
-        Log.d(TAG, "requestSuccess: " + list);
+        if (DEBUG) {
+            Log.d(TAG, "requestSuccess: " + list);
+        }
         for (int i = 0; i < 10; i++) {
             Glide.with(getActivity())
                     .load(list.get(i).getPhoto().get(0).getPhoto_src())
