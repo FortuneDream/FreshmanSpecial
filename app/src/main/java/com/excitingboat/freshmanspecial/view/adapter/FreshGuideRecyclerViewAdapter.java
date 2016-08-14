@@ -77,7 +77,6 @@ public abstract class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter
             title = (TextView) itemView.findViewById(R.id.tv_fg_info_title);
             introduction = (TextView) itemView.findViewById(R.id.tv_fg_info_content_s);
             address = (TextView) itemView.findViewById(R.id.tv_fg_info_content_address);
-            IntroductionTitle = (TextView) itemView.findViewById(R.id.tv_fg_info_content_introduction);
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -100,9 +99,6 @@ public abstract class FreshGuideRecyclerViewAdapter extends RecyclerView.Adapter
             return introduction;
         }
 
-        public TextView getIntroductionTitle() {
-            return IntroductionTitle;
-        }
 
         public TextView getTitle() {
             return title;
