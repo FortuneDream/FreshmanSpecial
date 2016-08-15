@@ -10,7 +10,7 @@ import java.io.File;
  */
 
 public class Config {
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static File cacheDir;
     public static final String BASE_URL = "http://hongyan.cqupt.edu.cn/cyxbsMobile/index.php/Home/WelcomeFreshman/";
     public static void init(Context context) {

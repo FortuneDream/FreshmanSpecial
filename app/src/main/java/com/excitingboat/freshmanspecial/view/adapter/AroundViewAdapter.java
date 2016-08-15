@@ -1,8 +1,9 @@
 package com.excitingboat.freshmanspecial.view.adapter;
 
 import android.app.Dialog;
-import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,80 +11,96 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.excitingboat.freshmanspecial.R;
+import com.excitingboat.freshmanspecial.model.bean.SurroundSight;
 import com.excitingboat.freshmanspecial.utils.RoundImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xushuzhan on 2016/8/15.
  */
-public class AroundViewAdapter  extends RecyclerView.Adapter<AroundViewAdapter.MyViewHolder>{
-    Context context;
-    Dialog dialog;
-    ImageView dialogPicture;
+public class AroundViewAdapter extends RecyclerView.Adapter<AroundViewAdapter.MyViewHolder> {
+    private static final String TAG = "AroundViewAdapter";
+    private List<SurroundSight> data;
+    private Fragment context;
+    private Dialog dialog;
+    private ImageView dialogPicture;
     public boolean isShow = false;
-    public AroundViewAdapter( Context context){
+
+    public AroundViewAdapter(Fragment context) {
         this.context = context;
+        this.data = new ArrayList<>();
+    }
+
+
+    public void addAll(List data) {
+        this.data.addAll(data);
+        notifyDataSetChanged();
+    }
+
+    public void add(SurroundSight data) {
+        this.data.add(data);
+        notifyDataSetChanged();
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fg_around_view,parent,false);
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_fg_around_view, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
-//        holder.Introduction.setText();
-//        holder.Adress.setText();
-
-
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        Log.d(TAG, "onBindViewHolder: ");
+        holder.Introduction.setText(data.get(position).getIntroduction());
+        holder.Address.setText(data.get(position).getTourroute());
+        holder.Title.setText(data.get(position).getName());
 
         Glide.with(context)
-                .load("http://img4.imgtn.bdimg.com/it/u=885160639,3862652893&fm=21&gp=0.jpg")
-                .into( holder.picture_av);
+                .load(data.get(position).getPhoto().get(0).getPhoto_src())
+                .into(holder.picture_av);
         holder.picture_av.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (dialog == null) {
-                    dialog = new Dialog(context);
+                    dialog = new Dialog(context.getContext());
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.dialog_fg);
                     dialogPicture = (RoundImageView) dialog.findViewById(R.id.dialog_picture);
 
                 }
                 Glide.with(context)
-                        .load("http://img4.imgtn.bdimg.com/it/u=885160639,3862652893&fm=21&gp=0.jpg")
+                        .load(data.get(holder.getLayoutPosition()).getPhoto().get(0).getPhoto_src())
                         .into(dialogPicture);
 
                 dialog.show();
             }
         });
-
-
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder {
         TextView Title;
         TextView Introduction;
-        TextView Adress;
+        TextView Address;
         ImageButton more_i;
         ImageButton more_a;
         ImageView picture_av;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             picture_av = (ImageView) itemView.findViewById(R.id.iv_fg_av_small_pic);
             Title = (TextView) itemView.findViewById(R.id.tv_fg_av_title);
             Introduction = (TextView) itemView.findViewById(R.id.tv_fg_av_content_s);
-            Adress = (TextView) itemView.findViewById(R.id.tv_fg_av_content_address);
+            Address = (TextView) itemView.findViewById(R.id.tv_fg_av_content_address);
             more_i = (ImageButton) itemView.findViewById(R.id.ib_fg_av_more_i);
             more_a = (ImageButton) itemView.findViewById(R.id.ib_fg_av_more_a);
             MoreAndLess();
@@ -91,18 +108,16 @@ public class AroundViewAdapter  extends RecyclerView.Adapter<AroundViewAdapter.M
         }
 
 
-
-
         private void MoreAndLess() {
             //展开收起效果
             more_i.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(isShow){
+                    if (isShow) {
                         Introduction.setMaxLines(2);
                         more_i.setBackgroundResource(R.drawable.more);
                         isShow = false;
-                    }else {
+                    } else {
                         Introduction.setMaxLines(10000);
                         more_i.setBackgroundResource(R.drawable.less);
                         isShow = true;
@@ -112,11 +127,11 @@ public class AroundViewAdapter  extends RecyclerView.Adapter<AroundViewAdapter.M
             Introduction.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(isShow){
+                    if (isShow) {
                         Introduction.setMaxLines(2);
                         more_i.setBackgroundResource(R.drawable.more);
                         isShow = false;
-                    }else {
+                    } else {
                         Introduction.setMaxLines(10000);
                         more_i.setBackgroundResource(R.drawable.less);
                         isShow = true;
@@ -126,26 +141,26 @@ public class AroundViewAdapter  extends RecyclerView.Adapter<AroundViewAdapter.M
             more_a.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(isShow){
-                        Adress.setMaxLines(1);
+                    if (isShow) {
+                        Address.setMaxLines(1);
                         more_a.setBackgroundResource(R.drawable.more);
                         isShow = false;
-                    }else {
-                        Adress.setMaxLines(10000);
+                    } else {
+                        Address.setMaxLines(10000);
                         more_a.setBackgroundResource(R.drawable.less);
                         isShow = true;
                     }
                 }
             });
-            Adress.setOnClickListener(new View.OnClickListener() {
+            Address.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(isShow){
-                        Adress.setMaxLines(1);
+                    if (isShow) {
+                        Address.setMaxLines(1);
                         more_a.setBackgroundResource(R.drawable.more);
                         isShow = false;
-                    }else {
-                        Adress.setMaxLines(10000);
+                    } else {
+                        Address.setMaxLines(10000);
                         more_a.setBackgroundResource(R.drawable.less);
                         isShow = true;
                     }

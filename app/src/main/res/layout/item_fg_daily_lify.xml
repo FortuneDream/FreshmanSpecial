@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="25dp"
-        android:text="三顾冒菜"
         android:layout_toEndOf="@+id/iv_fg_dl_small_pic"
         android:layout_toRightOf="@+id/iv_fg_dl_small_pic"
         android:maxLength="13"
@@ -58,7 +57,6 @@
         android:layout_marginRight="15dp"
         android:layout_toRightOf="@+id/tv_fg_dl_content_position"
         android:ellipsize="end"
-        android:text="老校门对面堕落街"
         android:textColor="#888888"
         android:textSize="12.5sp" />
 

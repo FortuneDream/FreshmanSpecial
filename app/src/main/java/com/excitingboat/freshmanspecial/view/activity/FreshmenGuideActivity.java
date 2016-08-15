@@ -10,10 +10,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
-import com.excitingboat.freshmanspecial.net.GetInformation;
-import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
-import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter1;
-import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter2;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.AroundFoodFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.AroundViewFragment;
@@ -21,7 +17,6 @@ import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DailyLifeFra
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DormitorySituationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolInformationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolWayFragment;
-import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.InfoPageFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.NecessaryList;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.QQGroup;
 
@@ -75,39 +70,15 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         freshmanPagerAdapter.setTitles(titles);
         mFragments = new ArrayList<>();
 
-            mFragments.add(new EnrolInformationFragment());
-            mFragments.add(new EnrolWayFragment());
-            mFragments.add(new NecessaryList());
-            mFragments.add(new QQGroup());
-            mFragments.add(new DormitorySituationFragment());
-            mFragments.add(new DailyLifeFragment());
-            mFragments.add(new AroundFoodFragment());
-            mFragments.add(new AroundViewFragment());
+        mFragments.add(new EnrolInformationFragment());
+        mFragments.add(new EnrolWayFragment());
+        mFragments.add(new DormitorySituationFragment());
+        mFragments.add(new NecessaryList());
+        mFragments.add(new QQGroup());
+        mFragments.add(new DailyLifeFragment());
+        mFragments.add(new AroundFoodFragment());
+        mFragments.add(new AroundViewFragment());
 
-//            if (i == 5 || i == 6 || i == 7) {
-//                mFragments.add(new InfoPageFragment());
-//            } else {
-//                switch (titles[i]) {
-//                    case "入学须知":
-//                        mFragments.add(new EnrolInformationFragment());
-//                        break;
-//                    case "须知路线":
-//                        mFragments.add(new EnrolWayFragment());
-//                        break;
-//                    case "必备清单":
-//                        mFragments.add(new NecessaryList());
-//                        break;
-//                    case "QQ群":
-//                        mFragments.add(new QQGroup());
-//                        break;
-//                    case "寝室概况":
-//                        DormitorySituationFragment dormitorySituationFragment = new DormitorySituationFragment();
-//                        dormitorySituationFragment.setPresenter(new GetInformationPresenter<>(dormitorySituationFragment, GetInformation.DORMITORY));
-//                        mFragments.add(dormitorySituationFragment);
-//                        break;
-//                }
-//            }
-//        initAdapter();
         freshmanPagerAdapter.setFragments(mFragments);
 
         //设置tablayout的模式
@@ -118,14 +89,6 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    private void initAdapter() {
-        ((InfoPageFragment) mFragments.get(5)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter1(mFragments.get(5)));
-        ((InfoPageFragment) mFragments.get(5)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(5)), GetInformation.DAILY_LIFE));
-        ((InfoPageFragment) mFragments.get(6)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter1(mFragments.get(6)));
-        ((InfoPageFragment) mFragments.get(6)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(6)), GetInformation.FOOD));
-        ((InfoPageFragment) mFragments.get(7)).setRecyclerviewAdapter(new FreshGuideRecyclerViewAdapter2(mFragments.get(7)));
-        ((InfoPageFragment) mFragments.get(7)).setPresenter(new GetInformationPresenter<>(((InfoPageFragment) mFragments.get(7)), GetInformation.SIGHT));
-    }
 
     public void showBigPicture(View view) {
 
