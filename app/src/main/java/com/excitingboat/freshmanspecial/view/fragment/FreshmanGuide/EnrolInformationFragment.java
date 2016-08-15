@@ -75,52 +75,6 @@ public class EnrolInformationFragment extends Fragment implements View.OnClickLi
 
 
 
-//        C1 = (CheckBox) view.findViewById(R.id.cb_report_information);
-//        C1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(b){
-//                    ReportInformation.setMaxLines(10000);
-//                }else{
-//                    ReportInformation.setMaxLines(3);
-//                }
-//            }
-//        });
-//        C2 = (CheckBox) view.findViewById(R.id.cb_safety_information);
-//        C2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(b){
-//                    SafetyInformation.setMaxLines(10000);
-//                }else{
-//                    SafetyInformation.setMaxLines(3);
-//                }
-//            }
-//        });
-//        C3 = (CheckBox) view.findViewById(R.id.cb_scholarship_information);
-//        C3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(b){
-//                    ScholarshipInformation.setMaxLines(10000);
-//                }else{
-//                    ScholarshipInformation.setMaxLines(3);
-//                }
-//            }
-//        });
-//        C4 = (CheckBox) view.findViewById(R.id.cb_handbook_information);
-//        C4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(b){
-//                    HandbookInformation.setMaxLines(10000);
-//                }else{
-//                    HandbookInformation.setMaxLines(3);
-//                }
-//            }
-//        });
-
-
     }
 
 

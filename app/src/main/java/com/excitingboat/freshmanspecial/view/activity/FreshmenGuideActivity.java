@@ -75,7 +75,7 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         freshmanPagerAdapter.setTitles(titles);
         mFragments = new ArrayList<>();
 
-            mFragments.add(new EnrolWayFragment());
+            mFragments.add(new EnrolInformationFragment());
             mFragments.add(new EnrolWayFragment());
             mFragments.add(new NecessaryList());
             mFragments.add(new QQGroup());
