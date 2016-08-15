@@ -90,14 +90,4 @@ public class FreshmenGuideActivity extends AppCompatActivity {
     }
 
 
-    public void showBigPicture(View view) {
-
-        ShowBigPictureActivity.showBigPicture(FreshmenGuideActivity.this,
-                "http://img5.imgtn.bdimg.com/it/u=471926043,2104091042&fm=21&gp=0.jpg",
-                view
-        );
-        //添加过渡动画，一定要添加！！
-        overridePendingTransition(0, R.anim.abc_fade_in);
-    }
-
 }

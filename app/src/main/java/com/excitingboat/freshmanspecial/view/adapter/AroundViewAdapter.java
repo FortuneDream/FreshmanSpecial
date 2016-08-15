@@ -56,6 +56,9 @@ public class AroundViewAdapter extends RecyclerView.Adapter<AroundViewAdapter.My
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: ");
+        if(position==3||position==6){
+            holder.more_a.setVisibility(View.INVISIBLE);
+        }
         holder.Introduction.setText(data.get(position).getIntroduction());
         holder.Address.setText(data.get(position).getTourroute());
         holder.Title.setText(data.get(position).getName());

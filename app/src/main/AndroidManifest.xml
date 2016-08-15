@@ -26,8 +26,6 @@
         <activity android:name=".view.activity.FreshmenGuideActivity" />
         <activity android:name=".view.activity.FreshmenBigDataActivity" />
         <activity android:name=".view.activity.FreshmenCQUPTStyleActivity" />
-        <activity android:name=".view.activity.ShowBigPictureActivity" />
-        <activity android:name=".view.activity.WebActivity"/>
     </application>
 
 </manifest>

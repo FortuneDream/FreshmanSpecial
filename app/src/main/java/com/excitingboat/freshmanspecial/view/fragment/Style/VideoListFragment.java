@@ -15,9 +15,7 @@ import android.widget.Toast;
 import com.excitingboat.freshmanspecial.R;
 import com.excitingboat.freshmanspecial.model.bean.Video;
 import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
-import com.excitingboat.freshmanspecial.view.activity.WebActivity;
 import com.excitingboat.freshmanspecial.view.adapter.LinearRecyclerAdapter;
-import com.excitingboat.freshmanspecial.view.adapter.StudentRecyclerAdapter;
 import com.excitingboat.freshmanspecial.view.iview.IGetInformation;
 
 import java.util.List;

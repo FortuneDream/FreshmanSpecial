@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.excitingboat.freshmanspecial.R;
-import com.excitingboat.freshmanspecial.utils.DensityUtils;
 
 public class FreshmanMainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView title;
@@ -17,7 +16,6 @@ public class FreshmanMainActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_freshman_main);
         init();
-        Log.d("danwei", "onCreate: "+"dp:"+ DensityUtils.pxTodp(FreshmanMainActivity.this,169));
     }
 
     private void init() {
