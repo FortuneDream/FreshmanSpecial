@@ -34,7 +34,7 @@ public class DormitorySituationFragment extends Fragment implements IGetInformat
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter.getInformation(new int[]{0, 4});
+      //  presenter.getInformation(new int[]{0, 4});
         imageViews = new ImageView[]{
                 (ImageView) view.findViewById(R.id.picture_1),
                 (ImageView) view.findViewById(R.id.picture_2),

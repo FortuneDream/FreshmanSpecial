@@ -15,6 +15,9 @@ import com.excitingboat.freshmanspecial.presenter.GetInformationPresenter;
 import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter1;
 import com.excitingboat.freshmanspecial.view.adapter.FreshGuideRecyclerViewAdapter2;
 import com.excitingboat.freshmanspecial.view.adapter.FreshmanPagerAdapter;
+import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.AroundFoodFragment;
+import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.AroundViewFragment;
+import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DailyLifeFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.DormitorySituationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolInformationFragment;
 import com.excitingboat.freshmanspecial.view.fragment.FreshmanGuide.EnrolWayFragment;
@@ -71,32 +74,40 @@ public class FreshmenGuideActivity extends AppCompatActivity {
         freshmanPagerAdapter = new FreshmanPagerAdapter(getSupportFragmentManager());
         freshmanPagerAdapter.setTitles(titles);
         mFragments = new ArrayList<>();
-        for (int i = 0; i < titles.length; i++) {
-            if (i == 5 || i == 6 || i == 7) {
-                mFragments.add(new InfoPageFragment());
-            } else {
-                switch (titles[i]) {
-                    case "入学须知":
-                        mFragments.add(new EnrolInformationFragment());
-                        break;
-                    case "须知路线":
-                        mFragments.add(new EnrolWayFragment());
-                        break;
-                    case "必备清单":
-                        mFragments.add(new NecessaryList());
-                        break;
-                    case "QQ群":
-                        mFragments.add(new QQGroup());
-                        break;
-                    case "寝室概况":
-                        DormitorySituationFragment dormitorySituationFragment = new DormitorySituationFragment();
-                        dormitorySituationFragment.setPresenter(new GetInformationPresenter<>(dormitorySituationFragment, GetInformation.DORMITORY));
-                        mFragments.add(dormitorySituationFragment);
-                        break;
-                }
-            }
-        }
-        initAdapter();
+
+            mFragments.add(new EnrolWayFragment());
+            mFragments.add(new EnrolWayFragment());
+            mFragments.add(new NecessaryList());
+            mFragments.add(new QQGroup());
+            mFragments.add(new DormitorySituationFragment());
+            mFragments.add(new DailyLifeFragment());
+            mFragments.add(new AroundFoodFragment());
+            mFragments.add(new AroundViewFragment());
+
+//            if (i == 5 || i == 6 || i == 7) {
+//                mFragments.add(new InfoPageFragment());
+//            } else {
+//                switch (titles[i]) {
+//                    case "入学须知":
+//                        mFragments.add(new EnrolInformationFragment());
+//                        break;
+//                    case "须知路线":
+//                        mFragments.add(new EnrolWayFragment());
+//                        break;
+//                    case "必备清单":
+//                        mFragments.add(new NecessaryList());
+//                        break;
+//                    case "QQ群":
+//                        mFragments.add(new QQGroup());
+//                        break;
+//                    case "寝室概况":
+//                        DormitorySituationFragment dormitorySituationFragment = new DormitorySituationFragment();
+//                        dormitorySituationFragment.setPresenter(new GetInformationPresenter<>(dormitorySituationFragment, GetInformation.DORMITORY));
+//                        mFragments.add(dormitorySituationFragment);
+//                        break;
+//                }
+//            }
+//        initAdapter();
         freshmanPagerAdapter.setFragments(mFragments);
 
         //设置tablayout的模式

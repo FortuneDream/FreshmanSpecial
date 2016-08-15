@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 /**
  * Created by xushuzhan on 2016/8/4.
- *
  */
 public class FreshmanPagerAdapter extends FragmentStatePagerAdapter {
     String[] titles;
@@ -38,6 +37,7 @@ public class FreshmanPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
+
         return titles[position];
     }
 }
